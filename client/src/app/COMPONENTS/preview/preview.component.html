@@ -1,0 +1,40 @@
+<span *ngIf="!ser.pageLoader||!ser.duplicatePageLoader;" class="Loading"></span>
+
+<div class="gridLines" *ngIf="ser.builderMode&&ser.showGridLine">
+    <div *ngFor="let l of gridNumbersHeight" [ngClass]="squareSize==12?'gridLine':'gridLine1'">
+        <div class="colBorder" [ngClass]="squareSize==12?'gridCol':'gridCol1'" *ngFor="let gn of gridNumbers">
+        </div>
+        <div [ngClass]="squareSize==12?'gridCol':'gridCol1'"></div>
+    </div>
+</div>
+<div style="padding-right: 0;padding-left: 0;"
+    [ngClass]="ser.currentPage.pageLayout!='canvas' && ser.currentPage.pageLayout=='box' ?'container':'container-fluid'">
+    <header>
+        <app-header *ngIf="ser.currentPage.pageLayout!='canvas'"></app-header>
+    </header>
+    <app-start-build
+        *ngIf="ser.builderMode&&ser.lastOuterCol.items.length==0&&ser.currentPage.sections.length==1||ser.showStartBuildComponent"
+        class="startBuild"></app-start-build>
+    <div *ngFor="let section of ser.currentPage.sections">
+        <app-grid [item]="section.item" (itemToConfig)="configElement($event)">
+        </app-grid>
+    </div>
+
+    <footer *ngIf="ser.currentPage.pageLayout!='canvas'" class="footer">
+        <app-grid [item]="ser.site.footer.item">
+        </app-grid>
+    </footer>
+
+    <div class="madeLove d-flex">
+        <span>Made in&nbsp;</span>
+        <i class="fas fa-heart" style="color: deeppink;"></i>
+        <span>&nbsp;by </span>
+        <img src="assets/icons/Group 21491.svg" style="margin-left: 1vw;" class="fram_leader">
+    </div>
+</div>
+<div style="position: fixed;width: 100vw;">
+    <alert class="alert"></alert>
+</div>
+<div *ngIf="ser.saveLoader" class="my-overlay ">
+    <img style="padding-right: auto;padding-left: auto; " src="assets/loader/Spinning airplane.gif">
+</div>

@@ -1,0 +1,11 @@
+<div class="field__wrap ">
+    <select type="text" class="field__input LR_input_in_configurator selectInput" #select
+        (keyup)="changeStyles.emit({value:select.value})"
+        (change)="changeStyles.emit({value:select.value})">
+        <option style="display: none;"></option>
+        <option *ngFor="let f of options[style]" value="{{f}}" [attr.selected]="default==f">{{f}}</option>
+
+    </select>
+</div>
+
+

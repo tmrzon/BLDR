@@ -1,0 +1,188 @@
+<h1 class="topTitle">
+    Edit Header</h1>
+<div class="wrapWidgetConfigs">
+    <!-- <div style="width: 100%;background-color: white;height: 2px; margin-top: 15px;"></div> -->
+    <div class="field LR_from_field" style="margin-top:8px">
+        <ng-template #template>
+            <app-modal-image></app-modal-image>
+        </ng-template>
+        <app-image [imgToChange]="'changeLogoSite'" [src]="ser.site.logo" ></app-image>
+    </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingH1">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseH1"
+                    aria-expanded="true" aria-controls="collapseH1">
+                    Font
+                </button>
+            </h2>
+            <div id="collapseH1" class="accordion-collapse collapse show" aria-labelledby="headingH1"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <div class="field LR_from_field">
+                        <div class="field__label ">Font Size
+                        </div>
+                        <app-slider-with-number [img]="'assets/icons/text-size.svg'" [minValue]="10" [maxValue]="100"
+                            (changeStyles)="changeStylesG(['divStylesHeader','font-size'],$event.value)" [style]="'font-size'"
+                            [measureUnit]="'px'" [stylesLocation]="'divStylesHeader'">
+                        </app-slider-with-number>
+                    </div>
+                    <hr class="hrStyle">
+                    <div class="field LR_from_field">
+                        <div class="field__label ">Font Family</div>
+                        <div class="field LR_from_field">
+                                <app-selects [style]="'font-family'"  (changeStyles)="changeStylesG(['textStylesHeader','font-family'],$event.value)"></app-selects>
+                        </div>
+                    </div>
+                    <div class="field__label ">Font Weight</div>
+                    <div class="field LR_from_field">
+                        <app-selects [style]="'font-weight'"  (changeStyles)="changeStylesG(['divStylesHeader','font-weight'],$event.value)"></app-selects>
+                    </div>
+                    <hr class="hrStyle">
+                    <div class="field LR_from_field">
+                        <div class="field__label ">Alignment
+                        </div>
+                        <div style="display: flex;justify-content: center">
+                            <a (click)="changeStylesG(['dir'],'ltr','attribute')"
+                                style="cursor: pointer;margin-left: 2px;margin-right: 2px;">
+                                <i class="fa fa-align-left"
+                                    [ngStyle]="{'color':ser.lastItem.attributes['dir']=='ltr'?'#F0BE36':'#626262'}"></i>
+                            </a>
+                            <a (click)="changeStylesG(['dir'],'rtl','attribute')"
+                                style="cursor: pointer;margin-left: 2px;margin-right: 2px;">
+                                <i class="fa fa-align-right"
+                                    [ngStyle]="{'color':ser.lastItem.attributes['dir']=='rtl'?'#F0BE36':'#626262'}"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- <div class="accordion-item">
+            <h2 class="accordion-header" id="headingH2">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseH2"
+                    aria-expanded="true" aria-controls="collapseH2">
+                    Size
+                </button>
+            </h2>
+            <div id="collapseH2" class="accordion-collapse collapse show" aria-labelledby="headingH2"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <div class="field LR_from_field">
+                        <div class="field__label ">Height
+                        </div>
+                        <div class="field__wrap" style="margin-bottom: 8px;">
+                            <img src="assets\icons\text-size.svg" class="iconImg marginLeft">
+                            <input type="range" name="rangeInput" min="1" max="110" #sizeHeight class="rangeInput"
+                                paintRangeInput
+                                [colorValue]="ser.lastItem.styles['divStylesHeader']['height']?ser.lastItem.styles['divStylesHeader']['height'].split('px')[0]:'30'"
+                                (input)="changeStyles('heightHeader',sizeHeight.value+'px ',sizeHeight.value)"
+                                [attr.value]="ser.lastItem.styles['divStylesHeader']['height']?ser.lastItem.styles['divStylesHeader']['height'].split('px')[0]:'30'">
+                            <input type="number" min="1" max="110"
+                                class="field__input LR_input_in_configurator numberInput" #sizeNumberH
+                                (input)="changeStyles('heightHeader',sizeNumberH.value+'px ',sizeNumberH.value)"
+                                [attr.value]="ser.lastItem.styles['divStylesHeader']['height']?ser.lastItem.styles['divStylesHeader']['height'].split('px')[0]:'30'">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <!-- <div class="accordion-item">
+        <h2 class="accordion-header" id="headingH3">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseH3"
+                aria-expanded="false" aria-controls="collapseH3">
+                Spaces
+            </button>
+        </h2>
+        <div id="collapseH3" class="accordion-collapse collapse" aria-labelledby="headingH3"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+
+                <h4 class="field__label " style="color: black; margin-top: 22px;">spaces</h4>
+                <div class="field__wrap">
+                    <select type="text" class="field__input LR_input_in_configurator"
+                        style="width:80% !important; color: gray;border-color: black;" #justifyHeader
+                        (keyup)="changeStyles('justifyHeader',justifyHeader.value)"
+                        (change)="changeStyles('justifyHeader',justifyHeader.value)">
+                        <option style="display: none;"></option>
+                        <option value="space-around">space-around</option>
+                        <option value="left">left</option>
+                        <option value="right">right</option>
+                        <option value="safe">safe</option>
+                        <option value="space-between">space-between</option>
+                        <option value="space-evenly">space-evenly</option>
+                        <option value="start">start</option>
+                        <option value="stretch">stretch</option>
+                        <option value="unsafe">unsafe</option>
+                        <option value="inherit">inherit</option>
+                        <option value="initial">initial</option>
+                        <option value="unset">unset</option>
+                        <option value="baseline">baseline</option>
+                        <option value="center">center</option>
+                        <option value="end">end</option>
+                        <option value="first baseline">first baseline</option>
+                        <option value="flex-end">flex-end</option>
+                        <option value="flex-start">flex-start</option>
+                        <option value="ast baseline">ast baseline</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div> -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingH4">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseH4"
+                    aria-expanded="true" aria-controls="collapseH4">
+                    Colors
+                </button>
+            </h2>
+            <div id="collapseH4" class="accordion-collapse collapse show" aria-labelledby="headingH4"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <div class="field LR_from_field">
+                        <div class="field__label ">
+                            Background Color
+                        </div>
+                        <app-colors [style]="'background'" [styleLocation]="'divStylesHeader'"
+                            (changeStyles)="changeStylesG(['divStylesHeader','background-color'],$event.value)"></app-colors>
+                    </div>
+                    <div class="field LR_from_field">
+                        <div class="field__label ">
+                            Font Color
+                        </div>
+                        <app-colors [style]="'color'" [styleLocation]="'textStylesHeader'"
+                            (changeStyles)="changeStylesG(['textStylesHeader','color'],$event.value)"></app-colors>
+                    </div>
+                </div>
+            </div>
+        </div>
+   
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingSix">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
+                Borders
+            </button>
+        </h2>
+        <app-borders (changeStyles)="changeStylesG(['textStylesHeader',$event.key],$event.value)"></app-borders>
+    </div>
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingH5">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseH5"
+                aria-expanded="true" aria-controls="collapseH5">
+                Shadow
+            </button>
+        </h2>
+        <div id="collapseH5" class="accordion-collapse collapse show" aria-labelledby="headingH5"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                <div style="display: block;" class="field LR_from_field">
+                    <h4 class="field__label ">
+                        Text Shadow</h4>
+                        <app-shadows (changeStyles)="changeStylesG(['textStylesHeader','text-shadow'],$event.value)"></app-shadows>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+</div>

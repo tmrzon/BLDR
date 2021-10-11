@@ -1,0 +1,33 @@
+<div *ngIf="ser.whatLast!='grid'" style="margin-top:12px ;" >
+<form action="" *ngIf="!ser.lastItem.globalWidgetName">
+    <div _ngcontent-serverapp-c178="" class="field__label marginTop" >Widget Name </div> 
+    <input type="text" class="field__input LR_input_in_configurator" #nameGlobal
+     [ngClass]="nameGlobalExists?'alert alert-danger':''" style="width: 95%;margin-bottom: 0;" value="{{globalName}}"
+        (keyup)="chekGlobalWidgetName(nameGlobal.value);" placeholder="global name...">
+<div *ngIf="nameGlobalExists" class="error-message">The name of the global widget already exists.</div>
+<button type="submit" class="buttonSaveGlobal" (click)="saveAsGlobalWidget($event);">Save as global widget
+<img src="assets/icons/star1.png">
+</button>
+</form>
+<div *ngIf="ser.lastItem.globalWidgetName" class="marginTop">
+<div _ngcontent-serverapp-c178="" class="field__label d-flex justify-content-around" >
+    <span _ngcontent-serverapp-c178=""
+    style="font-size: 12px; margin: 0; margin-right: 8px; padding-top: 2px;">
+     Unlink from global</span>
+    <button class="unlinkGlobal" (click)="unlinkGlobal()">UNLINK</button>  
+</div>
+<div _ngcontent-serverapp-c178="" class="field LR_from_field">
+    <div _ngcontent-serverapp-c178="" class="field__label" style="display: flex;">
+        <div _ngcontent-serverapp-c178="" class="custom-control custom-switch">
+            <input _ngcontent-serverapp-c178="" type="checkbox" id="switchSingle" name="example"
+                class="custom-control-input" [checked]="ser.ifSingleWidget" (change)="single()">
+            <label _ngcontent-serverapp-c178="" for="switchSingle" class="custom-control-label"></label>
+        </div>
+        <span _ngcontent-serverapp-c178=""
+            style="font-size: 12px; margin: 0; margin-right: 8px; padding-top: 2px;">Single status</span>
+    </div>
+</div>
+</div>
+</div>
+<hr _ngcontent-serverapp-c178="" class="hrStyle">
+

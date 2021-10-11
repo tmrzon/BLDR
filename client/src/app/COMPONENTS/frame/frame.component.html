@@ -1,0 +1,121 @@
+<div class="container-fluid">
+    <div class=" row fram_col-10vh  fram_shadow d-flex justify-content-between  align-items-center">
+        <div style="padding-left: 15px;" class="logoAndHamburger">
+            &nbsp;&nbsp;&nbsp;
+            <img src="assets/icons/bldr.jpg" class="fram_leader">
+            <div *ngIf="ser.ifAllProjects" class="navigate"
+                (click)="this.router.navigate(['/' + this.http.userName + '/editProject']);ser.ifAllProjects=!ser.ifAllProjects">
+                <i class="fa fa-arrow-left" aria-hidden="true"></i>
+            </div>
+            <div *ngIf="!ser.ifAllProjects" class="myProjects"
+                (click)="generalSer.openModal(saveChanges,true);">My Projects</div>
+            <div *ngIf="!ser.mysites" class="custom-control custom-switch" style="margin-left: 15px;">
+                <input type="checkbox" class="custom-control-input" #showGridLine [checked]="ser.showGridLine"
+                    (change)="showGrid()" id="switch14" name="example2">
+                <label class="custom-control-label" for="switch14">Guide lines</label>
+                <!-- <button (click)="setPage(1)">Products</button>
+                <button (click)="setPage(2)">Teams</button>
+                <button (click)="setPage(3)">Home</button> -->
+            </div>
+            <ng-template #saveChanges>
+                <app-save-changes-modal></app-save-changes-modal>
+            </ng-template>
+        </div>
+        <div *ngIf="!ser.mysites" (mouseleave)="overLink=false" (mouseover)="overLink=true">
+            <div class="divLink">
+                <a *ngIf="ser.site"  target="_blank" rel="noopener noreferrer" class="topLink"
+                    [ngClass]="ser.isNewUser?'blink_me':''">https://<span style="color: darkblue;" 
+                        #siteName >{{ser.site.url}}</span>.bldr.codes
+                </a>
+                <div *ngIf="ser.site" class="copyLink" (click)="copyLink()">
+                    <button placement="right" ngbPopover="link copied." triggers="click:mouseleave" class="btnCopyLink">
+                        <img src="assets/icons/copyLink.png" style="width: 15px;">
+                    </button>
+                </div>
+            </div> 
+            <span style="font-size:14px;margin-left: 5px;" *ngIf="ser.isNewUser">Change the default name<button style="background-color: green;border-radius: 13px;color: white;border: none;margin-left: 5px;" (click)="ser.isNewUser=false">Got it</button></span>
+            <a class="downloadIcon" (click)="downloadSite()"><i data-title="Download Site" class="fas fa-download" style="margin: 8px; font-size: 20px;"></i></a>
+
+        </div>
+        <ng-template #deleteSite>
+            <app-modal  [type]="site" [body]="modalBody" [submit]='generalSer.deleteSite'>
+            </app-modal> 
+        </ng-template>
+        <div style="width: calc(40px + 1rem);"></div>
+        <app-login-header class="appLoginHeader" [userName]='userName'></app-login-header>
+    </div>
+    <div class="user" *ngIf="accounts">
+        <i class="fas fa-user-circle fa-4x" style="margin-top: 50px; margin-left: 90px;"></i>
+        <h4 style="margin-left: 110px;">{{http.userName}}</h4>
+        <h6 class="uEmail">{{auth.user.email}}</h6>
+        <div style="height: 1px;width: 100%;background-color: gainsboro;"></div>
+        <button class="signOut">Sign out</button>
+</div>
+    <div class="content">
+        <router-outlet></router-outlet>
+    </div>
+<div id="wrap-configurator" class="fram_sidebarRight fram_colorBackground-purple" *ngIf="!ser.mysites"
+    [ngStyle]='{"right":ser.configuratorDragRight+"vw",
+                    "box-shadow":ser.configuratorDragMaxHeight? "5px 10px 18px #888888":"",
+                    "max-height":ser.configuratorDragMaxHeight&&ser.configuratorDragRight!=0?ser.configuratorDragMaxHeight+"vh":"",
+                    "border-top-left-radius":ser.configuratorDragMaxHeight?"5px":"none","border-top-right-radius":ser.configuratorDragMaxHeight?"5px":"none"}'>
+    <app-configurator></app-configurator>
+    <div id="bottom-configurator" style="cursor: pointer;" [ngStyle]='{"right":ser.configuratorDragRight+"vw"}'>
+        <div class="bottomPopovers" *ngIf="bottomPopover">
+            <div *ngIf="viewPortPopover" class="buttonsInBottomPopover"
+                [ngStyle]="{'color':selectedScreen=='desktop'?'#FBCD4F':'#FFFFFF'}"
+                (click)="previewScreen('desktop',false)">
+                <i class="fas fa-desktop fa-3x "></i>
+                <br>Desktop
+                <div class="popoverFont">1024 Px</div>
+            </div>
+            <div *ngIf="viewPortPopover" class="buttonsInBottomPopover" (click)="previewScreen('tablet',false)"
+                [ngStyle]="{'color':selectedScreen=='tablet'?'#FBCD4F':'#FFFFFF'}">
+                <i class="fas fa-tablet-alt fa-3x"></i><br>Tablet
+                <div class="popoverFont">768 Px</div>
+            </div>
+            <div *ngIf="viewPortPopover" class="buttonsInBottomPopover"
+                [ngStyle]="{'color':selectedScreen=='phone'?'#FBCD4F':'#FFFFFF'}"
+                (click)="previewScreen('phone',false)">
+                <i class="fas fa-mobile-alt fa-3x"></i>
+                <br>Mobile
+                <div class="popoverFont">360 Px</div>
+            </div>
+
+            <div *ngIf="publishPopover" class="buttonsInBottomPopover" (click)="frameSer.saveAsDraft()">
+                <i class="fas fa-save fa-2x" style="margin-left: auto;margin-right: auto;padding: 5%;"></i><br>
+                Save as draft
+            </div>
+            <div *ngIf="publishPopover" class="buttonsInBottomPopover" (click)="publish()">
+                <img src="assets/icons/file-earmark-fill.svg"
+                    style="margin-left: auto;margin-right: auto;padding: 5%;"><br>Publish
+            </div>
+        </div>
+        <div class="d-flex bottom-icons" style="background-color: #000000;">
+            <button title="Screens" class="p-0 mobileIcon material-icons" style="color: white;"
+                (click)="openBottomPopover('viewPort')" target="_blank">
+                laptop
+            </button>
+            <button class="p-0 mobileIcon material-icons" (click)="livePreview()" title="Live preview" style="color: white;">
+                    visibility
+            </button>
+            <button class="p-0 mobileIcon material-icons" (click)="ser.configuratorFlag='generalSetting'"
+                title="General Settings" style="color: white;">
+                    settings
+            </button>
+            <button type="button" class="p-0 d-flex publishButton" (click)="openBottomPopover('publishPopover')"
+                target="_blank" title="Save / Publish">
+                <span class="textUpdateButton">Update</span>
+                <div class="d-flex justify-content-center sideUpdateButton">
+                    <i class='fas fa-angle-up' style="display: flex;
+                    align-items: center;"></i>
+                </div>
+            </button>
+        </div>
+    </div>
+</div>
+<div>
+    <ng-template #template1 let-modal>
+        <app-modal-image></app-modal-image>
+    </ng-template>
+</div>

@@ -1,0 +1,134 @@
+<div class="statistics container-fluid">
+    <!-- <div class="s-container"> -->
+    <div class="row">
+        <ul>
+            <li><button class="filterBtn" (click)="dateStatus = 1" autofocus>Day</button></li>
+            <li><button class="filterBtn" (click)="dateStatus = 2">Week</button></li>
+            <li><button class="filterBtn" (click)="dateStatus = 3">Month</button></li>
+            <li><button class="filterBtn" (click)="dateStatus = 4">Year</button></li>
+        </ul>
+    </div>
+    <div class="row justify-content-between topDisplay">
+        <div class="box numberDisplay">
+            <p>Total viewers:</p>
+            <h3 *ngIf="dateStatus == 1">{{statistics?.day_views}}</h3>
+            <h3 *ngIf="dateStatus == 2">{{statistics?.week_views}}</h3>
+            <h3 *ngIf="dateStatus == 3">{{statistics?.month_views}}</h3>
+            <h3 *ngIf="dateStatus == 4">{{statistics?.year_views}}</h3>
+        </div>
+        <div class="box numberDisplay">
+            <p>Total units:</p>
+            <h3 *ngIf="dateStatus == 1">{{statistics?.day_users}}</h3>
+            <h3 *ngIf="dateStatus == 2">{{statistics?.week_users}}</h3>
+            <h3 *ngIf="dateStatus == 3">{{statistics?.month_users}}</h3>
+            <h3 *ngIf="dateStatus == 4">{{statistics?.year_users}}</h3>
+        </div>
+        <div class="box numberDisplay">
+            <p>Page average:</p>
+            <h3>{{statistics?.pages_average}}</h3>
+        </div>
+        <div class="box numberDisplay">
+            <p>Staying Time Average:</p>
+            <h3>{{statistics?.staying_time_average}}</h3>
+        </div>
+        <div class="box numberDisplay">
+            <p>Abandonment Rate:</p>
+            <h3>{{statistics?.abandonment_rate}}&#37;</h3>
+        </div>
+    </div>
+    <!-- <div class="container-fluid"> -->
+    <div class="row justify-content-between">
+        <div class="activeViewers box chartBox"></div>
+        <div class="devices box chartBox">
+            <h3>Devices</h3>
+            <app-chart-donut *ngIf="statistics && statistics.devices" [displayArr]="statistics.devices" ></app-chart-donut>
+        </div>
+        <div class="viewersChart box chartBox">
+            <div class="row">
+                <h3>Number of viewers</h3></div>
+            <!-- <div class="row justify-content-center align-items-center mt-3"> -->
+                <app-chart-columns *ngIf="statistics && statistics.year_views_arr" [displayArr]="statistics.year_views_arr"></app-chart-columns>
+            <!-- </div> -->
+        </div>
+    </div>
+    <div class="row justify-content-between">
+        <div class="geoLocations box chartBox"></div>
+        <div class="browsers box chartBox">
+            <div class="row"><h3>Browsers</h3></div>
+            <div class="row justify-content-center align-items-center mt-3">
+                <app-chart-pie *ngIf="statistics && statistics.browsers" [displayArr]="statistics.browsers" [title]="'Browsers'"></app-chart-pie>
+            </div>
+        </div>
+    </div>
+    <div class="row bottomDisplay">
+        <div class="devices box chartBox">
+            <h3>Operating Systems</h3>
+            <app-chart-semi-donut *ngIf="statistics && statistics.operating_systems" [displayArr]="statistics.operating_systems" ></app-chart-semi-donut>
+        </div>
+    </div>
+</div>
+    <!-- </div> -->
+<!-- </div> -->
+<!-- <div class="container">
+    <div class="row justify-content-md-center">
+        <h1>Units Information</h1>
+    </div>
+    <div class="row justify-content-between">
+        <div class="col text-center"> 
+            <div class="box" [style.background]="boxStyling[0]">
+                <h2>Total Viewers:</h2>
+                <h3 *ngIf="dateStatus == 1">{{statistics?.day_views}}</h3>
+                <h3 *ngIf="dateStatus == 2">{{statistics?.week_views}}</h3>
+                <h3 *ngIf="dateStatus == 3">{{statistics?.month_views}}</h3>
+                <h3 *ngIf="dateStatus == 4">{{statistics?.year_views}}</h3>
+            </div>
+        </div>
+        <div class="col text-center">
+            <div class="box" [style.background]="boxStyling[1]">
+                <h2>Total Units:</h2>
+                <h3 *ngIf="dateStatus == 1">{{statistics?.day_users}}</h3>
+                <h3 *ngIf="dateStatus == 2">{{statistics?.week_users}}</h3>
+                <h3 *ngIf="dateStatus == 3">{{statistics?.month_users}}</h3>
+                <h3 *ngIf="dateStatus == 4">{{statistics?.year_users}}</h3>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center pt-10">
+        <button type="button"  class="btn btn-primary" (click)="dateStatus = 1" autofocus>Day</button>
+        <button type="button"  class="btn btn-primary" (click)="dateStatus = 2">Week</button>
+        <button type="button"  class="btn btn-primary" (click)="dateStatus = 3">Month</button>
+        <button type="button"  class="btn btn-primary" (click)="dateStatus = 4">Year</button>
+    </div>
+    <hr/>
+    <div class="row justify-content-center">
+        <div class="col">
+            <div class="box" [style.background]="boxStyling[2]">
+                <h2>Pages Average:</h2>
+                <h3>{{statistics?.pages_average}}</h3>
+            </div>
+        </div>
+        <div class="col">
+            <div class="box" [style.background]="boxStyling[3]">
+                <h2>Staying Time Average:</h2>
+                <h3>{{statistics?.staying_time_average}}</h3>
+            </div>
+        </div>
+        <div class="col">
+            <div class="box" [style.background]="boxStyling[0]">
+                <h2>Abandonment Rate:</h2>
+                <h3>{{statistics?.abandonment_rate}}&#37;</h3>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <app-chart-columns *ngIf="statistics && statistics.year_views_arr" [displayArr]="statistics.year_views_arr"></app-chart-columns>
+    </div>
+</div>
+<div class="row justify-content-center">
+    <app-chart-pie *ngIf="statistics && statistics.locations" [displayArr]="statistics.locations" [title]="'Geo Locations'"></app-chart-pie>
+    <app-chart-pie *ngIf="statistics && statistics.devices" [displayArr]="statistics.devices" [title]="'Devices'"></app-chart-pie>
+    <app-chart-pie *ngIf="statistics && statistics.browsers" [displayArr]="statistics.browsers" [title]="'Browsers'"></app-chart-pie>
+    <app-chart-pie *ngIf="statistics && statistics.operating_systems" [displayArr]="statistics.operating_systems" [title]="'Operating Systems'"></app-chart-pie>
+</div> -->
+
+

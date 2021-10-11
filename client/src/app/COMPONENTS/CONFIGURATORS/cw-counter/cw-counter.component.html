@@ -1,0 +1,370 @@
+<h1 class="topTitle">
+    Edit Counter</h1>
+    <app-global-widget></app-global-widget>
+
+<div class="wrapWidgetConfigs">
+    <div class="field LR_from_field ">
+        <div class="field__label ">
+            End
+            date
+        </div>
+        <div class="field__wrap ">
+            <input class="field__input LR_input_in_configurator" type="datetime-local" enctype="multipart/form-data"
+                #time value="{{ser.lastItem.attributes['time']}}"
+                (input)="changeStylesG('time',[time.value,massage.value],'attribute','special')">
+        </div>
+        <div class="field__label ">
+            Massage
+        </div>
+        <div class="field__wrap ">
+            <input type="text" class="field__input LR_input_in_configurator" #massage
+                value="{{ser.lastItem.attributes['massage']}}"
+                (change)="changeStylesG('time',[time.value,massage.value],'attribute','special')">
+        </div>
+
+    </div>
+    <hr class="hrStyle">
+    <div class="accordion-item">
+        <!-- <h2 class="accordion-header" id="headingSeven">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseSeven" aria-expanded="true" aria-controls="collapseSeven">
+                Text
+            </button>
+        </h2> -->
+        <!-- <div id="collapseSeven" class="accordion-collapse collapse show " aria-labelledby="headingSeven"
+            data-bs-parent="#accordionExample"> -->
+        <!-- <div class="accordion-body"> -->
+        <div class="field LR_from_field">
+            <div class="field__label ">Font Family</div>
+            <!-- font-family-עובד! -->
+            <div class="field LR_from_field">
+                <app-selects [style]="'font-family'"  (changeStyles)="changeStylesG(['simpleStyles','font-family'],$event.value)"></app-selects>
+            </div>
+        </div>
+        <!-- font-weight-עובד! -->
+        <div class="field__label ">Font Weight</div>
+        <div class="field LR_from_field">
+            <app-selects [style]="'font-weight'"  (changeStyles)="changeStylesG(['simpleStyles','font-weight'],$event.value)"></app-selects>
+        </div>
+        <hr class="hrStyle">
+        <div class="field LR_from_field">
+            <div class="field__label ">Font Size
+            </div>
+            <app-slider-with-number [minValue]="50" [maxValue]="300" [img]="'assets/icons/text-size.svg'"
+                (changeStyles)="changeStylesG(['simpleStyles','font-size'],$event.value)" [style]="'font-size'" [measureUnit]="'px'">
+            </app-slider-with-number>
+        </div>
+        <hr class="hrStyle">
+        <div class="field LR_from_field">
+            <div class="field__label ">Alignment
+            </div>
+            <app-alignment [style]="'text-align'" (changeStyles)="changeStylesG(['simpleStyles','text-align'],$event.value)" >
+            </app-alignment>
+        </div>
+    </div>
+
+
+    <!-- <div class="field LR_from_field" *ngIf="ser.itemsAndAttributes[ser.whatLast]['innerHtml']">
+
+                    <div class="field__label ">Html
+                    </div>
+                    <div class="field LR_from_field">
+                        <div class="field__label ">Html
+                        </div>
+                        <textarea class="form-control" #html (keyup)="changeStyles('html',html.value)">
+                                   {{ser.lastItem.textContent}}</textarea>
+                    </div>
+                    <select type="text" class="field__input LR_input_in_configurator" #textDecorationStyle
+                        (input)="changeStyles('text-decoration',textDecorationLine.value+' '+textDecorationStyle.value+' '+textDecorationColor.value)">
+                        <option style="display: none; ">style</option>
+                        <option value="dotted">dotted</option>
+                        <option value="solid">solid</option>
+                        <option value="double">double</option>
+                        <option value="dashed">dashed</option>
+                        <option value="wavy">wavy</option>
+                        <option value="initial">initial</option>
+                        <option value="inherit">inherit</option>
+                    </select>
+                    <select type="text" class="field__input LR_input_in_configurator" #textDecorationLine
+                        (input)="changeStyles('text-decoration',textDecorationLine.value+' '+textDecorationStyle.value+' '+textDecorationColor.value)">
+                        <option style="display: none; ">line</option>
+                        <option value="underline">underline</option>
+                        <option value="overline">overline</option>
+                        <option value="line-through">line-through</option>
+                        <option value="inherit">inherit</option>
+                        <option value="none">none</option>
+                        <option value="initial">initial</option>
+                    </select>
+                    <input type="color" #textDecorationColor class="field__input LR_input_in_configurator"
+                        (input)="changeStyles('text-decoration',textDecorationLine.value+' '+textDecorationStyle.value+' '+textDecorationColor.value)">
+                </div> -->
+    <!-- </div> -->
+    <!-- </div> -->
+
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                Colors
+            </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+
+                <div class="field LR_from_field marginBottom" style="padding-right: 2px;margin-top: 8px;">
+                    <div class="field__label ">
+                        Font Color
+                    </div>
+                    <app-colors [style]="'color'" (changeStyles)="changeStylesG(['simpleStyles','color'],$event.value)"></app-colors>
+                </div>
+            </div>
+            <!-- <hr class="hrStyle" >
+                <div style="display: block;" class="field LR_from_field">
+                    <h4 class="field__label ">
+                        Text Shadow</h4>
+                    <div class="field__wrap  textShadow">
+                        <div class="roundShadow">
+                            <div style="display: flex;justify-content: space-between;margin-bottom: 8px;">
+                                <span title="font-color"
+                                    style="width: 22px;height: 3vh;border:blanchedalmond solid 1px;" class="spanColor"
+                                    [ngStyle]="{'background-color':textShadow.value}"></span>
+                                    <input id="textShadow" style="opacity: 0;right: 0;" type="color" #textShadow
+                                        title="font-color" (click)="stop($event)"
+                                        (input)="changeStyles('text-shadow',textShadow.value+'px '+textShadow2.value+'px '+textShadow3.value+'px '+textShadow.value)">
+                                    <span class="spanColorStyle">Y</span>
+                                    <input style="width: 22%;" class="Shadows" type="number" #textShadow2 min="0"
+                                        value="1"
+                                        (input)="changeStyles('text-shadow',textShadow.value+'px '+textShadow2.value+'px '+textShadow3.value+'px '+textShadow.value)">
+                                    <span class="spanColorStyle">B</span>
+                                    <input style="width: 22%;" class="Shadows" type="number" #textShadow3 min="0"
+                                        value="1"
+                                        (input)="changeStyles('text-shadow',textShadow.value+'px '+textShadow2.value+'px '+textShadow3.value+'px '+textShadow.value)">
+                                </div>
+                           
+                        
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                Spacing
+            </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse show" aria-labelledby="headingThree"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                <!-- Spacing-עובד! -->
+                <div class="field LR_from_field">
+                    <app-box-model (changeStyles)="changeStylesG($event.keys,$event.value+'px')"></app-box-model>
+                </div>
+            </div>
+            <hr class="hrStyle">
+            <div class="field LR_from_field" style="margin-top: 8px;">
+                <app-slider-with-number [img]="'assets/icons/kerning.svg'" [minValue]="1" [maxValue]="100"
+                    (changeStyles)="changeStylesG(['simpleStyles','letter-spacing'],$event.value)" [style]="'letter-spacing'"
+                    [measureUnit]="'px'">
+                </app-slider-with-number>
+                <app-slider-with-number [minValue]="0" [maxValue]="1" [img]="'assets/icons/text-size.svg'" [step]="0.1"
+                    (changeStyles)="changeStylesG(['simpleStyles','line-height'],$event.value)" [style]="'line-height'">
+                </app-slider-with-number>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="accordion-item">
+        <h2 class="accordion-header" id="headingSix">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                Borders
+            </button>
+        </h2>
+        <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                <div class="field LR_from_field" >
+                    <h4 class="field__label">
+                        Border
+                    </h4>
+                    <div class="field__wrap ">
+                        <div class="borderOptionsWrap">
+                            <div
+                                style="display: flex-wrap;margin-top: 7px;cursor: pointer !important;justify-content: center;">
+                                <img class="borderOption"
+                                    (click)="kindOfBorder='dashed ';changeStyles('border',borderSize.value+'px '+kindOfBorder+borderColor.value)"
+                                    src="assets/icons/Group 21455.svg">
+                                <img class="borderOption"
+                                    (click)="kindOfBorder='solid ';changeStyles('border',borderSize.value+'px '+kindOfBorder+borderColor.value);changeStyles('border-radius',5)"
+                                    src="assets/icons/Group 21459.svg">
+                                <img class="borderOption"
+                                    (click)="kindOfBorder='solid ';changeStyles('border',borderSize.value+'px '+kindOfBorder+borderColor.value)"
+                                    src="assets/icons/Group 21456.svg">
+                                <img class="borderOption"
+                                    (click)="kindOfBorder='double ';changeStyles('border','3px '+kindOfBorder+borderColor.value)"
+                                    src="assets/icons/Group 21458.svg">
+                                <img class="borderOption"
+                                    (click)="kindOfBorder='dashed ';changeStyles('border',borderSize.value+'px '+kindOfBorder+borderColor.value)"
+                                    src="assets/icons/Group 21457.svg">
+                                <img class="borderOption" (click)="changeStyles('border','none')"
+                                    style="padding: 2%;width: 3vw;" src="assets/icons/Group 21460.svg">
+
+                            </div>
+                            <div style="display: flex;justify-content: space-between;">
+                                <input class="field__label" type="color" #borderColor title="border-color"
+                                    (input)="changeStyles('border',borderSize.value+'px '+kindOfBorder+' '+borderColor.value)"
+                                    style="width:20%;padding: 0%;" value="black">
+                                <input type="range" min="1" [attr.max]="ser.whatLast=='col'?12:100" #sizeBorder
+                                    (input)="changeStyles('border',sizeBorder.value+'px '+kindOfBorder+' '+borderColor.value)"
+                                    [(ngModel)]="ser.lastItem.styles['simpleStyles']['border']" class="rengeStyle"
+                                    style="color: black;width: 40%;margin-left: 2%;margin-top: 18%;">
+                                <input class="field__label" type="number" min="0" title="border-size"
+                                  (input)="changeStyles('border',borderSize.value+'px '+kindOfBorder+' '+borderColor.value)"
+                                    [(ngModel)]="ser.lastItem.styles['simpleStyles']['border']"
+                                    style="font-size: 12px;border: 1px solid black;color: white;outline: none; background-color: #4C4C4C;width: 20%;"
+                                    #borderSize>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="field LR_from_field" >
+                <h4 class="field__label ">
+                    border
+                    Top
+                </h4>
+
+                <div class="field__wrap ">
+                    <div>
+                        <select type="text" class="field__input LR_input_in_configurator" #borderTopStyle>
+
+                            <option style="display: none;">style</option>
+                            <option value="dotted">dotted</option>
+                            <option value="solid">solid</option>
+                            <option value="double">double</option>
+                            <option value="dashed">dashed</option>
+                            <option value="wavy">wavy</option>
+                            <option value="initial">initial</option>
+                            <option value="inherit">inherit</option>
+
+                        </select>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="field LR_from_field" >
+                <h4 class="field__label ">
+                    border
+                    Bottom
+                </h4>
+
+                <div class="field__wrap ">
+                    <div>
+                        <select type="text" class="field__input LR_input_in_configurator" #borderBottomStyle>
+
+                            <option style="display: none;">style</option>
+                            <option value="dotted">dotted</option>
+                            <option value="solid">solid</option>
+                            <option value="double">double</option>
+                            <option value="dashed">dashed</option>
+                            <option value="wavy">wavy</option>
+                            <option value="initial">initial</option>
+                            <option value="inherit">inherit</option>
+                        </select>
+                        <div>
+                            <input type="number" class="field__input LR_input_in_configurator"
+                                style="width:100% !important;" #borderBottomSize placeholder="size">
+                        </div>
+                        <div>
+                            <input type="color" style="width:100% !important;" #borderBottomColor
+                                (input)="changeStyles('border-bottom',borderBottomSize.value+'px '+borderBottomStyle.value+' '+borderBottomColor.value)">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="field LR_from_field" >
+                    <h4 class="field__label ">
+                        border
+                        Left
+                    </h4>
+
+                    <div class="field__wrap ">
+                        <div>
+                            <select type="text" class="field__input LR_input_in_configurator"
+                                style="width:100% !important; color: gray;" #borderLeftStyle>
+
+                                <option style="display: none;color: gray;">style</option>
+                                <option value="dotted" style="color: gray;">dotted</option>
+                                <option value="solid" style="color: gray;">solid</option>
+                                <option value="double" style="color: gray;">double</option>
+                                <option value="dashed" style="color: gray;">dashed</option>
+                                <option value="wavy" style="color: gray;">wavy</option>
+                                <option value="initial" style="color: gray;">initial</option>
+                                <option value="inherit" style="color: gray;">inherit</option>
+
+                            </select>
+                        </div>
+
+                    </div>
+                    <div class="field LR_from_field" >
+                        <h4 class="field__label ">
+                            border
+                            Left
+                        </h4>
+
+                        <div class="field__wrap ">
+                            <div>
+                                <select type="text" class="field__input LR_input_in_configurator" #borderLeftStyle>
+
+                                    <option style="display: none;">style</option>
+                                    <option value="dotted">dotted</option>
+                                    <option value="solid">solid</option>
+                                    <option value="double">double</option>
+                                    <option value="dashed">dashed</option>
+                                    <option value="wavy">wavy</option>
+                                    <option value="initial">initial</option>
+                                    <option value="inherit">inherit</option>
+
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="field LR_from_field" >
+                            <div class="field__label ">
+                                Border
+                                Rradius</div>
+                            <div class="field__wrap">
+                                <input type="number" class="field__input LR_input_in_configurator"
+                                    style="width:100% !important;" #borderradius
+                                    (keyup)="changeStyles('border-radius',borderradius.value)"
+                                    (change)="changeStyles('border-radius',borderradius.value)"
+                                    value="{{ser.stylesToConfig['border-radius']}}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingSix">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
+                Borders
+            </button>
+        </h2>
+        <app-borders (changeStyles)="changeStylesG(['spanStyles',$event.key],$event.value)"></app-borders>
+    </div>
+    <div class="accordion-item">
+        <app-animations  (changeStyles)="changeStylesG($event.keys,$event.value)"></app-animations>
+    </div>
+
+
+
+</div>

@@ -1,0 +1,139 @@
+:host {
+    display: block;
+    background-color: #E8EAEC;
+}
+.container-fluid{
+    width: 90vw;
+}
+.btn{
+    margin-right: 5px;
+    background-color:#D0B1FF;
+    color: #384364;
+    border: 1px solid #D0B1FF;
+}
+.btn:focus, .btn:hover{
+    background-color:white;
+    color: #384364;
+    border: 1px solid #D0B1FF;
+}
+app-chart-pie{
+    display: inline-block;
+}
+// .statistics{
+//     background-color:#E8EAEC;
+// }
+
+// .s-container{
+//     width: 90vw;
+//     justify-content: center;
+// }
+.numberDisplay{
+    background-color: white;
+    // width:270px;
+    width: 17vw;
+    height: 14vh;
+    // margin-right: 29px;
+    // margin-left: 29px;
+    margin-top: 20px;
+    padding: 20px;
+}
+// .chart-container{
+//     margin-bottom: 20px;
+//     margin-top: 20px;
+// }
+
+.progress{
+    height:500px;
+    background-color: #FBCD4F;
+    // margin: 0;
+}
+// .row{
+//     margin-top: 20px;
+// }
+// .locations{
+//     height:500px;
+//     // background-color: white;
+// }
+// .col-8{
+//     padding: 0;
+// }
+// .browsersAndOperatingSys{
+//     height:690px;
+// }
+.box{
+    // margin: 5px;
+    background-color:white;
+    border-radius: 5px;
+    padding: 40px;
+}
+.chartBox{
+    height: 50vh;
+    margin-top: 20px;;
+}
+.browsers{
+    margin-right: 10px;
+//     background-color: white;
+}
+.colChart{
+    margin-left: 10px;
+//     background-color: white;
+}
+// .devices{
+//     height: 650px;
+// }
+.os{
+    height: 540px;
+}
+.left{
+    // width: 65vw;
+    margin-right: 20px;
+}
+.right{
+    margin-left: 20px;
+    // width: 30vw;
+}
+ul{
+    padding: 0;
+}
+li{
+    display: inline-block;
+    margin: 10px;
+}
+.filterBtn{
+    background-color: transparent;
+    border: none;
+    // cursor: pointer;
+}
+.filterBtn:focus{
+    outline:none;   
+    border-bottom:1px solid #FBCD4F;
+    color: #FBCD4F;
+}
+.filterBtn:active,.filterBtn:hover, .filterBtn:focus{
+    border-bottom:1px solid #FBCD4F;
+    color: #FBCD4F;
+    // text-decoration: underline;
+}
+.activeViewers{
+    width: 15vw;
+    background-color: #FBCD4F;
+}
+.devices{
+    width: 27vw;
+}
+.viewersChart{
+    width: 46vw;
+}
+.topDisplay{
+    margin-bottom: 20px;;
+}
+.geoLocations{
+    width: 58.5vw;
+    // margin-right: 20px;
+}
+.browsers{
+    width: 30vw;
+}
+.bottomDisplay{
+    margin-bottom: 20px;
+}

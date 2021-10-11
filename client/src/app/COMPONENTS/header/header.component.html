@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-lg navbar-light" [attr.dir]="ser.site.header.attributes['dir']"
+  [ngStyle]="this.ser.site.header.styles['divStylesHeader']" [ngClass]="ser.builderMode?'borderHeader':''"
+  style="width: 100%;display: flex;background-color: #e6e6e6;"
+  (click)="previewSer.chooseElement($event,ser.site.header)" (mouseover)="ifHoverHeader=true"
+  (mouseleave)="ifHoverHeader=false">
+  <div class="container-fluid">
+    <img src="{{ser.site.logo}}" alt="" width="30" height="24" class="d-inline-block align-top"
+      [ngStyle]="this.ser.site.header.styles['imgStylesHeader']"
+      ngbPopover="Click to replace the logo in the configurator" placement="right">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav" *ngFor="let s of ser.site.pages">
+        <li class="nav-item" style="margin-left: 20px;" *ngIf="s.enable==true"
+          [ngStyle]="{'border':s._id==ser.currentPage._id&&ser.builderMode?'1px #D69E02 solid':'none','border-radius':s._id==ser.currentPage._id&&ser.builderMode?'8px':'none'}">
+          <a class="nav-link active" [ngStyle]="this.ser.site.header.styles['textStylesHeader']" aria-current="page"
+            style="outline: none;" #pageName href="{{s.url}}" [attr.contenteditable]="ser.builderMode"
+            (keyup)="changeName(s,pageName.textContent)"
+            (focus)="ser.builderMode?config(s,$event):navigateLink(s,$event);"
+            (click)="ser.builderMode?config(s,$event):navigateLink(s,$event);">{{s.name}}</a>
+        </li>
+
+      </ul>
+      <span *ngIf="ser.builderMode&&ifHoverHeader" title="New page" (click)="newPage($event)" class="plusPage">+</span>
+    </div>
+  </div>
+</nav>
+<div *ngIf="ser.builderMode&&ifHoverHeader" class="hoverHeader"><span
+    style="color: white;font-size: small;">Header</span></div>

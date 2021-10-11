@@ -1,0 +1,28 @@
+<div style="margin-top: 2vh;">
+    <button (click)="newPage()" class="newButton" data-title="Add New Page">New Page</button>
+    <ul class="list-group" [sortablejs]="ser.site.pages" [sortablejsOptions]="options">
+        <li class="list-group-item draggable" *ngFor="let page of ser.site.pages; let i = index">
+            <div class="pagesButton" (click)="config(page)">
+                <div class="divStyle">
+                </div>
+                <p class="pText">
+                    {{ page.name}}</p>&nbsp;&nbsp;
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                    aria-expanded="false" style="color: rgb(0,0,0,0);align-items: right;padding-right: 0;">
+                </a>
+            </div>
+        </li>
+    </ul>
+    <div class="hr"></div>
+    <div *ngIf="this.ser.site.notFoundPage">
+        <div class="pagesButton" (click)="config(ser.site.notFoundPage)">
+            <div class="divStyle"></div>
+            <p class="pText">
+                404 Page</p>&nbsp;&nbsp;
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                aria-expanded="false" style="color: rgb(0,0,0,0);align-items: right;padding-right: 0;">
+            </a>
+        </div>
+    </div>
+
+</div>

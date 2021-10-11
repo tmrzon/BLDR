@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    <link rel="icon" type="image/png" sizes="32x32" href="img/bldr 2.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/bldr 2.png">
+    <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-auth.js"></script>
+    <link rel="stylesheet" href="homepage.css">
+    <link rel="stylesheet" media="mediatype and|not|only (expressions)" href="homepage.css">
+
+    <link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css" media="all">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>sign in</title>
+    <script src="controller.js"  type="text/javascript"></script>
+    <meta name="cf-2fa-verify" content="825a4a0c9ea7616">
+</head>
+
+<body>
+    <div class="row">
+        <img src="img/sea.png" id="sea">
+        <div class="col-1 my-3"><a href="https://bldr.codes">
+                <img src="img/bldr.jpg" id=imglog>
+            </a></div>
+        <div class="sn_in ">
+            <div class="row mt-5"></div>
+            <div class="r mt-5 ">
+                <div class="continer">
+                    <div class="row mt-4">
+                        <div class="col-3"></div>
+                        <a id="" href="index.html" class="col-3 sign_in_a"><u style="font-size: x-large;color:#00A1E9;">
+                                <pre style="font-size: x-large;color:#00A1E9"> sign in </pre></u></a>
+                        <a href="signUp.html" class="col-3 si"><u style="font-size: x-large; ">
+                                <pre style="font-size: x-large; "><span> sign up </span> </pre></u></a>
+
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-3"></div>
+                        <div class="col" style="font-size: x-large;"><b>Welcome to BLDR!<br> Sign in to see latest
+                                updates.</b></div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-3"></div>
+                        <div class="col" style="color: #8181A5;">SIGN IN with your social network</div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-2"></div>
+                        <div class="col-1"></div>
+                        <div class="col-6 google" style="font-size: x-large;" id="google">
+                            <img src="img/google.png" id="imggoogle">
+                            &nbsp; Google</div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-3"></div>
+                        <div style="width: 50%; height: 20px; border-bottom: 1px solid black; text-align: center;">
+                            <span style="font-size: large; background-color: #F3F5F6; padding: 0 10px;">
+                                Or
+                                <!--Padding is optional-->
+                        </div>
+                        </span>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-3"></div>
+                        Enter your details to proceed.
+                    </div>
+
+
+                    <div class="row mt-4">
+                        <div class="col-3"></div>
+                        <div class="col Email" id="Email" style="color:#8181A5">Email</div>
+
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-3"></div>
+                        <input type="text" id="our" class="email" onfocus="boldEmail(this)"
+                            onblur="noboldEmail(this)" />
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-3"></div>
+                        <div class="col Password" style="color:#8181A5" id="Password">Password</div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-3"></div>
+                        <input type="password" name="password" id="password" class="our" onfocus="boldPassword(this)"
+                            onblur="noboldPassword(this)" />
+                        <i class="far fa-eye" id="togglePassword" style="cursor: pointer;"></i>
+
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-3"></div>
+                        <div class="col-0.5 red customcb">
+                            <input type="checkbox" value="1" id="customcb1" name="" />
+                            <label class="inner" for="customcb1"></label>
+                        </div>
+
+                        <div class="col-3" style="cursor: pointer;">&nbsp;&nbsp;Remember me </div>
+                        <div class="col" style="cursor: pointer;">Recover password</div>
+                    </div>
+
+
+
+                    <div class="row mt-3">
+                        <div class="col-3"></div>
+                        <!-- Trigger/Open The Modal -->
+
+                        <button id="signInBtn" class="s">sign in</button>
+
+
+                        <!-- The Modal -->
+                        <div id="myModal" class="modal">
+
+                            <!-- Modal content -->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <span class="close">&times;</span>
+
+                                </div>
+                                <div class="modal-body">
+                                    <p>Email and Password are required</p>
+                                </div>
+                                <div class="modal-footer">
+
+                                </div>
+                            </div>
+
+
+
+
+                            <!-- The Modal -->
+
+
+                        </div>
+
+                    </div>
+
+                    <script>
+                        const togglePassword = document.querySelector('#togglePassword');
+                        const password = document.querySelector('#password');
+                        togglePassword.addEventListener('click', function (e) {
+                            // toggle the type attribute
+                            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+                            password.setAttribute('type', type);
+                            // toggle the eye slash icon
+                            this.classList.toggle('fa-eye-slash');
+                        });
+                    </script>
+</body>
+
+</html>

@@ -1,0 +1,226 @@
+<div #grid style="height:-webkit-fit-available;padding: 0%;position: inherit"
+    class="{{item.attributes['class']}} grid sameSize"
+    [ngClass]="(item.chooseElement || item.overGrid) && ser.builderMode?ser.CheckIfMainGrid(item.parentCol)?'blockBorder':'wrapper':ser.builderMode?'transparentBorderGrid':'hideBorder'"
+    [ngStyle]="item.styles.simpleStyles" (dragover)="item.overGrid=true" (dragenter)="$event.preventDefault()"
+    (dragleave)="item.overGrid=false" (mouseout)="item.overGrid=false">
+    <div *ngIf="item.chooseElement && ser.builderMode" class="edit_buttons_section"
+        [ngStyle]="ser.CheckIfMainGrid(item.parentCol)?{'right':'0px'}:{}">
+        <span draggable="true" (dragstart)="onDragElement($event,item,item._parentCol,'grid')"
+            class="material-icons gridOption" *ngIf="!ser.CheckIfMainGrid(item.parentCol)" style="cursor: move;">
+            drag_indicator
+        </span>
+        <span draggable="true" (dragstart)="onDragElement($event,item,item._parentCol,'grid')" (click)="addSection()"
+            class="material-icons gridOption" *ngIf="ser.CheckIfMainGrid(item.parentCol)">
+            add
+        </span>
+        <span draggable="true" (dragstart)="onDragElement($event,item,item._parentCol,'grid')"
+            (click)="duplicateSection(item.parentCol)" class="material-icons gridOption"
+            *ngIf="ser.CheckIfMainGrid(item.parentCol)">
+            content_copy
+        </span>
+        <span *ngIf="!ser.CheckIfMainGrid(item.parentCol)" class="material-icons gridOption"
+            (click)="previewSer.deleteItem($event,item)">
+            delete
+        </span>
+        <span class="material-icons gridOption" (click)="previewSer.chooseElement($event,item)">
+            create
+        </span>
+    </div>
+    <div id="row" class="row" *ngFor="let row of rows" style="height: inherit;margin: 0px;">
+        <div id="col" class="{{col.attributes['class']?col.attributes['class']+'  hideBorder':'col p-1 hideBorder'}}"
+            *ngFor="let col of row.cols;" (drop)="onDropElement($event,col,0,'inner col')"
+            (dragover)="allowDrop($event)">
+            <div class="insideCol rectangle"
+                [ngClass]="!ser.builderMode||CheckIfMainGrid(item.parentCol)?'':(col.chooseCol||col.dragOverCol)?'edit':'noEdit'"
+                [ngStyle]="col.styles" (click)='previewSer.chooseCol($event,col,false);ser.moreOptions=false'
+                (dragover)="col.dragOverCol=true" (dragenter)="$event.preventDefault()"
+                (dragleave)="col.dragOverCol = false" (mouseout)="col.dragOverCol=false" mwlResizable
+                [enableGhostResize]="true" (resizeEnd)="onResizeEnd($event,col,grid)">
+                <div *ngIf="col.chooseCol && ser.builderMode&&!ser.CheckIfMainGrid(col.parentRow.parentItem.parentCol)"
+                    class="resize-handle-right resizedragger" [resizeEdges]="{ right: true }">
+                </div>
+                <div *ngIf="col.chooseCol && ser.builderMode&&!ser.CheckIfMainGrid(col.parentRow.parentItem.parentCol)"
+                    class="tileIcon"><i style="color: #ffffff;cursor: move;" class="fas fa-ellipsis-v" draggable="true"
+                        (dragstart)="dragCol(col,$event)" (click)="showColOptions(col,$event)"></i>
+                    <div *ngIf="col.chooseCol&&col.isColOptions" class="dropdown-menu show dropdown-menu-right"
+                        aria-labelledby="dropdownMenu2">
+                        <a class="dropdown-item" (click)="previewSer.deleteCol()"
+                            style="font-size: 13px;text-decoration: none;"><i class="fas fa-trash-alt"
+                                style="margin-right: 5px;"></i>Delete col</a>
+                        <a class="dropdown-item" (click)="previewSer.copyCol()"
+                            style="font-size: 13px;text-decoration: none;"><i class="far fa-copy"
+                                style="margin-right: 5px;"></i>Duplicate col</a>
+                    </div>
+                </div>
+                <div *ngFor="let it of col.items" class="divWrapItems">
+                    <div class="d-flex" [ngStyle]="it.styles.divStyles"
+                        (dragstart)="onDragElement($event,it,col,'element');showDragerElement($event,it.tagName)"
+                        [attr.draggable]="ser.builderMode" (dragenter)="showLocationToDrop(it,$event)">
+                        <span (click)='previewSer.chooseElement($event,it)' [ngSwitch]="it.tagName"
+                            class="{{it.tagName=='grid'?'gridOuterSpan':'itemPosition'}}" [ngClass]="!ser.builderMode||it.tagName=='grid'?
+                                        '':it.chooseElement?it.globalWidgetName?'showGlobalBorder':
+                                        it.lightBorder?'showWhiteBorder':
+                                        'showBorder': 'transparentBorder'" [ngStyle]="it.styles.spanStyles">
+                            <div (click)="showStartBuildComponent(it)" *ngIf="it.chooseElement" class="plusBuild">
+                                <i class="uil uil-plus-circle plusStyle "></i>
+                            </div>
+                            <div class="shineLine" *ngIf="it.underDrag">
+                            </div>
+                            <div class="demoQuill" *ngIf="it.chooseElement && it.tagName!='grid'&& ser.builderMode">
+                                <div #insideQuill class="insideQuill" [ngStyle]="insideQuill.parentNode.parentNode.parentNode.parentNode.parentNode.offsetWidth<insideQuill.offsetWidth?
+    {'max-width':insideQuill.parentNode.parentNode.parentNode.parentNode.parentNode.offsetWidth+'px',
+    'overflow':'auto'}:{}">
+                                    <i class="uil uil-copy fa-1x widgetOption" title="duplicate"
+                                        (click)="copyItem()"></i>
+                                    <!-- <p class="widgetOption"> |</p> -->
+                                    <i class="uil uil-trash-alt fa-1x widgetOption" title="delete"
+                                        (click)="previewSer.deleteItem($event)"></i>
+                                    <!-- <p class="widgetOption"> |</p> -->
+                                    <i class="uil uil-brush-alt fa-1x widgetOption" title="Copy Style"
+                                        (click)="generalAction.copyItemStyle(it)"></i>
+                                    <!-- <p class="widgetOption"> |</p> -->
+                                    <i class="uis uis-brush-alt fa-1x widgetOption"
+                                        [ngStyle]="{'color':!ser.stylesToCopy.simpleStyles.color?'grey':'black','pointer-events':!ser.stylesToCopy.simpleStyles.color?'none':'true','cursor':!ser.stylesToCopy.simpleStyles.color?'not-allowed':'pointer'}"
+                                        title="Paste Style" (click)="generalAction.pasteItemStyle(it)"></i>
+                                </div>
+                            </div>
+
+                            <app-grid style="width: 100%;position: relative;flex: none;" *ngSwitchCase="'grid'"
+                                [item]="it" [colOfItem]="col">
+                            </app-grid>
+                            <input *ngSwitchCase="'input'" [type]='ser.type' class="coreWidget"
+                                placeholder="{{it.attributes['placeholder']}}" [ngStyle]="it.styles.simpleStyles"
+                                style="width:50%">
+
+                            <button *ngSwitchCase="'button'" [ngStyle]="it.styles.simpleStyles"
+                                href="{{it.attributes['href']}}" title="{{it.attributes['title']}}"
+                                contenteditable="true" appSelectItem [text]="it.textContent"
+                                (click)="navigate(it.attributes['href'],it.attributes['target'],$event)"></button>
+                            <div *ngSwitchCase="'spacer'" class="coreWidget" [ngStyle]="it.styles.simpleStyles">
+                            </div>
+                            <hr *ngSwitchCase="'hr'" [ngStyle]="it.styles.simpleStyles" class="coreWidget">
+                            <ngb-datepicker *ngSwitchCase="'calendar'" [(ngModel)]="model" (select)="selectDate($event)"
+                                [ngStyle]="it.styles.simpleStyles">
+                            </ngb-datepicker>
+                            <h1 appSelectItem [text]="it.textContent" *ngSwitchCase="'h1'" class="coreWidget text"
+                                contenteditable="true" href="{{it.attributes['href']}}" dir="auto"
+                                (click)="navigate(it.attributes['href'],it.attributes['target'],$event)" #h1
+                                [ngStyle]="it.styles.simpleStyles">
+                            </h1>‏
+                            <h2 appSelectItem [text]="it.textContent" *ngSwitchCase="'h2'" contenteditable="true"
+                                href="{{it.attributes['href']}}" #h2 class="coreWidget text"
+                                (click)="navigate(it.attributes['href'],it.attributes['target'],$event)"
+                                [ngStyle]="it.styles.simpleStyles">
+                            </h2>
+                            <h5 appSelectItem [text]="it.textContent" *ngSwitchCase="'h5'" contenteditable="true"
+                                href="{{it.attributes['href']}}" #h5 class="coreWidget text"
+                                (click)="navigate(it.attributes['href'],it.attributes['target'],$event)"
+                                [ngStyle]="it.styles.simpleStyles">
+                            </h5>
+                            <p appSelectItem [text]="it.textContent" *ngSwitchCase="'p'" contenteditable="true"
+                                href="{{it.attributes['href']}}" #textSelect size="20"
+                                (click)="navigate(it.attributes['href'],it.attributes['target'],$event)"
+                                class="coreWidget text" [ngStyle]="it.styles.simpleStyles">
+                            </p>
+                            <app-dynamic-form *ngSwitchCase="'form'" class="coreWidget" [item]="it">
+                            </app-dynamic-form>
+                            <iframe *ngSwitchCase="'iframe'" [src]="it.attributes['specSrc'] | safe: 'resourceUrl'"
+                                [ngStyle]="it.styles.simpleStyles" allowfullscreen class="coreWidget"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+                            <img *ngSwitchCase="'img'" (dblclick)="dblClickImg(it)" [ngStyle]="it.styles.simpleStyles"
+                                href="{{it.attributes['href']}}" class="coreWidget"
+                                src="{{it.attributes['src']?it.attributes['src']:'assets/img/img.svg'}}"
+                                (click)="navigate(it.attributes['href'],it.attributes['target'],$event)">
+                            <youtube-player *ngIf="it.tagName=='video'" [ngStyle]="it.styles.simpleStyles"
+                                videoId="{{it.attributes['srcVideo']?it.attributes['srcVideo']:'VIDEO_ID'}}"
+                                suggestedQuality="{{it.attributes['youtubeSuggestedQuality']?it.attributes['youtubeSuggestedQuality']:'medium'}}"
+                                width='100%' class="coreWidget"
+                                [playerVars]="{controls:it.attributes['iframeControls']?it.attributes['iframeControls']:0 , autoplay:it.attributes['youtubeAutoPlay']?it.attributes['youtubeAutoPlay']:0}"
+                                (ready)="onReady($event)">
+                            </youtube-player>
+                            <h1 *ngSwitchCase="'counter'" class="coreWidget" #counter
+                                [ngStyle]="it.styles.simpleStyles">
+                                <app-counter [dateChanged]="it.attributes['date']" [item]="it"></app-counter>
+                            </h1>
+                            <h1 *ngSwitchCase="'slider'" #slider class="text coreWidget"
+                                [ngStyle]="it.styles.simpleStyles">
+                                <lable [ngStyle]="{'display':flagSlide?'block ':'none'}">value:{{value.value}}
+                                </lable>
+                                <div class="d-flex justify-content-center my-4">
+                                    <span class="font-weight-bold purple-text mr-2 mt-1"><b class="value">
+                                            {{it.attributes['minValue']}}</b></span>
+                                    <form class="range-field w-75">
+                                        <input #value (change)="updateSetting($event)" [value]="value" class="border-0"
+                                            type="range" min="it.attributes['minValue']"
+                                            maxs="it.attributes['maxValue']" />
+                                    </form>
+                                    <span class="font-weight-bold purple-text ml-2 mt-1"><b class="gridSizeValue">
+                                            {{it.attributes['maxValue']}}</b></span>
+                                </div>
+                            </h1>
+                            <div *ngIf="it.tagName=='carousel'" [ngStyle]="it.styles['simpleStyles']"
+                                class="coreWidget">
+                                <ngb-carousel *ngIf="it.attributes['items']"
+                                    [showNavigationArrows]="it.attributes['arrows']"
+                                    [pauseOnHover]="it.attributes['hover']" [pauseOnFocus]="it.attributes['focus']"
+                                    [showNavigationIndicators]="it.attributes['indicators']">
+                                    <ng-template ngbSlide *ngFor="let item of it.attributes['items']">
+                                        <div class="picsum-img-wrapper">
+                                            <img [src]="item.image" alt="Random first slide" width="80%" height="100%">
+                                        </div>
+                                    </ng-template>
+                                </ngb-carousel>
+                            </div>
+                            <h2 *ngSwitchCase="'accordion'" #h2 role="textbox" class="text coreWidget"
+                                [ngStyle]="it.styles.simpleStyles">
+                                <div *ngIf="it.attributes['accordion']=='enter yor question'">
+                                    <button [ngStyle]="it.styles.simpleStyles" class="accordion"
+                                        (click)="toggleHelper($event)">
+                                        <slot name="header"> enter your question</slot>
+                                    </button>
+                                    <div [ngStyle]="it.styles.simpleStyles" class="panel">
+                                        <slot name="details">
+                                            and enter your answer
+                                        </slot>
+                                    </div>
+                                </div>
+                                <div *ngIf="it.attributes['accordion']!='enter yor question'" class="coreWidget">
+                                    <div *ngFor="let item of it.attributes['accordion']">
+                                        <button class="accordion" (click)="toggleHelper($event)">
+                                            <slot [ngStyle]="it.styles.simpleStyles" name="header">{{ item.question }}
+                                            </slot>
+                                        </button>
+                                        <div class="panel">
+                                            <slot [ngStyle]="it.styles.simpleStyles" name="details">
+                                                {{ item.answer}}
+                                            </slot>
+                                        </div>
+                                    </div>
+                                </div>
+                            </h2>
+                            <a *ngSwitchCase="'a'" href="{{it.attributes['href']}}" [ngStyle]="it.styles.simpleStyles"
+                                class="coreWidget" contenteditable="true" appSelectItem [text]="it.textContent"
+                                (click)="navigate(it.attributes['href'],it.attributes['target'],$event)"></a>
+                            <div *ngSwitchCase="'lottie'" href="{{it.attributes['href']}}"
+                                contenteditable="{{ser.builderMode}}" class="coreWidget"
+                                (click)="navigate(it.attributes['href'],it.attributes['target'],$event)"
+                                (blur)="configContet(it)">
+                                <lottie-player src="{{it.attributes['lottieUrl']}}" background="transparent"
+                                    speed="{{it.attributes['speed']}}" loop controls autoplay></lottie-player>
+                            </div>
+                            <div *ngSwitchCase="'html'" class="coreWidget" [innerHTML]="it.textContent"></div>
+                            <a *ngSwitchCase="'project'" class="coreWidget" href="{{it.attributes['href']}}"
+                                [ngStyle]="it.styles.simpleStyles">
+                                <img src="{{it.attributes['specSrc']}}"
+                                    style="border-radius: 12px; box-shadow: 0px 15px 30px #AAAAAA21;" />
+                            </a>
+
+
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <input type="file" enctype="multipart/form-data" #file style="display: none;" (change)="changeImage($event)">
+</div>

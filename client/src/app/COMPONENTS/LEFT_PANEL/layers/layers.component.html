@@ -1,0 +1,41 @@
+<ul id="myUL" style="margin-top: 2vh;">
+    <li><span class="caret page" (click)="getLayers($event)">Header</span>
+        <div class="nested">
+            <ul>
+                <li>logo</li>
+                <li>pages</li>
+            </ul>
+        </div>
+    </li>
+</ul>
+<ul id="myUL" *ngFor="let page of ser.site.pages">
+    <li><span class="caret page" (click)="getLayers($event)">&nbsp; page: {{page.name}}</span>
+        <div class="nested">
+            <div *ngFor="let section of page.sections">
+                <ul>
+                    <li><span class="caret section" (click)="getMoreLayers($event)">&nbsp; block:
+                            {{section.name}}</span>
+                        <div class="nested" *ngFor="let row of section.item.rows">
+                            <div *ngFor="let col of row.cols">
+                                <ul>
+                                    <li><span [ngClass]="col.items.length>0?'caret':'' "
+                                            (click)="getMoreLayers($event)">&nbsp; Tile
+                                            {{(section.item.rows.indexOf(row)+1)*(row.cols.indexOf(col) +1)}}</span>
+                                        <div class="nested">
+                                            <div *ngFor="let item of col.items">
+                                                <ul>
+                                                    <li>item: {{item.tagName}}</li>
+                                                    <b>{{item.textContent}}</b>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </li>
+</ul>

@@ -1,0 +1,11 @@
+<div style="height: 80vh;overflow: auto;">
+    <br>
+    <div *ngFor="let action of historySer.arrToHistory" class="divAction" (click)="temp(action)">
+        <div class="d-flex justify-content-between">
+            <p  [ngStyle]="{'color':action.style['color']}" class="text-capitalize pAction">
+            &nbsp;{{ action.name+' '}}{{action.whatChange=='style'?action.description:action.whatChange}} </p>
+            <label _ngcontent-hoa-c100="" [ngStyle]="{'color':action.style['color']}" class="dateHistory" >
+            {{ action.date.split('.')[0]}}</label>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+<span *ngIf="!ser.deletePageLoader;" class="Loading"></span>
+<div class="modal-header">
+  <h4 class="modal-title pull-left">Delete This {{type}}</h4>
+  <button type="button" style="outline: none;" class="close pull-right" (click)="close()">
+    <span aria-hidden="true" class="modalTitle"><img src="assets/icons/Group 21273.svg"></span>
+  </button>
+</div>
+<div class="modal-body" [innerHTML]="body | safe:'html'">
+</div>
+<div class="modal-footer">
+  <button type="button" class="buttonModal" (click)="close()">Cancel</button>
+  <button type="button" class="buttonModalChoose" (click)="submit();close();">Delete</button>
+</div>

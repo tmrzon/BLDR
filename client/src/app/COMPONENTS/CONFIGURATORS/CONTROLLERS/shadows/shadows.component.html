@@ -1,0 +1,21 @@
+<div class="field__wrap  textShadow">
+    <div class="roundShadow">
+        <div style="display: flex;justify-content: space-between;margin-bottom: 8px;">
+            <span title="font-color" style="width: 22px;height: 3vh;border:blanchedalmond solid 1px;" class="spanColor"
+                [ngStyle]="{'background-color':textShadow.value}">
+                <input id="textShadow" style="opacity: 0;right: 0;" type="color" #textShadow title="font-color"
+                    (click)="stop($event)"
+                    (input)="changeStyles.emit({value:textShadow1.value+'px '+textShadow2.value+'px '+textShadow3.value+'px '+textShadow.value})">
+            </span>
+            <span class="spanColorStyle">X</span>
+            <input style="width: 22%;" class="Shadows" type="number" #textShadow1 min="0" value="1"
+                (input)="changeStyles.emit({value:textShadow1.value+'px '+textShadow2.value+'px '+textShadow3.value+'px '+textShadow.value})">
+            <span class="spanColorStyle">Y</span>
+            <input style="width: 22%;" class="Shadows" type="number" #textShadow2 min="0" value="1"
+                (input)="changeStyles.emit({value:textShadow1.value+'px '+textShadow2.value+'px '+textShadow3.value+'px '+textShadow.value})">
+            <span class="spanColorStyle">B</span>
+            <input style="width: 22%;" class="Shadows" type="number" #textShadow3 min="0" value="1"
+                (input)="changeStyles.emit({value:textShadow1.value+'px '+textShadow2.value+'px '+textShadow3.value+'px '+textShadow.value})">
+        </div>
+    </div>
+</div>

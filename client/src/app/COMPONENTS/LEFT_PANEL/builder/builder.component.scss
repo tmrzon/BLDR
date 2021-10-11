@@ -1,0 +1,267 @@
+.entireBuilder {
+    border-radius: 12px !important;
+    height: 90vh !important;
+    margin-left: 2vh;
+    margin-top: 1vh;
+    bottom: 5%;
+    padding-top: -2%;
+    position: sticky;
+    background-color: rgb(240, 240, 240);
+    width: 100%;
+    border-radius: 5px;
+    margin-top: 63px;
+    height: calc(100vh - 63px) !important;
+    z-index: 2;
+}
+body {
+    background-image: linear-gradient(to left, #cb2d3e, #ef473a);
+}
+
+.addWidget {
+    margin-left: 8%;
+    // width: 20%;
+    height: 25px;
+    text-align: left;
+    color: #989898;
+    font-size: 13px;
+    margin-top: 10px;
+}
+.clickModal {
+    width: 13%;
+    margin-left: 2%;
+}
+.bldrGallery {
+    margin-top: 8%;
+    margin-left: 22px;
+    width: 71%;
+    height: 12px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    width: 50%;
+}
+.height {
+    height: 100%;
+}
+.imgNameInGallery {
+    width: 60px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: white;
+    font-size: 12px;
+    margin-left: 5px;
+}
+.short-text {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 50px;
+}
+.wrapWidgetsIn {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    width: calc(9vw + 4px);
+    height: 100%;
+}
+.widgetButton {
+    cursor: move;
+    display: inline-flex;
+    text-align: center;
+    background-color: #4c4c4c;
+    font: 11px/16px Roboto;
+    font: normal normal normal Roboto;
+    width: 4.5vw;
+    margin: 1px;
+    height: 4.5vw;
+    padding: 5%;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border-radius: 4px;
+    text-overflow: clip;
+    white-space: nowrap;
+    overflow: hidden;
+    flex-direction: column;
+}
+.imgButton {
+    cursor: move;
+    display: inline-flex;
+    text-align: center;
+    font: 11px/16px Roboto;
+    font: normal normal normal Roboto;
+    width: 4.5vw;
+    margin: 1px;
+    height: 4.5vw;
+    padding: 5%;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border-radius: 4px;
+    text-overflow: clip;
+    white-space: nowrap;
+    overflow: hidden;
+    flex-direction: column;
+}
+.widgetButton:hover {
+    background-color: #626262;
+}
+img {
+    max-width: 100%;
+    border-radius: 1px;
+}
+.gridSectionsButtons {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: #fbcd4f;
+    width: 50%;
+    height: 3.5vw;
+}
+.gridSectionButtonsWraper {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #eee;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: gray;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: grey;
+}
+.wrapWidgets {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.builderIcon {
+    width: 35%;
+}
+.wrapIconImg {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.spanIcon {
+    text-align: center;
+    width: 4vw;
+    height: 3vw;
+    padding: 10%;
+}
+.builder {
+    border-radius: 5px;
+    height: 90vh;
+    width: 15vw;
+    padding-top: -2%;
+    background-color: #2e2e2e;
+    position: fixed;
+    left: 16px;
+    top: 70px;
+    padding-left: 3.5vw;
+}
+.imgWidget {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    fill: white;
+}
+
+form.example input[type="text"] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid black;
+    float: center;
+    width: 60%;
+    margin-top: 70px;
+    background: #f1f1f1;
+}
+
+form.example button {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    background: #2196f3;
+    color: white;
+    font-size: 17px;
+    border: 1px solid black;
+    border-left: none;
+    cursor: pointer;
+}
+
+form.example button:hover {
+    background: #0b7dda;
+}
+
+form.example::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+html {
+    margin: 20em auto;
+}
+body {
+    background-color: #005670;
+}
+.btn-search {
+    background: #000000;
+    border-radius: 0;
+    color: #fff;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #000000;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+.btn-search:link,
+.btn-search:visited {
+    color: #fff;
+}
+.btn-search:active,
+.btn-search:hover {
+    background: #000000;
+    color: #fff;
+}
+.clickWidget {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: #fbcd4f;
+    width: 4vw;
+    height: 4vw;
+}
+.wrapGrid {
+    height: calc(90vh - 3.5vw - 22px - 1.5em - 0.75rem - 0.75rem);
+    overflow: auto;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    align-content: center;
+}
+.showMore {
+    color: white;
+    font-size: 13px;
+    cursor: pointer;
+    display: block;
+    text-decoration: underline !important;
+}

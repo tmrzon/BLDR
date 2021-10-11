@@ -1,0 +1,183 @@
+.footer {
+  width: 100vw;
+  position: absolute;
+  padding-bottom: 30px;
+}
+.gridLines {
+  opacity: 0.35;
+  height: 100vh;
+  pointer-events: none;
+  position: fixed;
+  z-index: 9988;
+  top: 0;
+  width: 100vw;
+}
+.gridLine {
+  height: calc(100vw / 12);
+  border-bottom: 2px solid gray;
+}
+.gridLine1 {
+  height: calc(100vw / 24);
+  border-bottom: 2px solid gray;
+}
+.gridCol {
+  display: inline-block;
+  width: calc(100vw / 12);
+  height: 100%;
+}
+.gridCol1 {
+  display: inline-block;
+  width: calc(100vw / 24);
+  height: 100%;
+}
+.colBorder {
+  border-right: 2px solid gray;
+}
+.alert {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 0px !important;
+}
+.startBuild {
+  height: 25%;
+}
+.image {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+.image video {
+  width: 100vw;
+  vertical-align: top;
+}
+.image:after,
+.image:before {
+  position: absolute;
+  opacity: 0;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+}
+.image:after {
+  content: "\A";
+  width: 100vw;
+  height: 10vh;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+.image:before {
+  width: 100%;
+  color: #fff;
+  z-index: 1;
+  bottom: 0;
+  text-align: left;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+.image:hover:after,
+.image:hover:before {
+  opacity: 1;
+}
+.madeLove {
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  position: fixed;
+  bottom: 0px;
+  z-index: 99999;
+  width: 100%;
+  color: #fbcd4f;
+  text-align: center;
+  background-color: black;
+}
+
+.Loading {
+  top: 58px;
+  z-index: 9999;
+  position: absolute;
+  display: inline-block;
+  width: 100%;
+  height: 3px;
+  padding: 0% !important;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.Loading:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 0;
+  height: 100%;
+  border-radius: 4px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  animation: load 5s infinite;
+}
+
+@keyframes load {
+  0% {
+    width: 0;
+    background: #dbae30;
+  }
+
+  25% {
+    width: 40%;
+    background: #c29721;
+  }
+
+  50% {
+    width: 60%;
+    background: #a78320;
+  }
+
+  75% {
+    width: 75%;
+    background: #997825;
+  }
+
+  100% {
+    width: 100%;
+    background: #997d31;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    background: #dbae30;
+  }
+
+  25% {
+    background: #dfaa1a;
+  }
+
+  50% {
+    background: #a78320;
+  }
+
+  75% {
+    background: #997825;
+  }
+
+  100% {
+    background: #997d31;
+  }
+}
+
+.my-overlay {
+  left: 0 !important;
+  top: 0 !important;
+  z-index: 10000 !important;
+  width: 100% !important;
+  height: 100% !important;
+  position: fixed !important;
+  background-color: rgba(0, 0, 0, 0.4) !important;
+  cursor: pointer !important;
+  visibility: visible !important;
+  transition: visibility 0s, opacity 0.4s linear !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: wait !important;
+}

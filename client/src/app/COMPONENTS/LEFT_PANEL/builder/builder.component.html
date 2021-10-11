@@ -1,0 +1,274 @@
+<div class="entireBuilder">
+    <div class="fram_sidebarLeft d-flex align-items-center flex-column" id="sideLeftClose"
+        style="height: 90vh;border-radius: 8px;margin-top: 0px;">
+        <button class="clickWidget" (click)="statusBuilder('widget',$event)"><i class="fas fa-th"
+                style="font-size: 1.5vw;" title="Widgets"></i></button>
+        <span class="spanIcon"
+            [ngStyle]="{'background-color':ser.builderStatus=='pages'?'#2E2E2E':'#070706','border-left':ser.builderStatus=='pages'?'5px solid #FBCD4F':'none'}">
+            <a (click)="statusBuilder('pages',$event)" class="wrapIconImg">
+                <img src="assets/icons/file-earmark-fill (1).svg" title="Pages" class="builderIcon">
+            </a>
+        </span>
+        <span class="spanIcon"
+            [ngStyle]="{'background-color':ser.builderStatus=='layers'?'#2E2E2E':'#070706','border-left':ser.builderStatus=='layers'?'5px solid #FBCD4F':'none'}">
+            <a (click)="statusBuilder('layers',$event);getLayers()" class="wrapIconImg">
+                <img src="assets/icons/layers-fill.svg" title="Layers" class="builderIcon">
+            </a>
+        </span>
+        <span class="spanIcon"
+            [ngStyle]="{'background-color':ser.builderStatus=='assets'?'#2E2E2E':'#070706','border-left':ser.builderStatus=='assets'?'5px solid #FBCD4F':'none'}">
+            <a (click)="statusBuilder('assets',$event)" class="wrapIconImg">
+                <img src="assets/icons/image-gallery-solid.svg" title="Assets" class="builderIcon">
+            </a>
+        </span>
+        <span class="spanIcon"
+            [ngStyle]="{'background-color':ser.builderStatus=='history'?'#2E2E2E':'#070706','border-left':ser.builderStatus=='history'?'5px solid #FBCD4F':'none'}">
+            <a (click)="statusBuilder('history',$event);" title="history"
+                style="padding-top: 9px;font-weight: bold; width: 27px;height: 33px;">
+                <img src="assets/icons/history.svg" title="History" style="width: 40%;height: 2vh;color: white;">
+            </a>
+        </span>
+    </div>
+</div>
+<div *ngIf="ser.builderStatus!=''" [@slideLeftToRight] class="builder" (click)="$event.stopPropagation()">
+    <container-element [ngSwitch]="ser.builderStatus">
+        <some-element *ngSwitchCase="'widget'">
+            <div>
+                <div style="width: 100%;">
+                    <button (click)="$event.stopPropagation();grids=false"
+                        [ngStyle]="!grids?{'border-bottom':'#F0BE36 2px solid','color':'#F0BE36'}:{'border-bottom':'#A0A0A0 2px solid','color':'#A0A0A0'}"
+                        class="gridSectionsButtons" data-title="Widgets">Widget</button>
+                    <button (click)="$event.stopPropagation();grids=true"
+                        [ngStyle]="grids?{'border-bottom':'#F0BE36 2px solid','color':'#F0BE36'}:{'border-bottom':'#A0A0A0 2px solid','color':'#A0A0A0'}"
+                        class="gridSectionsButtons" data-title="Grids">Grid</button>
+                </div>
+                <div style="margin-top:10px;padding-bottom: 10px;" class="container">
+                    <div class="input-group">
+                        <input type="text" class="form-control"
+                            style="border:1px #4C4C4C solid;background-color: #4C4C4C;color: white;"
+                            [(ngModel)]="searchText2" placeholder="Search">
+                        <span class="input-group-btn" data-title="Search Category">
+                            <button class="btn btn-search"
+                                style="background-color: #4C4C4C !important;border-radius: 0%;border-color: #4C4C4C;"
+                                type="button"><i class="fa fa-search fa-fw"></i></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="wrapGrid" *ngIf="grids">
+                    <p *ngFor="let grid of gridsTypes" (click)="createGrid({gridType:grid.name})"
+                        (drag)="dragGridToCreate({gridType:grid.name})"
+                        (dragstart)="showDragerElement($event,grid.name)"
+                        style="cursor: pointer; display: inline-flex;background-color: transparent;width: 40%;height: 8vh;margin: 2%;justify-content: center;">
+                        <img src={{grid.img}} style="width: 100%; height: 100%; " ngbPopover="{{grid.name}}"
+                            placement="bottom">
+                    </p>
+                </div>
+                <div *ngIf="!grids" style="overflow: auto;height: calc(90vh - 3.5vw - 22px - 1.5em - .75rem - .75rem)">
+                    <div *ngFor="let c of myCategories|filter:searchText2">
+                        <div class="addWidget" *ngIf="ser.site.globalWidgetsName.length||c!='My global widgets'">
+                            {{c}}</div>
+                        <div *ngIf="c=='Typography'" class="wrapWidgets">
+                            <span class="widgetButton" (click)="createElement('h1');" (drag)="dragElement('h1');"
+                                (dragstart)="showDragerElement($event,'h1')">
+                                <img src="assets\icons\1.svg" class="imgWidget">
+                                Title
+                            </span>
+                            <span class="widgetButton" (click)="createElement('p');" (drag)="dragElement('p');">
+                                <img src="assets\icons\2.svg" class="imgWidget"
+                                    (dragstart)="showDragerElement($event,'p')">
+                                Paragraph
+                            </span>
+                        </div>
+                        <div *ngIf="c=='Media'" class="wrapWidgets">
+                            <span class="wrapWidgetsIn">
+                                <span class="widgetButton" (click)="createElement('video');"
+                                    (drag)="dragElement('video');" (dragstart)="showDragerElement($event,'video')">
+                                    <img src="assets\icons\4.svg" class="imgWidget">
+                                    Youtube
+                                </span>
+                                <span class="widgetButton" (click)="createElement('img');" (drag)="dragElement('img');"
+                                    (dragstart)="showDragerElement($event,'img')">
+                                    <img src="assets\icons\3.svg" class="imgWidget">
+                                    img
+                                </span>
+                                <span class="widgetButton" (click)="createElement('carousel');"
+                                    (drag)="dragElement('carousel');"
+                                    (dragstart)="showDragerElement($event,'carousel')">
+                                    <img src="assets/icons/Group 19573.svg" class="imgWidget">
+                                    Carousel
+                                </span>
+                                <span class="widgetButton" (click)="createElement('counter');"
+                                    (drag)="dragElement('counter');" (dragstart)="showDragerElement($event,'counter')">
+                                    <img src="assets/icons/Group 19571.svg" class="imgWidget">
+                                    Counter
+                                </span>
+                            </span>
+                        </div>
+                        <div *ngIf="c=='Layout'" class="wrapWidgets">
+                            <span class="wrapWidgetsIn">
+                                <span class="widgetButton" (click)="createElement('button');"
+                                    (drag)="dragElement('button');" (dragstart)="showDragerElement($event,'button')">
+                                    <img src="assets\icons\Group 21494.svg" class="imgWidget">
+                                    Button
+                                </span>
+                                <span class="widgetButton" (click)="createElement('a');" (drag)="dragElement('a');"
+                                    (dragstart)="showDragerElement($event,'a')">
+                                    <img src="assets\icons\Group 21492.svg" class="imgWidget">
+                                    Link
+                                </span>
+                                <span class="widgetButton" (click)="createElement('lottie');"
+                                    (drag)="dragElement('lottie');" (dragstart)="showDragerElement($event,'lottie')">
+                                    <img src="assets\icons\5.svg" class="imgWidget">
+                                    Lottie
+                                </span>
+                                <span class="widgetButton" (click)="createElement('spacer');"
+                                    (drag)="dragElement('spacer');" (dragstart)="showDragerElement($event,'spacer')">
+                                    <img src="assets\icons\6.svg" class="imgWidget">
+                                    Spacer
+                                </span>
+                                <span class="widgetButton" (click)="createElement('hr')" (drag)="dragElement('hr')"
+                                    (dragstart)="showDragerElement($event,'hr')">
+                                    <img src="assets\icons\7.svg" class="imgWidget">
+                                    Divider
+                                </span>
+                            </span>
+                        </div>
+                        <div *ngIf="c=='More'" class="wrapWidgets">
+                            <span class="wrapWidgetsIn">
+                                <span class="widgetButton" (click)="createElement('html');"
+                                    (drag)="dragElement('html');" (dragstart)="showDragerElement($event,'html')">
+                                    <img src="assets\icons\8.svg" class="imgWidget">
+                                    Html
+                                </span>
+                                <span class="widgetButton" (click)="createElement('iframe'); "
+                                    (drag)="dragElement('iframe'); " (dragstart)="showDragerElement($event,'iframe')">
+                                    <img src="assets\icons\Group 19535.svg" class="imgWidget">
+                                    Iframe
+                                </span>
+                                <span class="widgetButton" (click)="createElement('accordion'); "
+                                    (drag)="dragElement('accotdion'); "
+                                    (dragstart)="showDragerElement($event,'accotdion')">
+                                    <img src="assets\icons\Group 19535.svg" class="imgWidget">
+                                    Accordion
+                                </span>
+                                <!-- <span class="widgetButton" (click)="createElement('slider'); "
+                                (drag)="dragElement('slider'); " (dragstart)="showDragerElement($event,'slider')">
+                                <img src="assets\icons\Group 19535.svg" class="imgWidget">
+                                Slider
+                            </span> -->
+                            </span>
+                        </div>
+                        <div *ngIf="c=='Forms'" class="wrapWidgets">
+                            <span class="wrapWidgetsIn">
+                                <span class="widgetButton" (click)="createElement('form');"
+                                    (drag)="dragElement('form');" (dragstart)="showDragerElement($event,'form')">
+                                    <img src="assets\icons\55.svg" class="imgWidget">
+                                    Form
+                                </span>
+                                <span class="widgetButton" (click)="addQuestion('input'); "
+                                    (drag)="addQuestion('input'); " (dragstart)="showDragerElement($event,'input')">
+                                    <img src="assets\icons\Group 21582.svg" class="imgWidget">
+                                    input
+                                </span>
+                                <span class="widgetButton" (click)="addQuestion('textarea')"
+                                    (dragstart)="showDragerElement($event,'textarea')" (drag)="addQuestion('textarea')">
+                                    <img src="assets\icons\tag.svg" class="imgWidget">
+                                    textarea
+                                </span>
+                                <span class="widgetButton" (click)="addQuestion('dropdown'); "
+                                    (drag)="addQuestion('dropdown'); "
+                                    (dragstart)="showDragerElement($event,'dropdown')">
+                                    <img src="assets\icons\sticky.svg" class="imgWidget">
+                                    dropdown
+                                </span>
+                                <span class="widgetButton" (click)="addQuestion('checkbox'); "
+                                    (drag)="addQuestion('checkbox'); "
+                                    (dragstart)="showDragerElement($event,'checkbox')">
+                                    <img src="assets\icons\Group 21584.svg" class="imgWidget">
+                                    check-box
+                                </span>
+                                <span class="widgetButton" (click)="addQuestion('radio'); "
+                                    (drag)="addQuestion('radio'); " (dragstart)="showDragerElement($event,'radio')">
+                                    <img src="assets\icons\Group 21583.svg" class="imgWidget">
+                                    radio-button
+                                </span>
+                            </span>
+                        </div>
+                        <div *ngIf="c=='My global widgets'&&ser.site.globalWidgetsName.length" class="wrapWidgets">
+                            <span class="wrapWidgetsIn">
+                                <span *ngFor="let g of ser.site.globalWidgetsName" class="widgetButton"
+                                    (click)="createElement(g.name)" (drag)="dragElement(g.name)">
+                                    <i class="fas fa-globe fa-3x imgWidget"></i>
+                                    {{g.name}}
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </some-element>
+        <some-element *ngSwitchCase="'pages'">
+            <div class="height">
+                <div class="bldrGallery">
+                    Pages</div>
+                <app-all-pages></app-all-pages>
+            </div>
+        </some-element>
+        <some-element *ngSwitchCase="'layers'">
+            <div class="height">
+                <div class="bldrGallery">
+                    Dom tree</div>
+                <app-layers></app-layers>
+            </div>
+        </some-element>
+        <some-element *ngSwitchCase="'assets'">
+            <div class="height">
+                <span>
+                    <ng-template #template>
+                        <app-modal-image></app-modal-image>
+                    </ng-template>
+                </span>
+                <div class="bldrGallery">
+                    Assets</div>
+                <div class="container" style=" margin-top:3vh;padding-bottom: 2vh;margin-left: 8px;">
+                    <div class="input-group">
+                        <input type="text" class="form-control"
+                            style="border:1px #4C4C4C solid;background-color: #4C4C4C;color: white;"
+                            [(ngModel)]="searchText" placeholder="Search">
+                        <span class="input-group-btn" data-title="Search Category">
+                            <button class="btn btn-search"
+                                style="background-color: #4C4C4C !important;border-radius: 0%;border-color: #4C4C4C;"
+                                type="button"><i class="fa fa-search fa-fw"></i></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="bldrGallery" style="margin-top: 0vh !important;">
+                    Site files</div>
+                <div style="margin-left: 21px;margin-right: 7px;margin-top: 2vh;">
+                    <div *ngFor="let i of builderSer.source2|filter:searchText" style="display:inline-block ;">
+                        <div *ngIf="builderSer.source1.indexOf(i)/3==0">
+                        </div>
+                        <img class="imgButton"
+                            (click)="ser.imgToChange='createImg';chooseNoImg(i.id,$event);insertImg(i.img,ser.imgToChange); ;"
+                            (drag)="dragimg(i.img,$event); " src={{i.img}}>
+                        <div class="imgNameInGallery">
+                            <span class="short-text"> {{i.imgName}}</span>
+                        </div>
+                    </div>
+                    <a (click)="ser.imgToChange='createImg';generalActionsSer.openModal(template);"
+                        class="showMore">Show
+                        more >
+                    </a>
+                </div>
+            </div>
+
+        </some-element>
+        <some-element *ngSwitchCase="'history'">
+            <div class="height">
+                <div class="bldrGallery">
+                    History</div>
+                <app-actions-history style="height: 90vh;"></app-actions-history>
+            </div>
+        </some-element>
+    </container-element>
+</div>

@@ -1,0 +1,68 @@
+<div class="d-flex justify-content-center align-items-center dragHandle" draggable="true"
+    (dragend)="dragConfigurator($event)" (dragstart)="dragConfiguratorImg($event)">
+    <div style="position: absolute;left: 3px;" *ngIf="drag" [ngClass]="fly?'divFly':''" > <i (click)="dragConfigurator($event,true);" class="fa fa-space-shuttle" title="Return" style="color: #F0BE36;cursor: pointer;"></i></div>
+    <img src="assets/icons/Group 19249.png" alt="" class="dragImg">
+    
+  
+</div>
+<div class="allEdits" >
+    <container-element [ngSwitch]="ser.configuratorFlag" style="scrollbar-width: 0px;">
+        <some-element *ngSwitchCase="'editingForm'">
+            <app-c-form></app-c-form>
+        </some-element>
+        <some-element *ngSwitchCase="'editingElement'" >
+            <container-element [ngSwitch]="ser.whatLast">
+                <some-element *ngSwitchCase="'grid'">
+                    <app-c-grid></app-c-grid>
+                </some-element>
+                <some-element *ngSwitchCase="'img'">
+                    <app-cw-image></app-cw-image>
+                </some-element>
+                <some-element *ngSwitchCase="'video'">
+                    <app-cw-youtube></app-cw-youtube>
+                </some-element>
+                <some-element *ngSwitchCase="'lottie'">
+                 <app-cw-lottie></app-cw-lottie>
+                </some-element>
+                <some-element *ngSwitchCase="['button','a'].includes(ser.whatLast) ? ser.whatLast : !ser.whatLast">
+                    <app-cw-link></app-cw-link>
+                </some-element>
+                <some-element
+                    *ngSwitchCase="['p', 'h1', 'h2','h3','h4','h5','h6'].includes(ser.whatLast) ? ser.whatLast : !ser.whatLast">
+                    <app-cw-text></app-cw-text>
+                </some-element>
+                <some-element *ngSwitchCase="'carousel'">
+                    <app-cw-carusel></app-cw-carusel>
+                </some-element>
+                <some-element *ngSwitchCase="'accordion'">
+                    <app-cw-accordion></app-cw-accordion>
+                </some-element>
+                <some-element *ngSwitchCase="'counter'">
+                    <app-cw-counter></app-cw-counter>
+                </some-element>
+            </container-element> 
+        </some-element>
+
+        <some-element *ngSwitchCase="'header'">
+            <app-c-wheader></app-c-wheader>
+        </some-element>
+
+        <some-element *ngSwitchCase="'generalSetting'">
+          <app-c-site></app-c-site>
+        </some-element>
+
+        <some-element *ngSwitchCase="'editSite'">
+            <app-c-site></app-c-site>
+        </some-element>
+        <some-element *ngSwitchCase="'editCol'">
+            <app-c-col></app-c-col>
+        </some-element>
+
+        <some-element *ngSwitchCase="'editPage'">
+            <app-c-page></app-c-page>
+        </some-element>
+    </container-element>
+</div>
+<ng-template #template>
+    <app-modal-image></app-modal-image>
+</ng-template>

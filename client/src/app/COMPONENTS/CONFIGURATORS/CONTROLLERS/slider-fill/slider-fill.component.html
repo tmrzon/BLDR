@@ -1,0 +1,5 @@
+<input type="range" [min]="minValue" [max]="maxValue" #size class="rangeInput"
+    (input)="changeStyles.emit({value:size.value+measureUnit})" paintRangeInput step="{{step?step:1}}"
+    style="background: linear-gradient(to right, #fbcd4f 0%, #fbcd4f 50%, #fff 50%, white 100%);"
+    [colorValue]="ser.lastItem.styles[stylesLocation][style]?ser.lastItem.styles[stylesLocation][style].split(measureUnit)[0]:'50'"
+    [attr.value]="ser.lastItem.styles[stylesLocation][style]?ser.lastItem.styles[stylesLocation][style].split(measureUnit)[0]:'50'">

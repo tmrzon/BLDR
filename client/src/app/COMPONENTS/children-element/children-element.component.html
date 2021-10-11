@@ -1,0 +1,22 @@
+<div *ngFor="let child of children">
+    <button [appSetAttributes]=child.attributes *ngIf="child.tagName=='button'"
+        style="max-width:100%">button</button>
+        <h1 [appSetAttributes]=child.attributes *ngIf="child.tagName=='h1'"
+        style="max-width:100%">{{child.textContent}}</h1>
+    <!-- <input [appSetAttributes]=child.attributes type="text" *ngIf="child.tagName=='input'"
+        (dragstart)="onDragElement($event,child,col)" draggable="true" style="max-width:100%;"
+        (click)='chooseElement($event,child,col)'> -->
+    <div [appSetAttributes]=child.attributes *ngIf="child.tagName=='div'"
+    style="max-width:100%"></div>
+    <ol [appSetAttributes]=child.attributes *ngIf="child.tagName=='ol'"
+    style="max-width:100%"></ol>
+    <img [appSetAttributes]=child.attributes *ngIf="child.tagName=='img'"
+    style="max-width:100%">
+    <h5 [appSetAttributes]=child.attributes *ngIf="child.tagName=='h5'"
+    style="max-width:100%"></h5>
+    <i [appSetAttributes]=child.attributes *ngIf="child.tagName=='i'"
+    style="max-width:100%"></i>
+    <a [appSetAttributes]=child.attributes *ngIf="child.tagName=='a'"
+    style="max-width:100%"></a>
+    <app-children-element *ngIf="child.children.length>0" [children]="child.children"></app-children-element>
+</div>

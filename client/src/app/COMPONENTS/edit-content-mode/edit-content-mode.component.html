@@ -1,0 +1,10 @@
+<div id="options" style="padding-left: 10px;" class="builderPanelWidth   paddingUnderTop  "
+    [ngStyle]="ser.content1Styles2">
+    <app-builder class="builder">
+    </app-builder>
+</div>
+<div #content
+    [ngClass]="ser.statusScreen=='desktop'&&ser.configuratorDragRight!=0?'form-in-desktop2':ser.statusScreen=='desktop'?'form-in-desktop':ser.statusScreen=='tablet'?'form-in-tablet':'form-in-phone'">
+    <iframe #iframeForContent scrolling="yes" [src]="ser.iframeUrl" frameborder="0"class="iframe">
+    </iframe>
+</div>

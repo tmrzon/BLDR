@@ -1,0 +1,30 @@
+
+<div class="container-fluid" style="height: 100vh;margin-top: 5vh;margin-left: 12%;overflow: scroll;">
+    <div class="row pr-1">
+        <div *ngIf="flagStatus==1" style="display: flex;width: 80%;">
+            <div class="createNewSite">
+                <div style="text-align: center;min-width: 45%;">
+                    <img class="imgSite" src="assets/img/Group 19497.svg"><br><br>
+                    <span class="spanSite">Create it yourself</span><br>
+                    <span class="spanSite2">Create your site that fits<br> your needs</span><br><br>
+                    <button class="btnSite" (click)="siteType='blank';generalSer.createNewSite(siteType)">Start
+                        Now</button>
+                </div>
+                <div class="or" >
+                    <span class="spanOr" >Or</span>
+                </div>
+                <div style="text-align:center;min-width: 45%;margin-left: 20px;">
+                    <img class="imgSite" src="assets/img/Folder.svg"><br><br>
+                    <span class="spanSite">Choose template</span><br>
+                    <span class="spanSite2">Choose one of our templates<br> to do it easily</span><br><br>
+                    <button class="btnSite" (click)="siteType='bldrTemplate';generalSer.createNewSite(siteType)">Insert Template</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="!ser.newSiteLoader" class="my-overlay ">
+    <img style="padding-right: auto;padding-left: auto; " src="assets/loader/Loading.gif">
+</div>
+

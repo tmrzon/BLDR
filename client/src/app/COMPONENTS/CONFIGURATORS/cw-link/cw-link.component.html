@@ -1,0 +1,155 @@
+<h1 class="topTitle">
+    Edit {{ser.lastItem.tagName=='button'?'Button':ser.lastItem.tagName}}</h1>
+
+<app-global-widget></app-global-widget>
+
+<div class="wrapWidgetConfigs">
+
+    <div class="accordion-item">
+
+        <div class="card-body p-0" style="color: black;">
+            <div class="field LR_from_field">
+                <div class="field__label ">Add Link
+                </div>
+                <div class="field__wrap" style="display: block;">
+
+
+                    <input list="select" style="width: 90%" class="field__input LR_input_in_configurator " name="select"
+                        #href placeholder="Enter Url" (input)="changeStylesG(['href'],href.value,'attribute')"
+                        (click)="$event.stopPropagation()">
+                    <datalist id="select" #hrefValue (input)="changeStylesG(['href'],hrefValue.value,'attribute')">
+                        <option style="text-align: center;" value="{{s.url}}" *ngFor="let s of ser.site.pages">
+                            {{s.name}}</option>
+                    </datalist>
+
+                    <label class="container" style="color: white;" (click)="changeStylesG(['target'],'_self','attribute')">Current
+                        Window
+                        <input type="radio" name="radio" checked="checked">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container paddingBottom" style="color: white;"
+                        (click)="changeStylesG(['target'],'_blank','attribute')">New
+                        Window
+                        <input type="radio" name="radio">
+                        <span class="checkmark"></span>
+                    </label>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingz">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapsez" aria-expanded="true" aria-controls="collapsez">
+                    Content
+                </button>
+            </h2>
+            <div id="collapsez" class="accordion-collapse collapse show" aria-labelledby="headingz"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <div class="field LR_from_field">
+                        <div class="field__label marginTop">Content
+                        </div>
+                        <div class="field__wrap ">
+                            <textarea type="text" class="field__input LR_input_in_configurator textContent" #textContent
+                                (keyup)="changeContent(textContent.value)" (focus)="saveContentPrev()"
+                                (blur)="changeStylesG(['simpleStyles','content'],contentPrev)"
+                                value="{{ser.lastItem.textContent.value}}"></textarea>
+                        </div>
+                        <hr class="hrStyle">
+                        <div class="field LR_from_field">
+                            <div class="field__label ">Font Family</div>
+                            <div class="field LR_from_field">
+                                <app-selects [style]="'font-family'"  (changeStyles)="changeStylesG(['simpleStyles','font-family'],$event.value)"></app-selects>
+                            </div>
+                        </div>
+                        <div class="field__label ">Font Weight</div>
+                        <div class="field LR_from_field">
+                            <app-selects [style]="'font-weight'"  (changeStyles)="changeStylesG(['simpleStyles','font-weight'],$event.value)"></app-selects>
+                        </div>
+                    </div>
+                    <hr class="hrStyle">
+                    <app-slider-with-number [minValue]="50" [maxValue]="300" [img]="'assets/icons/text-size.svg'"
+                        (changeStyles)="changeStylesG(['simpleStyles','font-size'],$event.value)" [style]="'font-size'"
+                        [measureUnit]="'px'">
+                    </app-slider-with-number>
+                    <hr class="hrStyle">
+                    <div class="field LR_from_field">
+                        <div class="field__label ">Alignment
+                        </div>
+                        <app-alignment [style]="'text-align'" (changeStyles)="changeStylesG(['simpleStyles','text-align'],$event.value)" >
+                        </app-alignment>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                    Colors
+                </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+
+                    <div class="field LR_from_field" style="padding-right: 2px;margin-top: 8px;">
+                        <div class="field__label ">
+                            Font Color
+                        </div>
+                        <app-colors [style]="'color'" (changeStyles)="changeStylesG(['simpleStyles','color'],$event.value)"></app-colors>
+                    </div>
+                </div>
+                <hr class="hrStyle">
+                <div style="display: block;" class="field LR_from_field">
+                    <h4 class="field__label ">
+                        Text Shadow</h4>
+                        <app-shadows (changeStyles)="changeStylesG(['simpleStyles','text-shadow'],$event.value)"></app-shadows>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                    Spacing
+                </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse show" aria-labelledby="headingThree"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <div class="field LR_from_field">
+                        <app-box-model (changeStyles)="changeStylesG($event.keys,$event.value+'px')"></app-box-model>
+                    </div>
+                    <app-slider-with-number [img]="'assets/icons/kerning.svg'" [minValue]="1" [maxValue]="100"
+                        (changeStyles)="changeStylesG(['simpleStyles','letter-spacing'],$event.value)" [style]="'letter-spacing'"
+                        [measureUnit]="'px'">
+                    </app-slider-with-number>
+                    <app-slider-with-number [minValue]="0" [maxValue]="1" [img]="'assets/icons/text-size.svg'"
+                        [step]="0.1" (changeStyles)="changeStylesG(['simpleStyles','line-height'],$event.value)" [style]="'line-height'">
+                    </app-slider-with-number>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingSix">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
+                    Borders
+                </button>
+            </h2>
+            <app-borders (changeStyles)="changeStylesG(['simpleStyles',$event.key],$event.value)"></app-borders>
+        </div>
+        <div class="accordion-item">
+            <app-animations  (changeStyles)="changeStylesG($event.keys,$event.value)"></app-animations>
+        </div>
+    </div>
+</div>

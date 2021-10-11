@@ -1,0 +1,25 @@
+<div id="LC_userComponent" class="d-inline-block position-absolute">
+    <div class="align-items-end d-flex flex-column">
+        <img class="LC_imageUser mr-3" src="{{userImg}}" alt=""
+            (click)="openUserComponent=!openUserComponent;$event.stopPropagation()">
+        <div *ngIf="openUserComponent" id="LC_userDetailsDiv" style="z-index: 99999;"
+            class="mx-auto pb-4 pt-3 rounded text-center mx-md-0 mr-md-3">
+            <div *ngIf="user"> <img class="LC_imageUser btn p-0" (click)="myProfile()" src="{{userImg}}">
+                <p class="mb-0 userName">
+                    {{user.displayName}}</p>
+                <p class="mt-0" style="color: #75798E">{{user.email}}</p>
+                <div class="d-flex flex-column" style="width: 100%">
+                    <button (click)="signOut()" class="btn LC_btnUserComponent py-1 mb-1 ">Sign Out</button>
+                    <button (click)="myProfile()" class="btn LC_btnUserComponent py-1">My Profile</button>
+                </div>
+            </div>
+            <div *ngIf="!user" class="d-flex" style="width: 100%">
+                <button (click)="logIn()" class="btn LC_btnUserComponent py-1">logIn</button>
+            </div>
+            <hr id="LC_hr"
+                style="border: 0.5px solid #F5F5FA; margin-top: 1.5rem; margin-right: -2rem; margin-left: -2rem">
+            <a target='_blank' href='https://dev.accounts.codes/tos' class='LC_linksFooter'>Privacy Policy</a>
+            <span class='LC_linksFooter LC_point'>&#8226;</span>
+            <a target='_blank' href='https://dev.accounts.codes/tos' class='LC_linksFooter'>Terms of use</a>
+        </div>
+    </div>

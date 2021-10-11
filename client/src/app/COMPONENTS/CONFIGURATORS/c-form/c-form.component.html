@@ -1,0 +1,195 @@
+<h1 class="topTitle">
+    Edit Form</h1>
+<app-global-widget></app-global-widget>
+
+<div class="wrapWidgetConfigs">
+    <!-- <p style="color: white;font-size: medium;">All Inputs In The Form:</p>
+<br>
+<div *ngFor="let question of ser.lastItem.children" style="border-bottom: gray solid 1px;margin-left: 5px;">
+    <div _ngcontent-serverapp-c102="" class="custom-control custom-switch" style="display: inline-block;">
+        <input _ngcontent-serverapp-c102="" type="checkbox" checked="" id="'switch'+{{question.order}}" name="example"
+            class="custom-control-input">
+        <label _ngcontent-serverapp-c102="" for="'switch'+{{question.order}}" class="custom-control-label"
+            style="color: black;">{{question.key}}</label>
+    </div>
+    <div class="field__wrap ">
+        <input type="text" class="field__input LR_input_in_configurator" #textContent
+            style="background-color: white;height: 40px;border-color: black;" value="{{question.label}}"
+            (input)="changeFormInputs(question,textContent.value)">
+    </div>
+</div> -->
+    <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingForm">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseForm"
+                    aria-expanded="true" aria-controls="collapseForm">
+                    Inputs in form
+                </button>
+            </h2>
+            <div id="collapseForm" class="accordion-collapse collapse show" aria-labelledby="headingForm"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body marginTop marginBottom ">
+                    <div *ngFor="let question of ser.lastItem.children"
+                        style="margin-left: 8px;margin-right: 8px;width: calc(100% - 16px);">
+                        <!-- <span style="color: black;">{{question.key}}</span> -->
+                        <div _ngcontent-serverapp-c102="" class="custom-control custom-switch"
+                            style="display: inline-block;margin-left: 8px;padding-top: 2px;padding-bottom: 2px;">
+                            <input _ngcontent-serverapp-c102="" type="checkbox"
+                                (change)="changeInputsInForm(question,$event)" checked id="switch{{question.order}}"
+                                name="example" class="custom-control-input">
+                            <label _ngcontent-serverapp-c102="" for="switch{{question.order}}"
+                                class="custom-control-label"
+                                style="color: white;font-size: 15px;">{{question.key}}</label>
+                        </div>
+                        <div class="field__wrap " *ngIf="question.enable">
+                            <input type="text" (input)="changeFormInput(question,textContent.value)"
+                                class="field__input LR_input_in_configurator" #textContent value="{{question.label}}">
+                        </div>
+                        <!-- <br>
+       <i  style="font-size: 25px;color:#D69E02 ;margin-left: 5px;cursor: pointer;" 
+       class="fa fa-plus-square" (click)="newInput=true"></i>
+       <br>
+       <select *ngIf="newInput" name="" #type>
+           <option *ngFor="let type of inputsTypes" value="type">{{type}}</option>
+       </select>
+       <button (click)="newInputToForm(type.value)">Add</button> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingFormStyle">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseFormStyle" aria-expanded="true" aria-controls="collapseFormStyle">
+                    Style Inputs in form
+                </button>
+            </h2>
+            <div id="collapseFormStyle" class="accordion-collapse collapse show" aria-labelledby="headingFormStyle"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <div class="field LR_from_field">
+                        <div class="field__label ">
+                            Width
+                        </div>
+                        <app-slider-with-number [img]="'assets/icons/image-gallery-solid.svg'" [minValue]="1"
+                            [maxValue]="100" (changeStyles)="changeStylesG(['formInputsStyle','width'],$event.value)"
+                            [style]="'width'" [measureUnit]="'%'" [stylesLocation]="'formInputsStyle'">
+                        </app-slider-with-number>
+                        <!-- <div style="display: flex;justify-content: center;">
+                            <input type="range" min="1" [attr.max]="ser.whatLast=='col'?12:100" #widthInputs
+                                [(ngModel)]="ser.lastItem.styles['formInputsStyle']['width-inputs']"
+                                (input)="changeStylesInput('min-width-form-inputs',widthInputs.value,0)" class="rengeStyle"
+                                style="color: black;width: 50%;">
+                            <input class="field__label inputNumber" type="number" min="0" title="border-width"
+                                (input)="changeStylesInput('min-width',widthInputs2.value)"
+                                style="font-size: 12px;color: white;outline: none;width: 15%;margin-left: 0% !important;"
+                                [(ngModel)]="ser.lastItem.styles['formInputsStyle']['width-inputs']" #widthInputs2>
+                        </div> -->
+                        <!-- <div class="field__wrap ">
+                        <input type="range" min="1" [attr.max]="ser.whatLast=='col'?12:100" #widthInputs
+                        [(ngModel)]="ser.lastItem.styles['formInputsStyle']['width']"  (input)="changeStylesInput('min-width',widthInputs.value)">
+
+                    </div> -->
+                    </div>
+                    <hr class="hrStyle">
+                    <div class="field LR_from_field">
+                        <h4 class="field__label">
+                            Border
+                        </h4>
+                        <app-borders (changeStyles)="changeStylesG(['formInputsStyle',$event.key],$event.value)"></app-borders>
+                        <!-- <div class="field__wrap ">
+                            <div class="borderOptionsWrap">
+                                <div class="borders">
+                                    <img class="borderOption"
+                                        [ngStyle]="ser.lastItem.styles.simpleStyles['border-style']=='dotted'?{'border': '2px solid #fbcd4f'}:{}"
+                                        (click)="kindOfBorder='dotted ';changeStyles('border-style',kindOfBorder,borderColor.value)"
+                                        src="assets/icons/Group 21455.svg">
+                                    <img class="borderOption"
+                                        [ngStyle]="ser.lastItem.styles.simpleStyles['border-style']=='solid'?{'border': '2px solid #fbcd4f'}:{}"
+                                        (click)="kindOfBorder='solid ';changeStyles('border-radius',5)"
+                                        src="assets/icons/Group 21459.svg">
+                                    <img class="borderOption"
+                                        [ngStyle]="ser.lastItem.styles.simpleStyles['border-style']=='solid'?{'border': '2px solid #fbcd4f'}:{}"
+                                        (click)="kindOfBorder='solid ';changeStyles('border-style',kindOfBorder,borderColor.value)"
+                                        src="assets/icons/Group 21456.svg">
+                                    <img class="borderOption"
+                                        [ngStyle]="ser.lastItem.styles.simpleStyles['border-style']=='double'?{'border': '2px solid #fbcd4f'}:{}"
+                                        (click)="kindOfBorder='double ';changeStyles('border-style',kindOfBorder,borderColor.value)"
+                                        src="assets/icons/Group 21458.svg">
+                                    <img class="borderOption"
+                                        [ngStyle]="ser.lastItem.styles.simpleStyles['border-style']=='dashed'?{'border': '2px solid #fbcd4f'}:{}"
+                                        (click)="kindOfBorder='dashed ';changeStyles('border-style',kindOfBorder,borderColor.value)"
+                                        src="assets/icons/Group 21457.svg">
+                                    <img class="borderOption"
+                                        [ngStyle]="ser.lastItem.styles.simpleStyles['border-style']=='none'?{'border': '2px solid #fbcd4f'}:{}"
+                                        (click)="changeStyles('border-style','none')"
+                                        src="assets/icons/Group 21460.svg">
+                                </div>
+                                <div style="display: flex;justify-content: center;">
+                                    <span title="border-color" class="spanColor"
+                                        style="margin-top: 8px; margin-left: 8px;"
+                                        [ngStyle]="{'background-color':ser.lastItem.styles['formInputsStyle']['border-color']}">
+                                        <input id="color" style="opacity: 0;position: absolute;right: 0;" type="color"
+                                            #borderColorForm title="border-color" (click)="stop($event)"
+                                            (input)="changeStylesInput('border',borderSizeForm.value+'px '+kindOfBorderForm+' '+borderColorForm.value,borderColorForm.value,borderSizeForm.value)">+
+
+                                    </span>
+                                    <input type="range" min="0" [attr.max]="ser.whatLast=='col'?12:100" #borderSizeForm
+                                        (input)="changeStylesInput('border',borderSizeForm.value+'px '+kindOfBorderForm+' '+borderColorForm.value,borderColorForm.value,borderSizeForm.value)"
+                                        [(ngModel)]="ser.lastItem.styles['formInputsStyle']['border-size']"
+                                        class="rengeStyle" style="color: black;width: 50%;">
+                                    <input class="field__label" type="number" min="0" title="border-size"
+                                        (input)="changeStylesInput('border',borderSizeForm2.value+'px '+kindOfBorderForm+' '+borderColorForm.value,borderColorForm.value,borderSizeForm2.value)"
+                                        style="font-size: 12px;border: 1px solid black;color: white;outline: none; background-color: #4C4C4C;width: 15%;margin-left: 0% !important;"
+                                        [(ngModel)]="ser.lastItem.styles['formInputsStyle']['border-size']"
+                                        #borderSizeForm2>
+                                </div>
+                            </div>
+                        </div> -->
+                        <hr class="hrStyle">
+                        <div class="field LR_from_field">
+                            <div class="field__label ">Alignment
+                            </div>
+                            <app-alignment [style]="'text-align'" (changeStyles)="changeStylesG(['simpleStyles','text-align'],$event.value)" >
+                            </app-alignment>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFour">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                        Backgrounds
+                    </button>
+                </h2>
+                <div id="collapseFour" class="accordion-collapse collapse show" aria-labelledby="headingFour"
+                    data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <!-- Background Color-עובד! -->
+                        <div class="field LR_from_field">
+                            <div class="field__label ">
+                                Background Color
+                            </div>
+                            <app-colors [style]="'background-color'"
+                                (changeStyles)="changeStylesG(['simpleStyles','background-color'],$event.value)">
+                            </app-colors>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingSix">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
+                    Borders
+                </button>
+            </h2>
+            <app-borders (changeStyles)="changeStylesG(['simpleStyles',$event.key],$event.value)"></app-borders>
+        </div>
+
+
+    </div>
+</div>

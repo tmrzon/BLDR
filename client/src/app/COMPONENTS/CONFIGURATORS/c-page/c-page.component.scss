@@ -1,0 +1,19 @@
+.imgHeight:hover {
+    // opacity: 0.5;
+    border: 2px solid #fbcd4fd0;
+}
+.wrapLink {
+    border-radius: 0 5px 5px 0 !important;
+    position: relative;
+}
+.imgHeight {
+    width: 100%;
+}
+.input-hidden {
+    position: absolute;
+    left: -9999px;
+}
+
+input[type="radio"]:checked + label > img {
+    border: 2px solid #fbcd4fd0;
+}

@@ -1,0 +1,61 @@
+<div id="collapseSix" class="accordion-collapse collapse show" aria-labelledby="headingSix"
+    data-bs-parent="#accordionExample">
+    <div class="accordion-body">
+        <div class="field LR_from_field">
+            <div class="field__wrap ">
+                <div class="borderOptionsWrap">
+                    <div class="borders">
+                        <img class="borderOption"
+                            [ngStyle]="ser.lastItem.styles.simpleStyles['border-style']=='dotted'?{'border': '2px solid #fbcd4f'}:{}"
+                            (click)="changeStyles.emit({key:'border-style',value:'dotted'})"
+                            src="assets/icons/nekudot.svg">
+                        <img class="borderOption"
+                            [ngStyle]="ser.lastItem.styles.simpleStyles['border-style']=='solid'?{'border': '2px solid #fbcd4f'}:{}"
+                            (click)="changeStyles.emit({key:'border-radius',value:5})"
+                            src="assets/icons/solid.svg">
+                        <img class="borderOption"
+                            [ngStyle]="ser.lastItem.styles.simpleStyles['border-style']=='solid'?{'border': '2px solid #fbcd4f'}:{}"
+                            (click)="changeStyles.emit({key:'border-style',value:'solid'})"
+                            src="assets/icons/solid.svg">
+                        <img class="borderOption"
+                            [ngStyle]="ser.lastItem.styles.simpleStyles['border-style']=='double'?{'border': '2px solid #fbcd4f'}:{}"
+                            (click)="changeStyles.emit({key:'border-style',value:'double'})"
+                            src="assets/icons/double.svg">
+                        <img class="borderOption"
+                            [ngStyle]="ser.lastItem.styles.simpleStyles['border-style']=='dashed'?{'border': '2px solid #fbcd4f'}:{}"
+                            (click)="changeStyles.emit({key:'border-style',value:'dashed'})"
+                            src="assets/icons/dashed.svg">
+                        <img class="borderOption"
+                            [ngStyle]="ser.lastItem.styles.simpleStyles['border-style']=='none'?{'border': '2px solid #fbcd4f'}:{}"
+                            (click)="changeStyles.emit({key:'border-style',value:'none'})"
+                            src="assets/icons/none.svg">
+                    </div>
+                    <hr class="hrStyle">
+                    <div class="field__label ">
+                        Border Width</div>
+                    <app-slider-with-number [icon]="'fa fa-sort-numeric-up'" [minValue]="0" [maxValue]="100"
+                        (changeStyles)="changeStyles.emit({key:'border-width',value:$event.value})"
+                        [style]="'border-width'" [measureUnit]="'px'">
+                    </app-slider-with-number>
+                    <hr class="hrStyle">
+                    <div class="field__label ">
+                        Border Color</div>
+                    <app-colors [style]="'border-color'"
+                        (changeStyles)="changeStyles.emit({key:'border-color',value:$event.value})">
+                    </app-colors>
+                </div>
+            </div>
+        </div>
+        <hr class="hrStyle">
+        <div class="field LR_from_field">
+            <div class="field__label ">
+                Border Radius</div>
+            <div class="field__wrap marginBottom">
+                <input type="number" class="field__input LR_input_in_configurator marginLeft marginRight input"
+                    #borderRadius (keyup)="changeStyles.emit({key:'border-radius',value:borderRadius.value})"
+                    (change)="changeStyles.emit({key:'border-radius',value:borderRadius.value})"
+                    value="{{ser.lastItem.styles.simpleStyles['border-radius']?ser.lastItem.styles.simpleStyles['border-radius'].split('%')[0]:'0'}}">
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,148 @@
+<div class="startDiv">
+  <div class="whiteContent">
+    <button class="close" (click)="close()">x</button>
+    <button class="h1Start" (click)="statusBuilder('widget',$event)">Drag Element To Here </button>
+
+    <div style="min-height: 10vw;text-align: center;margin-left: auto;margin-right: auto;margin-top: 3vh;">
+      <button (click)="grids=0"
+        [ngStyle]="grids==0?{'border-bottom':'#fbcd4f 2px solid','color':'#fbcd4f'}:{'border':'none','color':'black'}"
+        class="gridSectionsButtons">Widget</button>
+      <button (click)="grids=1"
+        [ngStyle]="grids==1?{'border-bottom':'#fbcd4f 2px solid','color':'#fbcd4f'}:{'border':'none','color':'black'}"
+        class="gridSectionsButtons">Grid</button>
+      <button (click)="getAssets();grids=2"
+        [ngStyle]="grids==2?{'border-bottom':'#fbcd4f 2px solid','color':'#fbcd4f'}:{'border':'none','color':'black'}"
+        class="gridSectionsButtons">Template</button>
+      <div *ngIf="grids==1" style="width: 70vh;">
+        <div id="carouselExampleControls2" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <p *ngFor="let grid of gridsTypes" (click)="builderSer.createGrid({gridType:grid.name})"
+                (drag)="builderSer.dragGrid({gridType:grid.name})"
+                style="cursor: pointer; display: inline-flex;background-color: white;width: 4vw;height: 8vh;margin: 2%;justify-content: center;">
+                <img src={{grid.img}} style="width: 100%; height: 100%; ">
+              </p>
+            </div>
+            <div class="carousel-item">
+              <p *ngFor="let grid of gridsTypes2" (click)="builderSer.createGrid({gridType:grid.name})"
+                (drag)="builderSer.dragGrid({gridType:grid.name})"
+                style="cursor: pointer; display: inline-flex;background-color: white;width: 4vw;height: 8vh;margin: 2%;justify-content: center;">
+                <img src={{grid.img}} style="width: 100%; height: 100%; ">
+              </p>
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleControls2" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"><i style="color: black;"
+                class="fas fa-chevron-left"></i></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleControls2" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"><i style="color: black;"
+                class="fas fa-chevron-right"></i></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+
+      </div>
+      <div *ngIf="grids==0" style="width: 70vh;">
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <span class="widgetButton" (click)="builderSer.createElement('h1');" (drag)="dragElement('h1');">
+                <img src="assets\icons\Group 19535.svg">
+                <br><br>
+                Title
+              </span>
+              <span class="widgetButton" (click)="builderSer.createElement('p');" (drag)="dragElement('p');">
+                <img src="assets\icons\paragraph.svg">
+                <br><br>
+                Paragraph
+              </span>
+              <span class="widgetButton" (click)="builderSer.createElement('img');" (drag)="dragElement('img');">
+                <img src="assets\icons\picture.svg">
+                <br><br>
+                img
+              </span>
+              <span class="widgetButton" (click)="builderSer.createElement('video');" (drag)="dragElement('video');">
+                <img src="assets\icons\Group 19535 (4).svg" class="imgWidget"><br><br>
+                Video
+              </span>
+              <span class="widgetButton" (click)="builderSer.createElement('carousel');"
+                (drag)="dragElement('carousel');">
+                <img src="assets/icons/caru.svg" class="imgWidget"><br><br>
+                Carousel
+              </span>
+              <span class="widgetButton" (click)="builderSer.createElement('form');" (drag)="dragElement('form');">
+                <img src="assets\icons\notes.svg">
+                <br><br>
+                Form
+              </span>
+            </div>
+            <div class="carousel-item">
+              <span class="widgetButton" (click)="builderSer.createElement('alert');" (drag)="dragElement('alert');">
+                <img src="assets\icons\alert.svg" class="imgWidget"><br><br>
+                Alert
+              </span>
+              <span class="widgetButton" (click)="builderSer.createElement('spacer');" (drag)="dragElement('spacer');">
+                <img src="assets\icons\spacer.svg" class="imgWidget"><br><br>
+                Spacer
+              </span>
+              <span class="widgetButton" (click)="builderSer.createElement('hr')" (drag)="dragElement('hr')">
+                <img src="assets\icons\dliver.svg" class="imgWidget"><br><br>
+                Divider
+              </span>
+              <span class="widgetButton" (click)="builderSer.createElement('accordion')"
+                (drag)="dragElement('accordion');">
+                <img src="assets\icons\Group 19535.svg" class="imgWidget"><br><br>
+                Accordion
+              </span>
+              <span class="widgetButton" (click)="builderSer.createElement('slider');" (drag)="dragElement('slider');">
+                <img src="assets\icons\Group 19535.svg" class="imgWidget"><br><br>
+                Slider
+              </span>
+              <span class="widgetButton" (click)="builderSer.createElement('iframe');" (drag)="dragElement('iframe');">
+                <img src="assets\icons\Group 19535.svg" class="imgWidget"><br><br>
+                Iframe
+              </span>
+            </div>
+
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"><i style="color: black;"
+                class="fas fa-chevron-left"></i></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"><i style="color: black;"
+                class="fas fa-chevron-right"></i></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </div>
+      <div *ngIf="grids==2" style="width: 70vh;">
+        <div id="carouselExampleControls2" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <p *ngFor="let asset of assets" (click)="builderSer.setTemplatInPage(asset)"
+                (drag)="builderSer.setTemplatInPage(asset)"
+                style="cursor: pointer; display: inline-flex;background-color: white;width: 4vw;height: 8vh;margin: 2%;justify-content: center;">
+                <img src={{asset.screenShot}} style="width: 100%; height: 100%; ">
+              </p>
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleControls2" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"><i style="color: black;"
+                class="fas fa-chevron-left"></i></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleControls2" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"><i style="color: black;"
+                class="fas fa-chevron-right"></i></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

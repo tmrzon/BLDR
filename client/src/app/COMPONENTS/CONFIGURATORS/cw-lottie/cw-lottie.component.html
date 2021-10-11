@@ -1,0 +1,150 @@
+<h1 class="topTitle">
+    Edit Lottie</h1>
+    <app-global-widget></app-global-widget>
+
+<div class="wrapWidgetConfigs">
+    <div class="accordion-item">
+
+        <hr class="hrStyle">
+        <div class="field LR_from_field">
+            <!-- <div class="field__label ">speed
+            </div>
+            <div class="field__wrap">
+                <img src="assets\icons\tachometer-alt-solid.svg" class="iconImg marginLeft">
+                <input type="range" name="rangeInput" min="1" max="500" #speed class="rangeInput"
+                    (input)="changeStyles('speed',speed.value+'px ',speed.value)"
+                    [(ngModel)]="ser.lastItem.attributes['speed']">
+                <input type="number" min="1" max="500" class="field__input LR_input_in_configurator numberInput"
+                    #speedNumber (input)="changeStyles('speed',speedNumber.value+'px ',speedNumber.value)"
+                    [(ngModel)]="ser.lastItem.attributes['speed']">
+                    
+            </div>
+            <div class="field__label ">URL
+            </div>
+            <input  style="width: 90%" class="field__input LR_input_in_configurator "
+            #urlLottie placeholder="Enter Url" (input)="changeStyles('lottieUrl',urlLottie.value);"
+            (click)="$event.stopPropagation()" > -->
+        </div>
+    </div>
+
+
+
+    <div class="accordion-item">
+        <!-- <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                    aria-expanded="true" aria-controls="collapseOne">
+                    Size
+                </button>
+            </h2> -->
+        <div id="collapseeight" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+
+                <div class="card-body p-0" style="color: black;">
+                    <div class="field LR_from_field">
+
+
+                        <div class="field__label ">Width
+                        </div>
+                        <app-slider-with-number [img]="'assets/icons/image-gallery-solid.svg'" [minValue]="1"
+                            [maxValue]="100" (changeStyles)="changeStylesG(['spanStyles','width'],$event.value)" [style]="'width'"
+                            [measureUnit]="'%'" [stylesLocation]="'spanStyles'">
+                        </app-slider-with-number>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h2 class="accordion-header" id="headingeight">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseeight"
+                aria-expanded="true" aria-controls="collapseeight">
+                Link
+            </button>
+        </h2>
+        <div id="collapseeight" class="accordion-collapse collapse show" aria-labelledby="headingeight"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+
+                <!-- <div class="field LR_from_field">
+                    <div class="field__label " style="display: flex;margin-bottom: 8px; ">
+                        <div class="custom-control custom-switch">
+                            <input style="padding-top: 0px;" type="checkbox" class="custom-control-input "
+                                [checked]="ser.lastItem.attributes['href']" (change)="isLink=!isLink"
+                                id="switch1" name="example">
+                            <label class="custom-control-label" for="switch1"></label>
+                        </div>
+                        <span style="font-size: 12px;margin: 0;margin-right: 8px;padding-top: 4px;">Add
+                            A Link</span>
+                    </div>
+                </div> -->
+                <div class="card-body p-0" style="color: black;">
+                    <div class="field LR_from_field">
+
+
+                        <div class="field__label ">Add Link
+                        </div>
+                        <div class="field__wrap" style="display: block;">
+
+
+                            <input list="select" style="width: 90%" class="field__input LR_input_in_configurator "
+                                name="select" #href placeholder="Enter Url" (input)="changeStylesG(['href'],href.value,'attribute')"
+                                (click)="$event.stopPropagation()">
+                            <datalist id="select" #hrefValue (input)="changeStylesG(['href'],hrefValue.value,'attribute')">
+                                <option style="text-align: center;" value="{{s.url}}" *ngFor="let s of ser.site.pages">
+                                    {{s.name}}</option>
+                            </datalist>
+
+                            <!-- <input type="text" class="field__input LR_input_in_configurator" #href
+(keyup)="changeStyles('href',href.value)" id="iconInput"
+[value]="ser.lastItem.styles.simpleStyles['href']?ser.lastItem.styles.simpleStyles['href']:Enter"
+> -->
+
+
+
+                            <label class="container" style="color: white;"
+                                (click)="changeStylesG(['target'],'_self','attribute')">Current Window
+                                <input type="radio" name="radio" checked="checked">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="container paddingBottom" style="color: white;"
+                                (click)="changeStylesG(['target'],'_blank','attribute')">New
+                                Window
+                                <input type="radio" name="radio">
+                                <span class="checkmark"></span>
+                            </label>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                    Spacing
+                </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse show" aria-labelledby="headingThree"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <!-- Spacing-עובד! -->
+                    <div class="field LR_from_field">
+                        <app-box-model (changeStyles)="changeStylesG($event.keys,$event.value+'px')"></app-box-model>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingSix">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
+                    Borders
+                </button>
+            </h2>
+            <app-borders (changeStyles)="changeStylesG(['simpleStyles', $event.key],$event.value)"></app-borders>
+        </div>
+    </div>

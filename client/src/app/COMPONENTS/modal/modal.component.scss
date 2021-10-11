@@ -1,0 +1,110 @@
+.Loading {   
+    top: 45px;
+    z-index: 9999;
+    position: absolute;
+    display: inline-block;
+    width: 100%;
+    height: 5px;
+    padding: 0% !important;
+    // background: #f1f1f1;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, .2);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  
+  .Loading:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 0;
+    height: 100%;
+    border-radius: 4px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .2);
+    animation: load 5s infinite;
+  }
+  
+  @keyframes load {
+    0% {
+      width: 0;
+      background: #FB4F4F;  }
+    
+    25% {
+      width: 40%;
+      background: #ff6b6b;
+    }
+    
+    50% {
+      width: 60%;
+      background: #fa8686;
+    }
+    
+    75% {
+      width: 75%;
+      background: #faa5a5;
+    }
+    
+    100% {
+      width: 100%;
+      background: #facccc;
+    }
+  }
+  
+  @keyframes pulse {
+    0% {
+      background: #FB4F4F;
+    }
+    
+    25% {
+      background: #ff6b6b;
+    }
+    
+    50% {
+      background: #fa8686;
+    }
+    
+    75% {
+      background: #faa5a5;
+    }
+    
+    100% {
+      background: #facccc;
+    }
+  }
+  
+  
+  
+  .modal-header
+  {
+      background-color: #FB4F4F;
+      height: 50px;
+      border-radius: 5px 5px 0px 0px;
+      border: none;
+      padding-top: 10px;
+      color: #ffffff;
+  }
+  .buttonModalChoose{
+    background-color: #FB4F4F;height: 35px; margin-top: 2%;
+    border-color: transparent;border-radius: 5px;
+      display: inline;color: #ffffff;
+      padding-left: 20px;padding-right: 20px;
+  }
+  .buttonModal{
+    margin-top: 2%;background-color: #ffff;
+     height: 35px;border-color: #FB4F4F;border-radius: 5px;
+      display: inline;color: #FB4F4F; padding-left: 20px;padding-right: 20px;
+  }
+  .modal-footer{
+    text-align: center;
+    border: none;
+    margin-bottom: 5%;
+  //   padding-left: 20%;
+  //   padding-right: 25%;
+    display:flex;
+    justify-content: center;
+  }
+  .modal-body{
+    text-align: center;
+    border: none;
+    margin-top: 5%;
+    line-height: 5px;
+  }

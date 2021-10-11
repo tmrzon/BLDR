@@ -1,0 +1,180 @@
+<h1
+    style="color:white;font-size: 15px;text-align: center;margin-top: 7px;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-weight: bold;">
+    Edit Carousel
+</h1>
+<app-global-widget></app-global-widget>
+
+<div class="wrapWidgetConfigs">
+    <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingFour">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                    Carousel Images
+                </button>
+            </h2>
+            <div id="collapseFour" class="accordion-collapse collapse show" aria-labelledby="headingFour"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <div class="marginBottom marginTop" >
+                        <div *ngFor="let img of ser.lastItem.attributes['items'];let i=index" class="wrapImages">
+                            <!-- <i class="fa fa-grip-vertical" style="font-size: 10px;color: white;"></i> -->
+                            <img class="imgCarusel" title="Click to Change" src="{{img.image}}"
+                                (click)="generalActionsSer.openModal(template);changeImageCarusel(i);builderSer.getAllFiles();ser.imgToChange='changeCarousel';">
+                            <ng-template #template>
+                                <app-modal-image></app-modal-image>
+                            </ng-template>
+                            <!-- ser.lastCol.styles['border-radius'].split('%')[0] -->
+                            <span
+                                style="color: white;text-align: left;font-size: 12px;">{{img.image.split("/").pop()}}</span>
+                            <i class="fa fa-times fa-1x"
+                                style="color: white;font-weight: lighter;margin-right: 4px;cursor: pointer;"
+                                (click)="deleteImage(img)"></i>
+                        </div>
+                        <div class="addItem"
+                            (click)="generalActionsSer.openModal(template);builderSer.getAllFiles();ser.imgToChange='carousel'">
+                            + Add Item</div>
+                    </div>
+
+                    <ng-template #template>
+                        <app-modal-image></app-modal-image>
+                    </ng-template>
+
+                    <!-- <div class="image" data-content="Here is a caption" #buttonOpenModal
+                        (click)="generalActionsSer.openModal(template);builderSer.getAllFiles();ser.imgToChange='carousel'"
+                        style="background-color: white;height: 100px;border-color: black;width: 70%;margin-left: auto;margin-right: auto;">
+
+                        <img width="100%" height="100%" *ngIf="ser.lastItem.attributes['items']"
+                            src="{{ser.lastItem.attributes['items'][(ser.lastItem.attributes['items'].length)-1].image}}">
+
+                    </div> -->
+
+
+                    <!-- <div style="display: inline-block;margin-top: 7px;width: 100%;cursor: pointer !important;">
+                        <span *ngFor="let img of ser.lastItem.attributes['items'];let i=index">
+                            <img height="50px" width="30%" style="padding: 2%;" src="{{img.image}}">
+                            <i class="fa fa-trash fa-1x" style="color: black;" (click)="deleteImage(img)"></i>
+                            <i class="fa fa-exchange fa-1x" style="color: black;"
+                                (click)="generalActionsSer.openModal(template);changeImageCarusel(i);builderSer.getAllFiles();ser.imgToChange='changeCarousel';"></i>
+                        </span>
+                    </div> -->
+
+
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingSeven">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseSeven" aria-expanded="true" aria-controls="collapseSeven">
+                    Carousel Properties
+                </button>
+            </h2>
+            <div id="collapseSeven" class="accordion-collapse collapse show" aria-labelledby="headingSeven"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body marginTop margin-bottom">
+                    <div class="field LR_from_field">
+                        <div class="field__label ">
+                            <div class="custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input"
+                                    [checked]="ser.lastItem.attributes['arrows']==true" #arrows
+                                    (change)="changeStylesG(['arrows'],!ser.lastItem.attributes['arrows'],'attribute')"
+                                    id="switch1" name="example">
+                                <label class="custom-control-label" for="switch1">Toggle navigation arrows</label>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="field LR_from_field">
+                        <div class="field__label ">
+                            <div class="custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input"
+                                    [checked]="ser.lastItem.attributes['indicators']==true" #indicators
+                                    (change)="changeStylesG(['indicators'],!ser.lastItem.attributes['indicators'],'attribute')"
+                                    id="switch2" name="example">
+                                <label class="custom-control-label" for="switch2">Toggle navigation indicators</label>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="field LR_from_field">
+                        <div class="field__label ">
+                            <div class="custom-control custom-switch marginBottom">
+                                <input type="checkbox" class="custom-control-input"
+                                    [checked]="ser.lastItem.attributes['hover']==true" #hover
+                                    (change)="changeStylesG(['hover'],!ser.lastItem.attributes['hover'],'attribute')"
+                                    id="switch3" name="example">
+                                <label class="custom-control-label" for="switch3">Pause on hover</label>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- <div class="field LR_from_field">
+                    <div class="field__label ">
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input"
+                                [checked]="ser.lastItem.attributes['focus']==true" #focus
+                                (change)="changeStyles('focus',focus.value,$event)" id="switch4" name="example">
+                            <label class="custom-control-label" for="switch4">Pause on focus</label>
+
+                            </div>
+                        </div>
+                </div> -->
+                </div>
+
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingSix">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
+                    Borders
+                </button>
+            </h2>
+            <app-borders (changeStyles)="changeStylesG(['simpleStyles',$event.key],$event.value)"></app-borders>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                    aria-expanded="true" aria-controls="collapseOne">
+                    Size
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <!-- width-עובד!‏‏ -->
+                    <div class="field LR_from_field">
+                        <div class="field__label ">
+                            Size
+                        </div>
+                        <app-slider-with-number [img]="'assets/icons/image-gallery-solid.svg'" [minValue]="1"
+                            [maxValue]="100" (changeStyles)="changeStylesG(['spanStyles','width'] ,$event.value)" [style]="'width'"
+                            [measureUnit]="'%'" [stylesLocation]="'spanStyles'">
+                        </app-slider-with-number>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingEleven">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseEleven" aria-expanded="true" aria-controls="collapseEleven">
+                    Shadow
+                </button>
+            </h2>
+            <div id="collapseEleven" class="accordion-collapse collapse show" aria-labelledby="headingEleven"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <div style="display: block;" class="field LR_from_field paddingBottom">
+                        <h4 class="field__label ">
+                            Box Shadow</h4>
+                            <app-shadows (changeStyles)="changeStylesG(['simpleStyles','box-shadow'],$event.value)"></app-shadows>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

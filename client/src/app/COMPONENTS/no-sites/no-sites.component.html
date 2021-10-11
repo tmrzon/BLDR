@@ -1,0 +1,4 @@
+<div class="wrapper" *ngIf="!ser.newSite">
+    <button class="btn" (click)="noSites()"><b>+</b>New Project</button>
+</div>
+<app-create-site-modal *ngIf="ser.newSite"></app-create-site-modal>

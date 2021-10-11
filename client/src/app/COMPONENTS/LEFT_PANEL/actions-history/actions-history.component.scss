@@ -1,0 +1,25 @@
+
+.divAction{
+    background: #4C4C4C 0% 0% no-repeat padding-box;
+    border-radius: 2px;
+    opacity: 1;
+    cursor: pointer;
+    margin-left:6%;
+    margin-right:5%;
+    margin-top: 5px;
+    padding-top:1%;
+    padding-bottom: 1%;
+}
+.divAction:hover{
+    background: #464545 0% 0% no-repeat padding-box;
+
+}
+.pAction{
+    display: inline-block;
+    margin-top: auto;
+    margin-bottom: 0;
+    border-left: 3px solid #FBCD4F;
+}
+.dateHistory{
+    margin-bottom: 0;padding-right: 5%;font-size: small;padding-top: 2%;
+}

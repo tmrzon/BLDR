@@ -1,0 +1,23 @@
+<div style="display: flex;justify-content: center">
+    <a (click)="changeStyles.emit({value:'left'})"
+        style="cursor: pointer;margin-left: 2px;margin-right: 2px;">
+        <i *ngIf="!generalSetting" class="fa fa-align-left"
+            [ngStyle]="{'color':ser.lastItem.styles[stylesLocation][style]=='left'?'#F0BE36':'#626262'}"></i>
+            <i *ngIf="generalSetting" class="fa fa-align-left"
+                                    [ngStyle]="{'color':ser.site.generalSetting['simpleStyles']['text-align'] =='left'?'#F0BE36':'#626262'}"></i>
+    </a>
+    <a (click)="changeStyles.emit({value:'center'})"
+        style="cursor: pointer;margin-left: 2px;margin-right: 2px;">
+        <i *ngIf="!generalSetting" class="fa fa-align-justify"
+            [ngStyle]="{'color':ser.lastItem.styles[stylesLocation][style]=='center'?'#F0BE36':'#626262'}"></i>
+            <i *ngIf="generalSetting" class="fa fa-align-justify"
+                                    [ngStyle]="{'color':ser.site.generalSetting['simpleStyles']['text-align']=='center'?'#F0BE36':'#626262'}"></i>
+    </a>
+    <a (click)="changeStyles.emit({value:'right'})"
+        style="cursor: pointer;margin-left: 2px;margin-right: 2px;">
+        <i *ngIf="!generalSetting" class="fa fa-align-right"
+            [ngStyle]="{'color':ser.lastItem.styles[stylesLocation][style]=='right'?'#F0BE36':'#626262'}"></i>
+            <i *ngIf="generalSetting" class="fa fa-align-right"
+            [ngStyle]="{'color':ser.site.generalSetting['simpleStyles']['text-align']=='right'?'#F0BE36':'#626262'}"></i>
+    </a>
+</div>

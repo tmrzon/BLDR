@@ -1,0 +1,107 @@
+<h2 class="accordion-header" id="heading8">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8"
+        aria-expanded="true" aria-controls="collapse8">
+        Animate
+    </button>
+</h2>
+<div id="collapse8" class="accordion-collapse collapse show" aria-labelledby="heading8"
+    data-bs-parent="#accordionExample">
+    <div class="accordion-body">
+        <div class="field LR_from_field">
+            <div class="borders marginBottom">
+                <div class="divWrap">
+                    <img class="imgInDiv"
+                        (click)="animateChanges('animation-name','lightning');changeStyles.emit({key:'animation-name',value:'lightning'})"
+                        (mouseover)="nameAnimate='lightning';showOverAnimate(nameAnimate,animationDuration,animationIterationCount,true)"
+                        (mouseout)="nameAnimate='lightning';showOverAnimate(nameAnimate,animationDuration,animationIterationCount,false)"
+                        src="assets/icons/Group 21502.svg"><span class="spanFont">Lightning</span>
+                </div>
+                <div class="divWrap">
+                    <img class="imgInDiv"
+                        (click)="animateChanges('animation-name','electricity');changeStyles.emit({key:'animation-name',value:'electricity'})"
+                        (mouseover)="nameAnimate='electricity';showOverAnimate(nameAnimate,animationDuration,animationIterationCount,true)"
+                        (mouseout)="nameAnimate='electricity';showOverAnimate(nameAnimate,animationDuration,animationIterationCount,false)"
+                        src="assets/icons/Group 21503.svg"><span class="spanFont">Electricy</span>
+                </div>
+                <div class="divWrap">
+                    <img class="imgInDiv"
+                        (click)="animateChanges('animation-name','wave');changeStyles.emit({key:'animation-name',value:'wave'})"
+                        (mouseover)="nameAnimate='wave';showOverAnimate(nameAnimate,animationDuration,animationIterationCount,true)"
+                        (mouseout)="nameAnimate='wave';showOverAnimate(nameAnimate,animationDuration,animationIterationCount,false)"
+                        src="assets/icons/Group 21506 (1).svg"><span class="spanFont">Wave</span>
+                </div>
+                <div class="divWrap">
+                    <img class="imgInDiv"
+                        (click)="animateChanges('animation-name','fadeIn');changeStyles.emit({key:'animation-name',value:'fadeIn'})"
+                        (mouseover)="nameAnimate='fadeIn';showOverAnimate(nameAnimate,animationDuration,animationIterationCount,true)"
+                        (mouseout)="nameAnimate='fadeIn';showOverAnimate(nameAnimate,animationDuration,animationIterationCount,false)"
+                        src="assets/icons/Component 699 – 191.svg"><span class="spanFont">Fade In</span>
+                </div>
+                <div class="divWrap">
+                    <img class="imgInDiv"
+                        (click)="animateChanges('animation-name','colors');changeStyles.emit({key:'animation-name',value:'colors'})"
+                        (mouseover)="nameAnimate='colors';showOverAnimate(nameAnimate,animationDuration,animationIterationCount,true)"
+                        (mouseout)="nameAnimate='colors';showOverAnimate(nameAnimate,animationDuration,animationIterationCount,false)"
+                        src="assets/icons/Group 21504.svg"><span class="spanFont">Color</span>
+                </div>
+                <div class="divWrap">
+                    <img class="imgInDiv"
+                        (click)=" animateChanges('animation-name','None');changeStyles.emit({key:'animation-name',value:'None'})"
+                        (mouseover)="nameAnimate='None';showOverAnimate(nameAnimate,animationDuration,animationIterationCount,true)"
+                        (mouseout)="nameAnimate='None';showOverAnimate(nameAnimate,animationDuration,animationIterationCount,false)"
+                        src="assets/icons/Group 21507.svg">
+                    <span class="spanFont">None</span>
+                </div>
+
+            </div>
+            <app-selects *ngIf="nameAnimate=='fadeIn'" [style]="'animatefadeIn'"
+                (changeStyles)="animate=$event.value;changeStyles.emit({keys:['simpleStyles','animatefadeIn'],value:$event.value})">
+            </app-selects>
+
+            <!-- <select *ngIf="nameAnimate=='fadeIn'" type="text"
+                class="field__input LR_input_in_configurator animateClass marginBottom4" #animate
+                (drag‏)="changeStyles.emit({key:'animation-name',value:animate.value})"
+                (change)="changeStyles.emit({key:'animation-name',value:animate.value})">
+                <option value="fadeInRight">fadeInRight</option>
+                <option value="fadeInBottom">fadeInBottom</option>
+                <option value="fadeIn">fadeIn</option>
+                <option value="fadeInTop">fadeInTop</option>
+                <option value="fadeOut">fadeOut</option>
+            </select> -->
+            <app-selects *ngIf="nameAnimate=='colors'" [style]="'animateColors'"
+                (changeStyles)="animate=$event.value;changeStyles.emit({keys:['simpleStyles','animateColors'],value:$event.value})">
+            </app-selects>
+            <hr *ngIf="nameAnimate=='fadeIn'||'colors'" class="hrStyle">
+            <app-selects [style]="'animation-iteration-count'"
+                (changeStyles)="animationIterationCount=$event.value;changeStyles.emit({keys:['simpleStyles','animation-iteration-count'],value:$event.value})">
+            </app-selects>
+            <!-- <select type="text"
+                class="field__input LR_input_in_configurator  marginRight marginLeft animateClass marginBottom4"
+                #animationIterationCount
+                (change)="changeStyles.emit({key:'animation-iteration-count',value:animationIterationCount.value})">
+                <option style="display: none;">Iteration-Count</option>
+                <option value="1" selected>1</option>
+                <option value="3">3</option>
+                <option value="5">5</option>
+                <option value="7">7</option>
+                <option value="10">10</option>
+                <option value="infinite">infinite</option>
+
+            </select> -->
+            <hr class="hrStyle">
+            <h6 class="marginLeft fontSize paddingTop4"> Duration</h6>
+            <div class="field__wrap paddingBottom">
+                <app-slider-with-number [icon]="'fa fa-clock-o'" [minValue]="1" [maxValue]="100"
+                    (changeStyles)="animationDuration=$event.value;changeStyles.emit({keys:['simpleStyles','animation-duration'],value:$event.value})"
+                    [style]="'animation-duration'" [measureUnit]="'s'">
+                </app-slider-with-number>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+        </div>
+    </div>
+</div>

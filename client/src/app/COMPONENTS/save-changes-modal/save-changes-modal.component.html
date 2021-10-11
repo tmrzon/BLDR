@@ -1,0 +1,19 @@
+
+             
+<div class="modal-header">
+  <h4 class="modal-title pull-left">Save Changes</h4>
+  <button type="button" style="outline: none;" class="close pull-right" (click)="close()">
+    <span aria-hidden="true" class="modalTitle"><img src="assets/icons/Group 21273.svg"></span>
+  </button>
+</div>
+<div *ngIf="!ser.saveSiteLoader" class="modal-body">
+  <p style="font-weight: bold;text-align: center;">Sure you want to exit?</p>
+  <p style="text-align: center;">If you exit, your changes will not be saved!!! </p>
+</div>
+<div *ngIf="ser.saveSiteLoader" class="modal-body">
+  <img src="assets/loader/Loading.gif" style="height: 25vh;margin-left: auto;margin-right: auto;">
+</div>
+<div *ngIf="!ser.saveSiteLoader" class="modal-footer">
+  <button type="button" class="buttonModal" (click)="showAllSites();close();">Continue without saving</button>
+  <button type="button" class="buttonModalChoose" (click)="save();">Save</button>
+</div>

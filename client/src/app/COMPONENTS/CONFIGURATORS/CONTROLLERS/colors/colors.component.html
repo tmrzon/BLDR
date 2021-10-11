@@ -1,0 +1,9 @@
+<div class="wrapColor" style="padding-bottom: 6px;">
+    <span class="spanColor">
+        <input id="color" type="color" #color (click)="stop($event)" (input)="changeStyles.emit({value:color.value})"
+            (change)="addColor(color.value)">+
+    </span>
+    <span *ngFor="let c of staticColors" (click)="selectedColor =c;changeStyles.emit({value:c})"
+        style="height: 20px;width: 20px;"
+        [ngStyle]="{'background-color':c,'border':c==selectedColor?'3px solid white':'none'}"></span>
+</div>

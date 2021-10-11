@@ -1,0 +1,55 @@
+<div *ngIf="ser.appLoader && !preview" class="wrapLoader">
+    <img src="assets/loader/BLDR Loader.gif" style="position: fixed; width: 30vw;">
+    <!-- <a href="https://dribbble.com/shots/7227469-3D-Boxes-Loader" class="dribbble"></a> -->
+    <!-- <div class="boxes">
+        <div class="box">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="box">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="box">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="box">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div> -->
+</div>
+<!-- <div class="entireBackground">
+
+    <div class="headerPages">
+
+    </div>
+
+    <div class="contentAndSidenav">
+        <div class="builder">
+            <app-builder></app-builder>
+        </div>
+        <div class="preview">
+            <app-preview></app-preview>
+        </div>
+        <div *ngIf="ser.ifConfigurator" class="configurator">
+            <app-configurator [item]="itemToConfigurator"></app-configurator>
+        </div>
+    </div>
+</div> -->
+<!-- <app-frame *ngIf="ser.builderMode&&deviceSize>768" (publishOutput)="publish()"></app-frame>
+<app-preview *ngIf="ser.builderMode&&deviceSize<=768"></app-preview> -->
+
+<div (dragover)="$event.preventDefault()">
+    <router-outlet [ngStyle]="ser.flagToButton?{'background-color':'#e8eaec'}:{'background-color':'#E8EAEC'}">
+    </router-outlet>
+</div>

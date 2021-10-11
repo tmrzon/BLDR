@@ -1,0 +1,201 @@
+<span *ngIf="!ser.imgLoader" class="Loading"></span>
+<div class="modal-header">
+    <h4 class="modal-title pull-left">Upload Image</h4>
+    <button type="button"  class="close pull-right" (click)="generalActionsSer.modalRef.hide()">
+        <span aria-hidden="true" class="modalTitle"><img src="assets/img/Group 19292.png"></span>
+    </button>
+</div>
+<div class="container-fluid modalHeight">
+    <div class="row pr-1">
+        <div class="col-2 col2" >
+            <div class="imgHeight" ></div>
+            <div (click)="chooseCategoryImg(1)" class="modalCategoty"
+                [ngStyle]="{'background-color':flagImg==1?'#FFF3D1':'#F0F0F0'}">
+                <div>Upload Files</div>
+            </div>
+            <div (click)="chooseCategoryImg(2);" class="modalCategoty"
+                [ngStyle]="{'background-color':flagImg==2?'#FFF3D1':'#F0F0F0'}">
+                <div>My files</div>
+            </div>
+            <div (click)="chooseCategoryImg(3);" class="modalCategoty"
+                [ngStyle]="{'background-color':flagImg==3?'#FFF3D1':'#F0F0F0'}">
+                <div>Bldr gallery</div>
+            </div>
+            <div (click)="chooseCategoryImg(4);" class="modalCategoty"
+                [ngStyle]="{'background-color':flagImg==4?'#FFF3D1':'#F0F0F0'}">
+                <div>Trash</div>
+            </div>
+        </div>
+        <div class="col-10 padding0" *ngIf="flagImg==1">
+            <div style="background-color:#FFFFFF; ">
+                <div class="row dropFileBorder" id="drop_zone" draggable="true" (dragover)="dropOver($event)"
+                    (drop)="dropHandler($event);chooseCategoryImg(2)"
+                    (dragover)="dragOverHandler($event)">
+
+                    <div class="col-2"></div>
+                    <div class="col-8 drag">
+                        <img class="dropImg" src="assets/img/Group 19270@2x.png">
+                        <div #file class="dropArea">
+                            Drop Image Here</div>
+                        <div class="orClass"> Or</div>
+                        <button class="chooseFile" (click)="chooseCategoryImg(2)">Choose
+                            Files</button>
+                    </div>
+                    <div class="col-2"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-8 scroller padding0" #scroller1 *ngIf="flagImg==2" >
+            <div style="background-color:#FFFFFF">
+                <div class="searchBox">
+                    <input class="searchInput" type="text" name="search" [(ngModel)]="searchText" autocomplete="off">
+                    <button class="searchButton" href="#">
+                        <i class="material-icons">
+                            search
+                        </i>
+                    </button>
+                </div>
+                <div class="divGallerys divImgWith">
+                    <div *ngFor="let i of builderSer.source1|filter:searchText" class="divWrapImg" >
+                        <img class="imgsGallerys" (click)="chooseImg(i.id,i,1,$event);"
+                            [ngStyle]="{'border-bottom':i.id==builderSer.flagNumberImg?' 4px #FBCD4F solid':''}"
+                            src={{i.img}}>
+                        <input type="file" id="file" enctype="multipart/form-data" (change)="uploadImg(null,$event)"
+                            #file class="file">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-2 properties"  *ngIf="flagImg==2">
+            <div style="background-color:#FFFFFF;height: 450px;"  *ngIf="builderSer.currentImg">
+                        <div style="width: 100%;display: flex;justify-content: space-around;">
+                            <div >
+                                <img  class="chosenImg" src={{builderSer.currentImg.img}}>
+                            </div>
+                        </div>
+                        <div class="imgName">
+                            <b class="imgLine" style="text-overflow: ellipsis;
+                            display: -webkit-box;
+                            -webkit-line-clamp: 2; /* number of lines to show */
+                            -webkit-box-orient: vertical;">{{builderSer.currentImg.imgName}}</b>
+                        </div>
+                        <div class="imgProperties" style="margin-top: 3%;"><b>Type: </b>{{builderSer.currentImg.type}}
+                        </div>
+                        <div class="imgProperties"><b>Size: </b>{{builderSer.currentImg.size}}</div>
+                        <div class="lineAround">
+                            <div class="lineProprties"></div>
+                        </div>
+                        <div class="imgOptions">
+                            <a (click)="builderSer.savedMultiFilesDB(builderSer.currentImg)"><img class="imgOption"
+                                    src="assets/img/Icon material-content-copy.png" title="Duplicate"></a>
+                            <a (click)="builderSer.download(builderSer.currentImg.img,builderSer.currentImg.imgName,builderSer.currentImg.type)"><img class="imgOption"
+                                    src="assets/img/Icon feather-download.png" (click)='download(builderSer.currentImg.img)'
+                                    title="Dawnload"></a>
+                            <a><img class="imgOption" src="assets/icons/bin.png"
+                                    (click)="builderSer.deleteFile(builderSer.currentImg);deleteFile(builderSer.currentImg)" title="Remove"></a>
+                        </div>
+                        <button class="insertImg"
+                            (click)="insertImg(builderSer.currentImg.img,ser.imgToChange);generalActionsSer.modalRef.hide()">Insert</button>
+            </div>
+        </div>
+        <div class="col-8" *ngIf="flagImg==3">
+            <div style="background-color:#FFFFFF;">
+                <div class="searchBox">
+                    <input class="searchInput" type="text" name="search" [(ngModel)]="searchText" autocomplete="off">
+                    <button class="searchButton" href="#">
+                        <i class="material-icons">
+                            search
+                        </i>
+                    </button>
+                </div>
+                <div class="divGallerys divImgWith" style="margin-top: 12%;">
+                    <div *ngFor="let i of builderSer.source2|filter:searchText;let j in index; "class="divWrapImg">
+                        <img class="imgsGallerys" (click)="chooseImg(i.id,i,2)"
+                            [ngStyle]="{'border-bottom':i.id==builderSer.flagNumberImg?' 4px #FBCD4F solid':''}"
+                            src={{i.img}}>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-2 " style=" border-left: 2px #00000029 solid;" *ngIf="flagImg==3">
+            <div style="background-color:#FFFFFF;width:10%;height:450px;display:inline" *ngIf="builderSer.currentImg" >
+                        <div style="width: 100%;display: flex;justify-content: space-around;">
+                            <div #images>
+                                <img class="chosenImg" src={{builderSer.currentImg.img}}>
+                            </div>
+                        </div>
+                        <div class="imgName">
+                            <b class="imgLine" style="text-overflow: ellipsis;
+                            display: -webkit-box;
+                            -webkit-line-clamp: 2; /* number of lines to show */
+                            -webkit-box-orient: vertical;">{{builderSer.currentImg.imgName}}</b>
+                        </div>
+                        <div class="imgProperties" style="margin-top: 3%;"><b>Type: </b>{{builderSer.currentImg.type}}
+                        </div>
+                        <div class="imgProperties"><b>Size: </b>{{builderSer.currentImg.size}}</div>
+                        <button class="insertImg" style="margin-top: 4px;"
+                            (click)="insertImg(builderSer.currentImg.img,ser.imgToChange);generalActionsSer.modalRef.hide()">Insert</button>
+         
+               
+            </div>
+        </div>
+        <div class="col-8 scroller" #scroller1 *ngIf="builderSer.flagImg==4 " style=" padding:0% !important">
+            <div style="background-color:#FFFFFF;display: flex;justify-content: space-between;">
+                <div class="searchBox">
+                    <input class="searchInput" type="text" name="search" [(ngModel)]="searchText" autocomplete="off">
+                    <button class="searchButton" href="#">
+                        <i class="material-icons">
+                            search
+                        </i>
+                    </button>
+                </div>
+            </div>
+            <div class="divGallery divImgWith">
+                <div *ngFor="let i of builderSer.source3|filter:searchText;let j in index;" class="divWrapImg">
+                    <img class="imgsGallery" (click)="chooseImg(i.id,i,3,$event)"
+                        [ngStyle]="{'border-bottom':i.id==builderSer.flagNumberImg?' 4px #FBCD4F solid':''}" src={{i.img}}>
+                </div>
+            </div>
+        </div>
+        <div class="col-2 " style=" border-left: 2px #00000029 solid;" *ngIf="builderSer.flagImg==4">
+            <div style="background-color:#FFFFFF;width:10%;height:450px;display:inline" *ngIf="builderSer.currentImg">
+                        <div style="width: 100%;display: flex;justify-content: space-around;">
+                            <div #images>
+                                <img class="chosenImg" src={{builderSer.currentImg.img}}>
+                            </div>
+                        </div>
+                        <div class="imgName">
+                            <b class="imgLine" style="text-overflow: ellipsis;
+                            display: -webkit-box;
+                            -webkit-line-clamp: 2; /* number of lines to show */
+                            -webkit-box-orient: vertical;">{{builderSer.currentImg.imgName}}</b>
+                        </div>
+                        <div class="imgProperties" style="margin-top: 3%;"><b>Type: </b>{{builderSer.currentImg.type}}
+                        </div>
+                        <div class="imgProperties"><b>Size: </b>{{builderSer.currentImg.size}}</div>
+                        <div class="lineAround">
+                            <div class="lineProprties"></div>
+                        </div>
+                        <a (click)="builderSer.recovereFiles(builderSer.currentImg)"><img class="restore" title="Restore"
+                                src="assets/icons/trash-restore-solid.svg">
+                        </a>
+            </div>
+        </div>
+        <div class="col-10 " *ngIf="builderSer.flagImg==5 " style=" padding:0% !important">
+            <div style="background-color:#FFFFFF;display: flex;justify-content: space-between;">
+                <div class="searchBox">
+                    <input class="searchInput" type="text" name="search" [(ngModel)]="searchText" autocomplete="off">
+                    <button class="searchButton" href="#">
+                        <i class="material-icons">
+                            search
+                        </i>
+                    </button>
+                </div>
+            </div>
+            <div class="divTrash">
+                <div class="titleTrash">Your trash is empty</div>
+                <img class="trashImg" src="assets/img/Group 19562.png">
+            </div>
+        </div>
+    </div>
+</div>

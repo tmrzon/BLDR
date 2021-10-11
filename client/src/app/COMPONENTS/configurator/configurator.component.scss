@@ -1,0 +1,629 @@
+td {
+  padding-right: 8px;
+}
+.LR_from_field {
+  // width: calc(100% - 16px);
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0px !important;
+}
+.LR_from_field .field__label {
+  margin-top: 8px;
+}
+.field__label {
+  margin-left: 8px;
+  margin-right: 8px;
+  font-size: 12px;
+  width: 100%;
+  text-transform: capitalize;
+  letter-spacing: 0.32px;
+  color: #a0a0a0;
+  text-transform: capitalize;
+  opacity: 1;
+}
+.fontSize {
+  font-size: 12px !important;
+}
+.field__wrap {
+  position: relative;
+  display: flex;
+  // margin-left: 4px;
+  justify-content: space-between;
+}
+.roundShadow {
+  display: block;
+  font-size: 15px;
+  color: #a0a0a0;
+}
+.spanColorStyle {
+  color: white;
+  font-size: 12px;
+  margin-top: 3%;
+  margin-right: 2%;
+  margin-left: 5%;
+}
+.hrStyle {
+  background-color: #a0a0a0;
+  width: 100%;
+  margin-bottom: 8px;
+  margin-top: 8px;
+}
+.paddingBottom {
+  padding-bottom: 8px;
+}
+.textShadow {
+  margin-top: 8px;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+.rengeStyle {
+  width: 50% !important;
+  margin-top: 18px;
+}
+.marginBottom {
+  margin-bottom: 8px;
+}
+.marginBottom4 {
+  margin-bottom: 4px;
+}
+.marginTop {
+  margin-top: 8px;
+}
+.marginRight {
+  margin-right: 8px;
+}
+.paddingTop4 {
+  padding-top: 4px;
+}
+
+.textConten {
+  height: 80px !important;
+  border-color: black !important;
+}
+.iconImg {
+  width: 8% !important;
+  margin-left: 8px;
+}
+.marginLeft {
+  margin-left: 8px;
+}
+.inputColorClass {
+  opacity: 0;
+  position: absolute;
+  right: 0;
+}
+.inputNumber {
+  font-size: 12px;
+  border: 0.5px solid #f0f0f0;
+  border-radius: 2px;
+  opacity: 1;
+  color: white;
+  outline: none;
+  background-color: transparent;
+  width: 15%;
+  margin-left: 0% !important;
+}
+input {
+  width: 100%;
+}
+.animateClass {
+  width: 90% !important;
+}
+.Shadows {
+  width: 18%;
+  height: 3vh;
+  font-size: 12px;
+  background-color: #4c4c4c;
+  color: white;
+  // padding-right: 0%;
+  outline: none;
+  border: none !important;
+  // margin-right: 12px;
+}
+.LR_input_in_configurator {
+  padding: 5px;
+  height: 35px;
+  letter-spacing: 0.22px;
+  color: white;
+  border-radius: 2px;
+  opacity: 1;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.5;
+  outline: none;
+  background-color: transparent;
+  background-clip: padding-box;
+  border: 0.5px solid #a0a0a0;
+}
+.twoSelect {
+  margin-top: 4px;
+}
+.selectInput {
+  border-color: black;
+  background-color: #626262 !important;
+  outline: none !important;
+  border: none !important;
+}
+.field__input {
+  display: block;
+  width: 100%;
+  height: 25px;
+  margin-left: 8px;
+  margin-right: 8px;
+  // padding-right: 24px;
+  background-color: transparent;
+  border-radius: 2px;
+  border: 0.5px solid #a0a0a0;
+  opacity: 1;
+  font-size: 12px;
+}
+.field__input:focus {
+  border: 0.5px solid white;
+}
+.container {
+  display: inline-block;
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 11px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+/* Hide the browser's default radio button */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 16px;
+  width: 16px;
+  background-color: white;
+  border-radius: 50%;
+  margin-left: 8px;
+}
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #d69e02;
+}
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #d69e02;
+}
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+.first {
+  margin-top: 12px;
+}
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+  margin: 3px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: white;
+}
+.image {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+.image video {
+  width: 100%;
+  vertical-align: top;
+}
+.image:after,
+.image:before {
+  position: absolute;
+  opacity: 0;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+}
+.image:after {
+  content: "\A";
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+.image:before {
+  content: url("../../../assets/icons/Group 19461.svg");
+  width: 100%;
+  color: #fff;
+  z-index: 1;
+  bottom: 0;
+  padding: 4px 10px;
+  text-align: left;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+.image:hover:after,
+.image:hover:before {
+  opacity: 1;
+}
+.accordion-button {
+  border: none;
+  border-bottom: #a0a0a0 1px solid;
+  width: 100%;
+  height: 5vh;
+  text-align: left;
+  font: normal normal normal 12px/18px Roboto;
+  font-size: 40%;
+  letter-spacing: 0.36px;
+  color: #ffffff;
+  text-transform: capitalize;
+  background: #626262 0% 0% no-repeat padding-box;
+}
+.accordion-header {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0;
+  height: 5vh;
+  display: flex;
+}
+.accordion-body {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.newButton {
+  cursor: pointer;
+  display: flex;
+  text-align: center;
+  background-color: #fbcd4f;
+  font: normal normal normal 15px/20px Roboto;
+  border-radius: 5px;
+  height: 30px;
+  border: none;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2vh;
+  color: black;
+}
+.custom-control-input:focus ~ .custom-control-label::before {
+  border-color: #f0be36 !important;
+  box-shadow: 0 0 0 0.2rem #f0be36 !important;
+}
+.allEdits {
+  height: calc(100% - 4vh);
+  overflow: hidden;
+  width: 100%;
+  top: 4vh;
+}
+.dragHandle {
+  height: 4vh;
+  background-color: #626262;
+  cursor: move;
+  // position: absolute;
+  width: 100%;
+  top: 0;
+}
+.dragImg {
+  width: 32px;
+  height: 14px;
+}
+.custom-control-input:checked ~ .custom-control-label::before {
+  border-color: #f0be36 !important;
+  background-color: #f0be36 !important;
+}
+.custom-control-input:active ~ .custom-control-label::before {
+  background-color: #f0be36 !important;
+  border-color: #f0be36 !important;
+}
+.custom-control-input:focus:not(:checked) ~ .custom-control-label::before {
+  border-color: #f0be36 !important;
+}
+.textContent {
+  height: 80px;
+}
+.spanStyle {
+  border-bottom: 1px solid;
+  outline: none;
+  margin-left: -2%;
+  display: inline-block;
+  min-width: 2ch;
+  line-height: initial;
+}
+.topTitle {
+  color: white;
+  font-size: 15px;
+  height: 16px;
+  text-align: center;
+  // position:absolute;
+  // top: 0;
+  // right: 0;
+  padding-top: 8px;
+  margin-bottom: 8px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-weight: bold;
+}
+.wrapWidgetConfigs {
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: calc(100vh - 60px - 4vh - 15px - 5vh);
+}
+.urlOfPage {
+  overflow-wrap: anywhere;
+  height: auto !important;
+  padding-right: 27px;
+}
+.copyLink {
+  right: 8px;
+  border-radius: 2px;
+  position: absolute;
+  font-size: 0.8rem;
+  display: inline-block;
+  cursor: pointer;
+  height: calc(100% - 2px);
+  top: 1px;
+}
+.btnCopyLink {
+  border: none;
+  background-color: #fbcd4f;
+  height: 100%;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  // margin-top: 37%;
+}
+.copyLink :hover {
+  color: #d69e02;
+}
+.custom-control-input-green:not(:disabled):active ~ .custom-control-label::before {
+  background-color: #f0be36 !important;
+  border-color: #f0be36 !important;
+}
+.accordion {
+  // height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.editTitle {
+  color: white;
+  font-size: 15px;
+  text-align: center;
+  margin-top: 7px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-weight: bold;
+}
+
+.lockImg {
+  display: flex;
+  justify-self: center;
+}
+.boxModel {
+  margin-left: 8px;
+  margin-right: 8px;
+  width: calc(100% - 16px);
+  justify-content: center;
+  color: black;
+  font-size: x-small;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+.boxModelText {
+  font-size: xx-small;
+  position: absolute;
+  left: 2px;
+}
+.boxModelTops {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.boxModelSides {
+  display: inline-flex;
+  justify-content: center;
+  width: 15%;
+}
+.paddingBox {
+  width: 70%;
+  display: inline-block;
+  background-color: white;
+  border: black 2px solid;
+}
+.boxModdleMiddle {
+  background-color: black;
+  width: 70%;
+  display: flex;
+  justify-items: center;
+  justify-content: center;
+  padding: 5%;
+  cursor: pointer;
+}
+.boxModelInput {
+  outline: none;
+  text-align: center;
+  display: inline-block;
+  background: none;
+  border: none;
+  -webkit-appearance: none;
+  max-width: 100%;
+}
+input[type="number"]:not(.boxModelInput)::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  cursor: pointer;
+  display: block;
+  width: 8px;
+  color: white;
+  // text-align:center;
+  position: relative;
+}
+input[type="number"]:not(.boxModelInput):hover::-webkit-inner-spin-button {
+  background: transparent url("../../../assets/icons/sort-solid.svg") no-repeat 50% 50%;
+  height: 15px;
+  padding: 0px;
+  position: relative;
+  border-radius: 28px;
+}
+.boxModelInput::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+.spanColor {
+  position: relative;
+  color: black !important;
+  background-color: white;
+  text-align: center;
+  font-size: 100%;
+}
+.marginTd {
+  background-color: #fbcd4f;
+}
+.accordion-button::after {
+  content: "\f107";
+  font-family: "FontAwesome";
+  float: right;
+  // text-align: center;
+  background-color: transparent;
+  border: none;
+}
+.collapsed::after {
+  content: "\f106";
+}
+.custom-control-input-green:not(:disabled):active ~ .custom-control-label::before {
+  background-color: #f0be36 !important;
+  border-color: #f0be36 !important;
+}
+.accordion-button[aria-expanded="true"] ::before {
+  content: "\f106";
+  background-color: transparent;
+  border: none;
+  letter-spacing: 0.36px;
+}
+.borderOption {
+  padding: 2px;
+  width: 33%;
+}
+.borderOption:hover {
+  border: 2px solid #fbcd4f;
+}
+.imgInDiv:hover {
+  border: 2px solid #fbcd4f;
+}
+.divWrap {
+  display: inline-flex;
+  padding: 2px;
+  width: 33%;
+  flex-direction: column;
+  align-items: center;
+}
+.spanFont {
+  font-size: 12px;
+}
+.imgInDiv {
+  width: 100%;
+}
+.borderOptionsWrap {
+  display: block;
+  font-size: 15px;
+  color: #a0a0a0;
+}
+.sitesButtons {
+  border-radius: 10%;
+  border: none;
+  font-family: Roboto;
+  text-align: center;
+  width: 55%;
+  cursor: pointer;
+  background-color: #fbcd4f;
+  color: black;
+  font-size: small;
+}
+.sitesButtons:hover {
+  background-color: #d69e02;
+}
+
+.textShadow {
+  margin-top: 0% !important;
+  margin-bottom: 0% !important;
+}
+.widgetOption {
+  color: black;
+  margin: 5px;
+  height: fit-content;
+  pointer-events: visible;
+}
+.imgLayout {
+  width: 35%;
+  // height: 7vh;
+  margin: 1px;
+  font-size: x-small;
+  text-align: center;
+}
+.spanLayout {
+  width: 35%;
+  color: white;
+  font-size: 12px;
+  text-align: center;
+}
+.colorSquare {
+  height: 20px;
+  width: 20px;
+}
+.error-message {
+  color: red;
+  font-size: 12px;
+}
+.borders {
+  display: flex-wrap;
+  margin-top: 1vh;
+  cursor: pointer !important;
+  justify-content: space-between;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+.buttonSaveGlobal {
+  border-radius: 5px;
+  border: none;
+  font-family: Roboto;
+  text-align: center;
+  width: 95%;
+  cursor: pointer;
+  background-color: #fbcd4f;
+  color: black;
+  font-size: small;
+  margin-left: 8px;
+  margin-right: 8px;
+  margin-top: 15px;
+}
+.unlinkGlobal {
+  background-color: #fb4f4f;
+  color: white;
+}
+.divFly {
+  position: relative;
+  animation: mymove 2s 1;
+}
+
+@keyframes mymove {
+  from {
+    left: 0px;
+  }
+  to {
+    left: 100%;
+  }
+}

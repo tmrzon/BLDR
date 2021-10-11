@@ -1,0 +1,498 @@
+.entireBuilder {
+    border-radius: 12px !important;
+    height: 100vh !important;
+    margin-left: 2vh;
+    margin-top: 1vh;
+    bottom: 5%;
+    padding-top: -2%;
+    position: sticky;
+    background-color: #f6f6f6;
+    width: 100%;
+}
+.uploadBtn:hover {
+    opacity: 0.7;
+}
+.newPageButton:hover {
+    background: #f7c233 0% 0% no-repeat padding-box;
+    border-color: #ffffff;
+    color: #ffffff;
+    width: 100%;
+    margin-top: 100px !important;
+}
+.uploadImg {
+    top: 171px;
+    left: 108px;
+    width: 86px;
+    // height: 19px;
+    text-align: left;
+    font: normal normal normal 20px/25px Roboto;
+    letter-spacing: 0px;
+    color: #000000;
+    text-transform: capitalize;
+    opacity: 1;
+    font-weight: bold;
+}
+body {
+    background-image: linear-gradient(to left, #cb2d3e, #ef473a);
+}
+.searchBox {
+    position: absolute;
+    top: 0%;
+    left: 5%;
+    transform: translate(-10%, 80%);
+    background: #fff3d1;
+    height: 30px;
+    border-radius: 40px;
+    padding: 5px;
+}
+.searchBox:hover > .searchInput {
+    width: 200px;
+    padding: 0 6px;
+    height: 20px;
+}
+.properties {
+    height: 450px;
+    overflow: auto;
+    border-left: 2px #00000029 solid
+}
+.searchBox:hover > .searchButton {
+    background: #fff3d1;
+    color: #fbcd4f;
+}
+.searchButton {
+    padding-top: 0%;
+    color: #fbcd4f;
+    float: right;
+    width: 20px;
+    border-radius: 50%;
+    border: none;
+    background: #fff3d1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+}
+.searchInput {
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    padding: 0;
+    color: black;
+    font-size: 16px;
+    transition: 0.4s;
+    line-height: 40px;
+    width: 0px;
+    cursor: text;
+}
+.addWidget {
+    margin-left: 8%;
+    width: 20%;
+    height: 25px;
+    text-align: left;
+    color: #989898;
+    font-size: 13px;
+    margin-top: 10px;
+}
+@media screen and (max-width: 620px) {
+    .searchBox:hover > .searchInput {
+        width: 500px;
+        padding: 0 6px;
+    }
+}
+.addImg {
+    margin-left: 8%;
+    width: 71%;
+    height: 25px;
+    border-bottom: 1px solid #989898;
+    text-align: left;
+    color: #989898;
+}
+.uploadImg {
+    font-weight: bolder;
+    font: 15px Roboto;
+    margin-top: 10%;
+    margin-left: 8%;
+    width: 71%;
+    height: 25px;
+    text-align: left;
+    color: #000000;
+}
+.clickModal {
+    width: 13%;
+    margin-left: 2%;
+}
+.bldrGallery {
+    font-weight: bolder;
+    font: 12px Roboto;
+    margin-top: 8%;
+    margin-left: 10%;
+    width: 71%;
+    height: 25px;
+    text-align: left;
+    color: #000000;
+}
+.galery {
+    margin-left: 8%;
+}
+.imgGallery {
+    height: 47%;
+    display: inline-block;
+    width: 47px;
+    padding-right: 1px;
+    margin-bottom: 1px;
+}
+.SocialImg {
+    font-weight: bolder;
+    font: 12px Roboto;
+    margin-top: 8%;
+    margin-left: 8%;
+    width: 71%;
+    height: 25px;
+    text-align: left;
+    color: #000000;
+}
+.imgSocial {
+    margin-left: 8%;
+    width: 15%;
+    display: inline-block;
+}
+.textSocial {
+    margin-left: 1%;
+    width: 20%;
+    font-size: x-small;
+    display: inline-block;
+}
+.modal-header {
+    background-color: #fbcd4f;
+    height: 50px;
+    border-radius: 5px 5px 0px 0px;
+    border: none;
+    padding-top: 10px;
+    size: xl;
+}
+.modal-title {
+    font-size: 18px;
+    padding-left: 5%;
+}
+.modalTitle {
+    height: 20px;
+    padding-right: 10px;
+}
+.modalCategoty {
+    cursor: pointer !important;
+    font-size: 12px;
+    font-family: Roboto;
+    padding-left: 20px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+}
+.dropFileBorder {
+    margin-top: 3%;
+    margin-left: 6%;
+    width: 90%;
+    height: 390px;
+    background-color: #ffffff;
+    border: 2px #000000 dotted;
+}
+.divImgWith{
+    width:80%;
+    display:flex;
+    flex-wrap: wrap;
+    overflow: hidden !important;
+    justify-content: right;
+}
+.file{
+    display: none;
+}
+.padding0{
+    padding:0% !important
+}
+.dropImg {
+    height: 100px;
+}
+.dropArea {
+    line-height: 2;
+}
+.drag {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+.orClass {
+    line-height: 2;
+    font-size: 12px;
+}
+.wrapFileA {
+    position: relative;
+}
+.FileInput {
+    position: absolute;
+    right: 0;
+}
+.chooseFile {
+    background-color: #fbcd4f;
+    width: 110px;
+    height: 27px;
+    border: none;
+    border-radius: 5px;
+    font-size: small;
+}
+.insertImg {
+    margin-left: 21px;
+    background-color: #fbcd4f;
+    width: 80%;
+    height: 27px;
+    border: none;
+    border-radius: 5px;
+    font-size: small;
+    margin-left: 12%;
+}
+.emptyTrash {
+    padding: 1%;
+    margin-top: 2%;
+    margin-left: 80%;
+    background-color: #fbcd4f;
+    width: 125px;
+    border: none;
+    border-radius: 5px;
+    font-size: small;
+    cursor: pointer !important;
+}
+.divTrash {
+    margin-left: 10%;
+    margin-top: 2%;
+    padding: 0% !important;
+}
+.titleTrash {
+    margin-left: 27%;
+    font-size: 25px;
+    font-weight: bold;
+}
+.trashImg {
+    margin-left: 20%;
+    margin-top: 3%;
+    width: 28vw;
+}
+.divGallery {
+    margin-left: 10%;
+    margin-top: 9%;
+    padding: 0% !important;
+}
+.divGallerys {
+    margin-left: 13%;
+    margin-top: 9%;
+    padding: 0% !important;
+    margin-right: 0% !important;
+}
+.imgsGallery {
+    height: 105px;
+    display: inline-block;
+    width: 110px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    cursor: pointer !important;
+}
+.imgsGallerys {
+    width: 100%;
+    height: 100%;
+
+    margin-right: 8px;
+    margin-bottom: 8px;
+}
+.divWrapImg{
+    width: 15vh;
+    height: 15vh;
+    margin: 8px;
+}
+.chosenImg {
+    display: inline;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-top: 56%;
+    width: 98% !important;
+    max-width: 103px;
+    min-width: 95px;
+}
+.imgName {
+    font-size: 15px;
+    margin-left: 21px;
+    margin-top: 5px;
+}
+.imgLine{   
+ display: block;
+ text-overflow: ellipsis;
+  word-wrap: break-word;
+   overflow: hidden;
+    max-height: 3.6em;
+     line-height: 1.8em; 
+}‏
+.imgNameInGallery {
+    width: 50px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #252525;
+    font-size: 12px;
+}
+.short-text {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 50px;
+}
+.imgProperties {
+    font-size: 12px;
+    margin-left: 21px;
+    line-height: 1.7;
+}
+.lineProprties {
+    margin-left: 5%;
+    width: 125px;
+    background-color: gray;
+    height: 1px;
+    margin-top: 10px;
+}
+.lineAround {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.imgOptions {
+    display: flex;
+    padding-left: 27%;
+    padding-top: 10px;
+}
+.imgOption {
+    width: 25px;
+    height: 25px;
+    padding: 25%;
+    cursor: pointer !important;
+}
+.restore {
+    width: 20px !important;
+    height: 20px !important;
+    margin-left: 48%;
+    cursor: pointer !important;
+}
+img {
+    max-width: 100%;
+    border-radius: 1px;
+}
+.openClose {
+    align-self: self-end;
+    outline: none !important;
+}
+.modalHeight{
+    height: 450px;
+}
+.col2{
+    background-color: #F0F0F0;
+    height: 450px;
+    padding: 0px !important;    
+}
+.imgHeight{
+    height: 50px
+}
+.loader {
+    border: 16px solid #f3f3f3; 
+    border-top: 16px solid;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.scroller {
+    width: 100%;
+    height: 450px;
+    overflow-y: scroll;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 7px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+    background: #eee;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: gray;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: grey;
+}
+  .Loading {   
+    top: 50px;
+    z-index: 9999;
+    position: absolute;
+    display: inline-block;
+    width: 100%;
+    height: 5px;
+    padding: 0% !important;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, .2);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .Loading:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 0;
+    height: 100%;
+    border-radius: 4px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    animation: load 5s infinite;
+  }
+  @keyframes load {
+    0% {
+        width: 0;
+        background: #dbae30;
+    }
+    25% {
+        width: 40%;
+        background: #c29721;
+    }
+    50% {
+        width: 60%;
+        background: #a78320;
+    }
+    75% {
+        width: 75%;
+        background: #997825;
+    }
+    100% {
+        width: 100%;
+        background: #997d31;
+    }
+  }
+  @keyframes pulse {
+    0% {
+        background: #dbae30;
+    }
+    25% {
+        background: #dfaa1a;
+    }
+    50% {
+        background: #a78320;
+    }
+    75% {
+        background: #997825;
+    }
+    100% {
+        background: #997d31;
+    }
+}

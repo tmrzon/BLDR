@@ -1,0 +1,141 @@
+<h1 class="topTitle">
+    Edit Site</h1>
+<div class="wrapWidgetConfigs">
+    <div class="accordion-item">
+        <div style="width: 100%;background-color: #000000;height: 2px; margin-top: 15px;"></div>
+        <div class="field LR_from_field">
+            <div class="field__label ">Site name
+            </div>
+            <div class="field__wrap ">
+                <input type="text" class="field__input LR_input_in_configurator" #nameOfSite
+                    (keyup)="changePropertiesSite('name',nameOfSite.textContent,'this')" value="{{ser.site.name}}">
+
+            </div>
+        </div>
+        <div class="field LR_from_field">
+            <div class="field__label ">Url
+            </div>
+            <!-- <div class="field__wrap ">
+        <input type="text" class="field__input LR_input_in_configurator" #url
+            (keyup)="changePropertiesSite('url',url.value,'this')" value="{{ser.site.url}}">
+
+    </div> -->
+
+
+
+
+            <div class="field__wrap wrapLink" style="height: auto;">
+                <div class="field__input LR_input_in_configurator urlOfPage">
+                    https://
+                    <span #urlOfSite class="spanStyle" contenteditable="true"
+                        (keyup)="changePropertiesSite('url',urlOfSite.textContent,'this')">{{ser.site.url}}</span>.bldr.codes
+                </div>
+                <div class="copyLink" (click)="copyLink($event)">
+                    <button placement="left" ngbPopover="link copied." triggers="click:mouseleave" class="btnCopyLink">
+                        <img src="assets/icons/copyLink.png" style="width: 15px;">
+                        <!-- <i class="fa fa-link fa-xs" aria-hidden="true" style="padding-right: 5px;"></i> -->
+                    </button>
+                </div>
+
+            </div>
+
+
+
+
+
+            <!-- <div class="field__wrap wrapLink" style="height: auto;">
+                    <div class="field__input LR_input_in_configurator urlOfPage" #urlOfPage>
+                        https://{{ser.site.url}}.bldr.codes/
+                        <span #spanStyle class="spanStyle" contenteditable="{{ser.builderMode}}"
+                            [formControl]="ser.currentPage.page.url">{{ser.currentPage.page.url}}</span>
+                    </div>
+                    <div class="copyLink" (click)="copyLink($event)">
+                        <button placement="left" ngbPopover="link copied." triggers="click:mouseleave" class="btnCopyLink">
+                            <img src="assets/icons/copyLink.png" style="width: 15px;">
+                        </button>
+                    </div>
+        
+                </div> -->
+        </div>
+        <div class="field LR_from_field">
+            <div class="field__label ">logo
+            </div>
+            <app-image [imgToChange]="'changeLogo'" [src]="ser.site.logo" ></app-image>
+
+            <ng-template #template>
+                <app-modal-image></app-modal-image>
+            </ng-template>
+        </div>
+        <div class="field LR_from_field">
+            <div class="field__label ">favicon
+            </div>
+
+            <div class="image" data-content="Here is a caption" (click)=" ser.imgToChange='changeFavicon';
+generalActionsSer.openModal(template);"
+                style="background-color: white;height: 80px;border-color: black;width:60%;margin-left: auto;margin-right: auto;padding-top: 3px;">
+                <img width="100%" height="100%" *ngIf="ser.site.favicon" src="{{ser.site.favicon}}">
+                <img width="100%" height="100%" *ngIf="!ser.site.favicon" src="assets/icons/bldr 2.png">
+                <!-- (change)="changePropertiesSite('logo',url.value)" -->
+            </div>
+            <ng-template #template>
+                <app-modal-image></app-modal-image>
+            </ng-template>
+        </div>
+        <br>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingeight">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseeight"
+                    aria-expanded="true" aria-controls="collapseeight">
+                    Styles
+                </button>
+            </h2>
+            <div id="collapseeight" class="accordion-collapse collapse show" aria-labelledby="headingeight"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <div class="field LR_from_field ">
+                        <div class="field__label ">Font Family</div>
+                        <div class="field LR_from_field">
+                                <app-selects [style]="'font-family'"  (changeStyles)="changeStylesG(['simpleStyles','font-family'],$event.value)"></app-selects>
+                        </div>
+
+                    </div>
+                    <div class="field__label ">
+                        Font Color
+                    </div>
+                    <app-colors [style]="'color'" [generalSetting]="true"
+                        (changeStyles)="changeStylesG(['simpleStyles','color'],$event.value)"></app-colors>
+
+                    <div class="field LR_from_field">
+                        <div class="field__label ">
+                            Background Color
+                        </div>
+                        <app-colors [style]="'generalBackground-color'" [generalSetting]="true"
+                            (changeStyles)="changeStylesG(['simpleStyles','background-color'],$event.value)"></app-colors>
+                    </div>
+
+
+
+                    <hr class="hrStyle">
+                    <div class="field LR_from_field">
+                        <div class="field__label ">Alignment
+                        </div>
+                        <app-alignment [style]="'text-align'" (changeStyles)="changeStylesG(['simpleStyles','text-align'],$event.value);ser.site.generalSetting['simpleStyles']['text-align']=$event.value" [generalSetting]="true">
+                        </app-alignment>
+                    </div>
+
+                    <div style="text-align: center;margin-top: 15px;">
+                    </div>
+                </div>
+            </div>
+            <button (click)="navigateToStatistics()" class="sitesButtons">My
+                Statistics</button>
+            <button *ngIf="ser.site" (click)="downloadSite()" class="sitesButtons">
+                Download</button>
+
+        </div>
+
+        <button class="newButton" (click)="saveTemplate('site')">Save as template</button>
+        <button class="newButton" (click)="deleteAsset('page')">delete template</button>
+
+    </div>
+</div>

@@ -1,0 +1,35 @@
+.modal-header
+{
+    background-color: #FB4F4F;
+    height: 50px;
+    border-radius: 5px 5px 0px 0px;
+    border: none;
+    padding-top: 10px;
+    color: #ffffff;
+}
+.buttonModalChoose{
+  background-color: #FB4F4F;height: 35px; margin-top: 2%;
+  border-color: transparent;border-radius: 5px;
+    display: inline;color: #ffffff;
+    padding-left: 20px;padding-right: 20px;
+}
+.buttonModal{
+  margin-top: 2%;background-color: #ffff;
+   height: 35px;border-color: #FB4F4F;border-radius: 5px;
+    display: inline;color: #FB4F4F; padding-left: 20px;padding-right: 20px;
+}
+.modal-footer{
+  text-align: center;
+  border: none;
+  margin-bottom: 5%;
+//   padding-left: 20%;
+//   padding-right: 25%;
+  display:flex;
+  justify-content: center;
+}
+.modal-body{
+  text-align: center;
+  border: none;
+  margin-top: 5%;
+  line-height: 5px;
+}

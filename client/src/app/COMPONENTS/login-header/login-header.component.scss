@@ -1,0 +1,55 @@
+.LC_linksFooter {
+    text-decoration: none;
+    color: #75798e;
+    font-size: 14px;
+}
+.LC_point {
+    padding: 0.5rem;
+}
+.LC_imageUser {
+    height: 40px;
+    width: 40px;
+    background-color: antiquewhite;
+    border-radius: 50%;
+    border-width: 0;
+}
+.LC_btnUserComponent {
+    font-size: 14px;
+    margin: auto;
+    border: 1px solid #beb9b9;
+    color: #75798e;
+    width: 80%;
+}
+.LC_btnUserComponent:hover {
+    border: 1px solid #2198ff !important;
+    color: #2198ff !important;
+}
+#LC_userDetailsDiv {
+    padding-right: 2rem;
+    padding-left: 2rem;
+    width: 20%;
+    background-color: #ffffff;
+    box-shadow: 0px 3px 6px #00000029;
+    top: 6px;
+    position: relative;
+}
+#LC_hr {
+    border: 0.5px solid #f5f5fa;
+    margin-top: 1.5rem;
+    margin-right: -2rem;
+    margin-left: -2rem;
+}
+#LC_userDetailsDiv {
+    width: 95%;
+    z-index: 400;
+}
+#LC_userComponent {
+    top: 10px;
+    right: 0;
+    color: #75798e;
+}
+.userName{
+    text-transform: capitalize;
+     font-weight: 600; 
+     font-size: 16px
+}

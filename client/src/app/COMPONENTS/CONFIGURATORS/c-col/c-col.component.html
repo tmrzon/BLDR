@@ -1,0 +1,90 @@
+<h1 class="topTitle">
+    Edit Tile</h1>
+<div class="wrapWidgetConfigs">
+    <div class="accordion marginTop" id="accordionExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingFour">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                    Backgrounds
+                </button>
+            </h2>
+            <div id="collapseFour" class="accordion-collapse collapse show" aria-labelledby="headingFour"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <div class="field LR_from_field">
+                        <div class="field__label ">
+                            Background Color
+                        </div>
+                        <app-colors [style]="'background-color'" [isCol]="true"
+                            (changeStyles)="changeStylesG(['background-color'],$event.value)"></app-colors>
+                    </div>
+                    <div class="field LR_from_field">
+                        <div class="field__label ">
+                            Background Image
+                        </div>
+                        <ng-template #template>
+                            <app-modal-image></app-modal-image>
+                        </ng-template>
+                        <app-image [imgToChange]="'backgroundImage'" [src]="ser.lastCol.styles['background']" ></app-image>
+
+                    </div>
+                    <div class="field LR_from_field">
+                        <div class="field__label ">
+                            Background Size
+                        </div>
+                            <app-selects [style]="'background-size'"  (changeStyles)="changeStylesG(['background-size'],$event.value)"></app-selects>
+                    </div>
+                    <!-- <div class="field LR_from_field">
+                        <div class="field__label ">
+                            <div class="custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input"
+                                    [checked]="ser.lastCol.styles['background']!='none'" #backgroundC
+                                    (change)="changeStylesG(['background'],ser.lastCol.styles['background']=='none'?'auto':'none')"
+                                    id="switch2" name="example">
+                                <label class="custom-control-label" for="switch2">Background None</label>
+
+                            </div>
+                        </div>
+
+                    </div> -->
+                </div>
+                <!-- <div style="display: block;" class="field LR_from_field">
+                <div class="field__label ">
+                    Background Image</div>
+                <div class="field__wrap">
+                    <select type="text" class="field__input LR_input_in_configurator" #backgroundImageDirection
+                        (input)="changeStyles('background-image',backgroundImageDirection.value+', '+backgroundImage1.value+', '+backgroundImage2.value+', '+backgroundImage3.value+', '+backgroundImage4.value+', '+backgroundImage5.value)">
+                        <option style="display: none; font-size: 12px; color: gray;"> direction
+                        </option>
+                        <option value="to right">to right</option>
+                        <option value="to left">to left</option>
+                        <option value="to up">to up</option>
+                        <option value="to up right">to up right</option>
+                        <option value="to up left">to up left</option>
+                        <option value="to bottom">to bottom</option>
+                        <option value="to bottom right">to bottom right
+                        </option>
+                        <option value="to bottom left">to bottom left</option>
+                    </select>
+                    <input
+                        (input)="changeStyles('background-image',backgroundImageDirection.value+', '+backgroundImage1.value+', '+backgroundImage2.value+', '+backgroundImage3.value+', '+backgroundImage4.value+', '+backgroundImage5.value)"
+                        type="color" #backgroundImage1>
+                    <input
+                        (input)="changeStyles('background-image',backgroundImageDirection.value+', '+backgroundImage1.value+', '+backgroundImage2.value+', '+backgroundImage3.value+', '+backgroundImage4.value+', '+backgroundImage5.value)"
+                        type="color" #backgroundImage2>
+                    <input
+                        (input)="changeStyles('background-image',backgroundImageDirection.value+', '+backgroundImage1.value+', '+backgroundImage2.value+', '+backgroundImage3.value+', '+backgroundImage4.value+', '+backgroundImage5.value)"
+                        type="color" #backgroundImage3>
+                    <input
+                        (input)="changeStyles('background-image',backgroundImageDirection.value+', '+backgroundImage1.value+', '+backgroundImage2.value+', '+backgroundImage3.value+', '+backgroundImage4.value+', '+backgroundImage5.value)"
+                        type="color" #backgroundImage4>
+                    <input type="color" #backgroundImage5
+                        (input)="changeStyles('background-image',backgroundImageDirection.value+', '+backgroundImage1.value+', '+backgroundImage2.value+', '+backgroundImage3.value+', '+backgroundImage4.value+', '+backgroundImage5.value)">
+                </div>
+
+            </div> -->
+            </div>
+        </div>
+    </div>
+</div>

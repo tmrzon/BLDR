@@ -1,0 +1,57 @@
+
+  .hr{
+    background-color: #A0A0A0;width: 9vw;height: 2px;margin-top: 10px;margin-bottom: 10px;margin-left: auto;margin-right: auto;
+  }
+.pagesButton{
+    cursor: pointer;
+    display: flex;
+    text-align:left;
+    background-color: #4C4C4C;
+    font: normal normal normal 15px/20px Roboto;
+    border-radius: 4px;
+    height: 30px;
+    width: 9vw;
+    margin-left: 20px;
+    margin-top: 5px;
+    align-items: center;
+    align-content: center;
+    justify-content: space-between;
+    color: white;
+}
+.newButton{
+    cursor: pointer;
+    display: flex;
+    text-align:center;
+    background-color:#FBCD4F;
+    font: normal normal normal 15px/20px Roboto;
+    border-radius: 5px;
+    height: 30px;
+    border: none;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    width: 80%;
+    margin-left: 20px;
+    margin-top: 10%;
+}
+.pText{
+  color: white;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  margin-left:20px ;
+  margin-bottom: 0% !important;
+  padding-top: 4%;
+  align-content: center;
+}
+.list-group-item{
+    background-color:transparent;
+    border: none;
+    padding:0;
+}
+.pagesButton:hover{
+  background-color: #626262;
+}
+.divStyle{
+  background-color: #FBCD4F; width: 3px;height: 70%; display: inline;margin-left: 12px;
+}

@@ -1,0 +1,171 @@
+<div class="wrapAllSites" [ngStyle]="{'width':ser.mysites?'100vw':'87vw'}">
+    <nav class="navbar navbar-expand-lg navbar-light" style="flex-direction: column;">
+        <div class="container-fluid topElements">
+            <!-- [ngStyle]="{'width':ser.mysites?'81%':'67%','margin-left':'8vw'}" -->
+            <div>
+                <a class="logo-light d-flex " data-title="Your Projects" (click)="ser.newProject=false"
+                    style="font-size: 30px;cursor: pointer;">My Projects</a>
+            </div>
+            <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button> -->
+
+            <div id="navbarNav">
+                <ul class="onepage_nav" style="display: flex;align-items: center;">
+                    <li class="nav-item">
+                        <a class="nav-link"></a>
+                    </li>
+
+
+
+                    <li *ngIf="ser.flagChooseSite && !ser.newProject">
+                        <a [ngStyle]="{'color':flagOverItem==3?'#FBCD4F':'#626262'}" (click)="duplicateSite()"
+                            (mouseover)="flagOverItem=3" (mouseleave)="flagOverItem=0"><i class="far fa-copy"
+                                data-title="Duplicate Site" style="margin: 8px;font-size: 20px;"></i></a>
+                    </li>
+                    <li *ngIf="ser.flagChooseSite && !ser.newProject">
+
+                        <a [ngStyle]="{'color':flagOverItem==2?'#FBCD4F':'#626262'}" (mouseover)="flagOverItem=2"
+                            (mouseleave)="flagOverItem=0" (click)="removeSite(deleteSite)">
+                            <i class="far fa-trash-alt" style="margin: 8px;font-size: 20px;"
+                                data-title="Delete Site"></i></a>
+
+                    </li>
+                    <li *ngIf="ser.flagChooseSite && !ser.newProject">
+                        <a [ngStyle]="{'color':flagOverItem==4?'#FBCD4F':'#626262'}" (mouseover)="flagOverItem=4"
+                            (click)="file.click()"><i class="fas fa-upload" data-title="Upload Site"
+                                style="margin: 8px;font-size: 20px;"></i></a>
+                    </li>
+                    <ng-template #deleteSite>
+                        <app-modal  [type]="site" [body]="modalBody" [submit]='generalActionsSer.deleteSite'></app-modal>
+                    </ng-template>
+                    <input type="file" id="file" enctype="multipart/form-data"
+                        (change)="generalActionsSer.uploadSite(file.files)" #file style="display: none; ">
+                    <!-- <li *ngIf="ser.flagChooseSite && !newProject">
+                    <a [ngStyle]="{'color':flagOverItem==4?'#FBCD4F':'#626262'}" (mouseover)="flagOverItem=4"
+                        (mouseleave)="flagOverItem=0">
+                        <i class="fas fa-eye" style="margin: 8px;font-size: 20px;"></i></a>
+                </li> -->
+                    <li *ngIf="ser.flagChooseSite && !ser.newProject">
+                        <a [ngStyle]="{'color':flagOverItem==1?'#FBCD4F':'#626262'}" (mouseover)="flagOverItem=1"
+                            (mouseleave)="flagOverItem=0" (click)="chooseSite(ser.lastChooseVeiwSite)"><i
+                                class="fas fa-external-link-alt" data-title="Edit Site"
+                                style="margin: 8px;font-size: 20px;margin-right: 15px;"></i></a>
+                    </li>
+
+                    <li *ngIf="!ser.flagChooseSite" class="nav-item active d-flex">
+                        <div class="searchBox">
+                            <input class="searchInput" type="text" name="" [(ngModel)]="searchText">
+                            <button class="searchButton" data-title="Search Site" href="#">
+                                <i class="material-icons">
+                                    search
+                                </i>
+                            </button>
+                        </div>
+                    </li>
+                    <li class="nav-item" style="margin-left: 5px;">
+                        <a class="nav-link sd" id="newSite" (click)="ser.newProject=true;ser.mysites=true;"
+                            (mouseover)="overNewSite=true" (mouseleave)="overNewSite=false" data-title="New Project"
+                            [ngStyle]="{'background-color':overNewSite?'#D69E02':'#FBCD4F'}"
+                            style="border-radius: 5px; font-family:Roboto;text-align: center;cursor: pointer;"><b>+</b>
+                            New Project </a>
+                    </li>
+                    <!-- <li *ngIf="!ser.flagSite" class="nav-item">
+                    <a style="padding-right: .5rem;
+                    padding-left: .5rem;"></a>
+
+                </li>
+                <li *ngIf="!ser.flagSite" class="nav-item">
+                    <a style="padding-right: .5rem;
+                    padding-left: .5rem;"></a>
+
+                </li>
+                <li *ngIf="!ser.flagSite" class="nav-item">
+                    <a style="padding-right: .5rem;
+                    padding-left: .5rem;"></a>
+
+                </li>
+                <li *ngIf="!ser.flagSite" class="nav-item">
+                    <a style="padding-right: .5rem;
+                    padding-left: .5rem;"></a>
+
+
+                </li> -->
+
+
+
+
+
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+    <!-- [ngStyle]="{'width':ser.mysites?'81%':'67%','margin-left':'8%'}" -->
+    <div class="sticky line">
+    </div>
+    <div *ngIf="ser.siteLoader" style="padding-left:35% ;padding-top: 0%;">
+        <img style="padding-right: 50vw; height: 70vh;width: 80vw;" src="assets/loader/BLDR Loader.gif">
+    </div>
+    <div *ngIf="!ser.siteLoader">
+        <app-no-sites *ngIf="ser.sites.length==0 && !ser.newProject"></app-no-sites>
+        <app-create-site-modal *ngIf="ser.newProject"></app-create-site-modal>
+        <div *ngIf="ser.sites.length>0 && !ser.newProject" style="display: flex;flex-wrap: wrap;height: 80vh;justify-content: flex-start;overflow:auto;width: calc(100% - 16% - 30px - 2rem);
+            margin-left: auto;
+            margin-right: auto;" (click)="ClickedOutside()">
+            <div *ngFor="let site of ser.sites|filter:searchText" class="card"
+                style="margin: 2%;height: 50%;width: 16vw;"
+                [ngStyle]="{'background-color':site.chooseSite==true || site.overSite==true?'#FFF3D1':'white','border-color':site.chooseSite==true && site.overSite==true?'#FBCD4F':'#E3E3E3'}"
+                (click)="changeBackground(0,$event,site);ser.configurator('editSite')"
+                (mouseover)="changeBackground(1,$event,site)" (mouseleave)="changeBackground(2,$event,site)"
+                (dblclick)="chooseSite(site)">
+                <!-- <img  src="{{site.screenshot}}" style="height: 60%;"> -->
+                <div class="card-body" style="overflow: hidden;">
+                    <div class="wrapper">
+                        <!-- <div class="sliding-background"> -->
+                        <img *ngIf="site.screenshot" class="sliding-background" src="{{site.screenshot}}">
+                        <img *ngIf="!site.screenshot" class="sliding-background" src="assets/img/project15.jpg">
+                        <!-- </div> -->
+                    </div>
+                    <h5 style="padding-top: 6px;margin: 0px !important;">{{site.name}}</h5>
+                    <a href="https://{{site.url}}.bldr.codes" target="_blank"
+                        style="color: black;height: 20%;width: 100%;">https://{{site.url}}.bldr.codes</a>
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- <div *ngFor="let site of sites">
+
+        <div (click)="configSite(site)" (dblclick)="chooseSite(site)">
+            <div id="chatInList" class="elemntInList m-3" name="5fa960d5a1f4955561a12a2a">
+
+                <div class="LR_icons_in_workspace_list">
+                    <img src="{{site.screenshot}}" alt="">
+                </div>
+            </div>
+            <div class="LR_text_workspace">
+                <div> {{site.name}}</div>
+
+                <div><button class="toolsAction mr-1" name="5fa960d5a1f4955561a12a2a">
+                        <img src="assets/icons/copy-solid (4).png" title="Duplicate">
+
+                    </button>
+                    <button class="toolsAction" (click)="deleteSite(site)">
+                        <img src="assets/icons/Repeat Grid 113.png" title="Delete">
+
+                    </button></div>
+
+            </div>
+
+
+        </div>
+    </div>  -->
+
+    <!-- </div> -->
+</div>

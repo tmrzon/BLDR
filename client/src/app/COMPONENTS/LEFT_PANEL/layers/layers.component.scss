@@ -1,0 +1,63 @@
+.eye{
+
+    background-color: transparent;
+    color: white;
+    left: 0px !important;
+    height: 40% !important;
+}
+.eyeStyle{
+    background-color: transparent;
+    height: 20px;
+     width: 20px !important;
+     display:inline-flex ;
+     align-content: center;
+     justify-content: center;
+     align-items: center;
+}
+.pageStyle{
+    margin-left: 1%; 
+    background-color: transparent;
+    padding-right:66%; 
+    padding-left:3%;
+    font: normal normal normal  Roboto;
+    display:inline-flex ;
+    align-content: center;
+    justify-content: center;
+    height: 20px;font-size: 70%;
+    align-items: center;
+}
+.page{
+    display: block;background-color:transparent ;height: 3vh;padding-top: 1.5%;margin: 0%;color: white;
+}
+ul, #myUL {
+    list-style-type: none;
+    color: white;
+    background-color: transparent;
+  }
+    #myUL {
+   padding: 0%;
+    margin-left: 5%;
+    margin-bottom: 1%;
+  }
+    .caret {
+    cursor: pointer;
+    user-select: none;
+  }
+    .caret::before {
+     content:"\25B8" ;
+    color: white;
+    display: inline-block;
+    transform: scale(1.5);
+  }
+   .caret-down::before {
+    transform: rotate(90deg) scale(1.5);
+  }
+  .nested {
+    display: none;
+  }
+  .active {
+    display: block;
+  }
+  .section{
+   margin-bottom: 1%;
+  }

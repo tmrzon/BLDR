@@ -1,0 +1,182 @@
+<h1 class="topTitle">
+    Edit Page</h1>
+<form action="">
+    <div class="wrapWidgetConfigs">
+        <div class="field LR_from_field">
+            <div class="field__label ">Name
+            </div>
+            <div class="field__wrap ">
+                <input type="text" [(ngModel)]="ser.currentPage.name" class="field__input LR_input_in_configurator"
+                    #nameOfPage (keyup)="changePropertiesPage('name',nameOfPage.value)" name="nameOfPage">
+
+            </div>
+        </div>
+
+        <div class="field LR_from_field">
+            <div class="field__label ">URL
+            </div>
+            <div class="field__wrap wrapLink" style="height: auto;">
+                <div class="field__input LR_input_in_configurator urlOfPage" #urlOfPage>
+                    https://{{ser.site.url}}.bldr.codes/
+                    <span #spanStyle class="spanStyle" contenteditable="true" [(ngModel)]="ser.currentPage.url"
+                        (keyup)="changePropertiesPage('url',spanStyle.value)" name="url"></span>
+                </div>
+                <div class="copyLink" (click)="copyLink($event)">
+                    <button placement="left" ngbPopover="link copied." triggers="click:mouseleave" class="btnCopyLink">
+                        <img src="assets/icons/copyLink.png" style="width: 15px;">
+                        <!-- <i class="fa fa-link fa-xs" aria-hidden="true" style="padding-right: 5px;"></i> -->
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="field LR_from_field">
+            <div class="field__label ">Title
+            </div>
+            <div class="field__wrap ">
+                <input type="text" class="field__input LR_input_in_configurator" #titleOfPage name="title"
+                    (keyup)="changePropertiesPage('title',titleOfPage.value)" [(ngModel)]="ser.currentPage.title">
+            </div>
+        </div>
+
+
+        <div class="field LR_from_field">
+            <div class="field__label ">Description
+            </div>
+            <div class="field__wrap ">
+                <textarea type="text" class="field__input LR_input_in_configurator" #descriptionOfPage
+                    [(ngModel)]="ser.currentPage.description" style="height: 80px;" name="description"
+                    (keyup)="changePropertiesPage('description',descriptionOfPage.value)"></textarea>
+            </div>
+        </div>
+        <hr class="hrStyle">
+        <div class="field LR_from_field">
+            <div class="field__label ">
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" [(ngModel)]="ser.currentPage.enable" #enable
+                        (change)="changePropertiesPage('enable',enable.value,$event)" id="switch1" name="enable">
+                    <label class="custom-control-label" for="switch1">Preview in Header</label>
+
+                </div>
+            </div>
+
+        </div>
+        <hr class="hrStyle">
+        <div class="field LR_from_field">
+            <div class="field__label ">
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" #permission (change)="protectPage($event)"
+                        [checked]="ser.CurrentPage.permission=='protected'" id="switch2" name="example1">
+                    <label class="custom-control-label" for="switch2">Protect by password</label>
+                </div>
+                <!-- <input type="checkbox"  #enable [change]="ser.currentPage.enable"
+        (change)="changePropertiesPage('enable',enable.value,$event)" checked /> -->
+            </div>
+            <div *ngIf="ser.CurrentPage.permission=='protected'">
+                <div class="field__label ">Password
+                </div>
+                <div class="field__wrap ">
+                    <input type="text" class="field__input LR_input_in_configurator" #passwordOfPage
+                        (keyup)="changePropertiesPage('password',passwordOfPage.value)"
+                        [(ngModel)]="ser.currentPage.password" name="password">
+                </div>
+            </div>
+        </div>
+        <hr class="hrStyle">
+        <div class="field LR_from_field">
+            <h4 class="field__label ">Page Layout</h4>
+            <div style="display: flex;justify-content: center;margin-top: 2vh;width: auto;
+    margin-left: 8px;
+    margin-right: 8px;
+    column-gap: 4px;">
+                <div class="imgLayout">
+                    <input type="radio" [(ngModel)]="ser.currentPage.pageLayout" name="layout" id="Box" value="box"
+                        class="input-hidden">
+                    <label for="Box">
+                        <img class="imgHeight" src="assets\icons\Group 21465.svg" title="Box"
+                            (click)="changePropertiesPage('pageLayout','box')">
+                        <br>
+                        Box
+                    </label>
+                </div>
+                <div class="imgLayout">
+                    <input type="radio" [(ngModel)]="ser.currentPage.pageLayout" value="container-fluid" name="layout"
+                        id="fullWidth" class="input-hidden">
+                    <label for="fullWidth">
+                        <img class="imgHeight" src="assets\icons\Group 21464.svg" title="Full-width"
+                            (click)="changePropertiesPage('pageLayout','container-fluid')">
+                        <br>
+                        Full Width
+                    </label>
+                </div>
+                <div class="imgLayout">
+                    <input type="radio" [(ngModel)]="ser.currentPage.pageLayout" value="canvas" name="layout"
+                        id="canvas" class="input-hidden">
+                    <label for="canvas">
+                        <img class="imgHeight" src="assets\icons\Group 21462.svg" title="Canvas"
+                            (click)="changePropertiesPage('pageLayout','canvas')">
+                        <br>
+                        Canvas
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div style="width: 100%;background-color: #000000;height: 2px; margin-top: 15px;"></div>
+        <div class="field LR_from_field">
+            <div class="field__label ">
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" #showGridLine [checked]="ser.showGridLine"
+                        (change)="showGrid()" id="switch14" name="example2">
+                    <label class="custom-control-label" for="switch14">Guide lines</label>
+                </div>
+            </div>
+            <div *ngIf="ser.showGridLine">
+                <div class="field__label ">square size
+                </div>
+                <div class="field__wrap ">
+                    <select type="text" class="field__input LR_input_in_configurator" #squareSize
+                        (keyup)="setsquareSize(squareSize.value)" (change)="setsquareSize(squareSize.value)">
+                        <option style="display: none;">12</option>
+                        <option value="12" style="color: gray;">12</option>
+                        <option value="24" style="color: gray;">24</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- 
+    <div class="field LR_from_field">
+        <div class="field__label ">
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" #permission (change)="protectPage($event)"
+                    [checked]="ser.CurrentPage.page.permission=='protected'" id="switch2" name="example1">
+                <label class="custom-control-label" for="switch2">Protect by password</label>
+            </div>
+        </div>
+        <div *ngIf="ser.CurrentPage.page.permission=='protected'">
+            <div class="field__label ">Password
+            </div>
+            <div class="field__wrap ">
+                <input type="text" class="field__input LR_input_in_configurator" #passwordOfPage
+                    
+                    (keyup)="changePropertiesPage('password',passwordOfPage.value)"
+                    value="{{ser.currentPage.page.password}}">
+            </div>
+        </div>
+    </div> -->
+
+
+        <div class="field LR_from_field">
+
+            <button class="newButton" (click)="duplicatePage()">Duplicate Page</button>
+            <button class="newButton" (click)="cretaeModalBody();generalActionsSer.openModal(removePage,true);">Remove
+                Page</button>
+            <ng-template #removePage>
+                <app-modal [type]="'page'" [body]="modalBody" [submit]='frameSer.deletePage'></app-modal>
+            </ng-template>
+        </div>
+    </div>
+</form>

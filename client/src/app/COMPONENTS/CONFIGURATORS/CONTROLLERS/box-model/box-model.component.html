@@ -1,0 +1,76 @@
+<div class="boxModel">
+    <h4 style="font-size: 12px; color: white;margin-top: 12px;">Box Model</h4>
+    <div class="boxModelTops marginTd">
+        <span class="boxModelText">Margin</span>
+        <input contenteditable="true" type="number" #marginTop class="boxModelInput"
+            (keyup)="lock?changeStyles.emit({keys:['divStyles','margin-top'],value:marginTop.value}):changeStyles.emit({keys:['divStyles','margin'],value:marginTop.value})"
+            (change)="lock?changeStyles.emit({keys:['divStyles','margin-top'],value:marginTop.value}):changeStyles.emit({keys:['divStyles','margin'],value:marginTop.value})"
+            [ngStyle]="{'width':marginTop.value.length+1+'ch'}"
+            value="{{lock?ser.lastItem.styles['divStyles']['margin-top']?ser.lastItem.styles['divStyles']['margin-top'].split('px')[0]:'0':ser.lastItem.styles['divStyles']['margin']?ser.lastItem.styles['divStyles']['margin'].split('px')[0]:'0'}}">
+
+    </div>
+    <div class="d-flex">
+        <div class="boxModelSides marginTd">
+            <input type="number" class="boxModelInput" #marginLeft
+                (keyup)="lock?changeStyles.emit({keys:['divStyles','margin-left'],value:marginLeft.value}):changeStyles.emit({keys:['divStyles','margin'],value:marginLeft.value})"
+                (change)="lock?changeStyles.emit({keys:['divStyles','margin-left'],value:marginLeft.value}):changeStyles.emit({keys:['divStyles','margin'],value:marginLeft.value})"
+                [ngStyle]="{'width':marginLeft.value.length+1+'ch'}"
+                value="{{lock?ser.lastItem.styles['divStyles']['margin-left']?ser.lastItem.styles['divStyles']['margin-left'].split('px')[0]:'0':ser.lastItem.styles['divStyles']['margin']?ser.lastItem.styles['divStyles']['margin'].split('px')[0]:'0'}}">
+        </div>
+        <div class="paddingBox">
+            <div class="boxModelTops">
+                <span class="boxModelText">Padding</span>
+                <input type="number" class="boxModelInput" #paddingTop
+                    (keyup)="lock?changeStyles.emit({keys:['simpleStyles','padding-top'],value:paddingTop.value}):changeStyles.emit({keys:['simpleStyles','padding'],value:paddingTop.value})"
+                    (change)="lock?changeStyles.emit({keys:['simpleStyles','padding-top'],value:paddingTop.value}):changeStyles.emit({keys:['simpleStyles','padding'],value:paddingTop.value})"
+                    value="{{lock?ser.lastItem.styles['simpleStyles']['padding-top']?ser.lastItem.styles['simpleStyles']['padding-top'].split('px')[0]:'0':ser.lastItem.styles['simpleStyles']['padding']?ser.lastItem.styles['simpleStyles']['padding'].split('px')[0]:'0'}}"
+                    [ngStyle]="{'width':paddingTop.value.length+1+'ch'}">
+            </div>
+            <div class="d-flex">
+                <div class="boxModelSides">
+                    <input type="number" class="boxModelInput" #paddingLeft
+                        (keyup)="lock?changeStyles.emit({keys:['simpleStyles','padding-left'],value:paddingLeft.value}):changeStyles.emit({keys:['simpleStyles','padding'],value:paddingLeft.value})"
+                        (change)="lock?changeStyles.emit({keys:['simpleStyles','padding-left'],value:paddingLeft.value}):changeStyles.emit({keys:['simpleStyles','padding'],value:paddingLeft.value})"
+                        value="{{lock?ser.lastItem.styles['simpleStyles']['padding-left']?ser.lastItem.styles['simpleStyles']['padding-left'].split('px')[0]:'0':ser.lastItem.styles['simpleStyles']['padding']?ser.lastItem.styles['simpleStyles']['padding'].split('px')[0]:'0'}}"
+                        [ngStyle]="{'width':paddingLeft.value.length+1+'ch'}">
+                </div>
+                <div class="boxModdleMiddle" (click)="isEdit()">
+                    <span class="material-icons lockIcon" *ngIf="lock">
+                        lock
+                    </span>
+                    <span class="material-icons lockIcon" *ngIf="!lock">
+                        lock_open
+                    </span>
+                </div>
+                <div class="boxModelSides">
+                    <input type="number" class="boxModelInput" #paddingRight
+                        (keyup)="lock?changeStyles.emit({keys:['simpleStyles','padding-right'],value:paddingRight.value}):changeStyles.emit({keys:['simpleStyles','padding'],value:paddingRight.value})"
+                        (change)="lock?changeStyles.emit({keys:['simpleStyles','padding-right'],value:paddingRight.value}):changeStyles.emit({keys:['simpleStyles','padding'],value:paddingRight.value})"
+                        value="{{lock?ser.lastItem.styles['simpleStyles']['padding-right']?ser.lastItem.styles['simpleStyles']['padding-right'].split('px')[0]:'0':ser.lastItem.styles['simpleStyles']['padding']?ser.lastItem.styles['simpleStyles']['padding'].split('px')[0]:'0'}}"
+                        [ngStyle]="{'width':paddingRight.value.length+1+'ch'}">
+                </div>
+            </div>
+            <div class="boxModelTops">
+                <input type="number" class="boxModelInput" #paddingBottom
+                    (keyup)="lock?changeStyles.emit({keys:['simpleStyles','padding-bottom'],value:paddingBottom.value}):changeStyles.emit({keys:['simpleStyles','padding'],value:paddingBottom.value})"
+                    (change)="lock?changeStyles.emit({keys:['simpleStyles','padding-bottom'],value:paddingBottom.value}):changeStyles.emit({keys:['simpleStyles','padding'],value:paddingBottom.value})"
+                    value="{{lock?ser.lastItem.styles['simpleStyles']['padding-bottom']?ser.lastItem.styles['simpleStyles']['padding-bottom'].split('px')[0]:'0':ser.lastItem.styles['simpleStyles']['padding']?ser.lastItem.styles['simpleStyles']['padding'].split('px')[0]:'0'}}"
+                    [ngStyle]="{'width':paddingBottom.value.length+1+'ch'}">
+            </div>
+        </div>
+        <div class="boxModelSides marginTd">
+            <input contenteditable="true" type="number" class="boxModelInput" #marginRight
+                (keyup)="lock?changeStyles.emit({keys:['divStyles','margin-right'],value:marginRight.value}):changeStyles.emit({keys:['divStyles','margin'],value:marginRight.value})"
+                (change)="lock?changeStyles.emit({keys:['divStyles','margin-right'],value:marginRight.value}):changeStyles.emit({keys:['divStyles','margin'],value:marginRight.value})"
+                [ngStyle]="{'width':marginRight.value.length+1+'ch'}"
+                value="{{lock?ser.lastItem.styles['divStyles']['margin-right']?ser.lastItem.styles['divStyles']['margin-right'].split('px')[0]:'0':ser.lastItem.styles['divStyles']['margin']?ser.lastItem.styles['divStyles']['margin'].split('px')[0]:'0'}}">
+        </div>
+    </div>
+    <div class="boxModelTops marginTd">
+        <input contenteditable="true" type="number" class="boxModelInput" #marginBottom
+            (keyup)="lock?changeStyles.emit({keys:['divStyles','margin-bottom'],value:marginBottom.value}):changeStyles.emit({keys:['divStyles','margin'],value:marginBottom.value})"
+            (change)="lock?changeStyles.emit({keys:['divStyles','margin-bottom'],value:marginBottom.value}):changeStyles.emit({keys:['divStyles','margin'],value:marginBottom.value})"
+            value="{{lock?ser.lastItem.styles['divStyles']['margin-bottom']?ser.lastItem.styles['divStyles']['margin-bottom'].split('px')[0]:'0':ser.lastItem.styles['divStyles']['margin']?ser.lastItem.styles['divStyles']['margin'].split('px')[0]:'0'}}"
+            [ngStyle]="{'width':marginBottom.value.length+1+'ch'}">
+    </div>
+</div>

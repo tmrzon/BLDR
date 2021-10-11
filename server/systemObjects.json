@@ -1,0 +1,765 @@
+{
+    "item404": {
+        "tagName": "grid",
+        "attributes": {
+            "class": "container-fluid"
+        },
+        "styles": {
+            "simpleStyles": {
+                "color": "black",
+                "backdround-color": "rgb(0,0,0,0)",
+                "text-align": "center"
+            },
+            "spanStyles": {
+                "width": "100%"
+            },
+            "divStyles": {
+                "justify-content": "center"
+            },
+            "divStylesHeader": {
+                "color": "black",
+                "background-color": "#f0f0f0"
+            },
+            "imgStylesHeader": {},
+            "formInputsStyle": {}
+        },
+        "index": null,
+        "rows": [
+            {
+                "attributes": {},
+                "cols": [
+                    {
+                        "attributes": {
+                            "class": "col p-1"
+                        },
+                        "styles": {
+                            "background-color": "rgba(0, 0, 0, 0)",
+                            "min-height": "100vh"
+                        },
+                        "items": [
+                            {
+                                "tagName": "h1",
+                                "attributes": {},
+                                "styles": {
+                                    "simpleStyles": {
+                                        "color": "black",
+                                        "background-color": "rgb(0,0,0,0)",
+                                        "text-align": "center",
+                                        "width": "100%"
+                                    },
+                                    "spanStyles": {
+                                        "width": "100%",
+                                        "display": "flex"
+                                    },
+                                    "divStyles": {
+                                        "justify-content": "center"
+                                    },
+                                    "divStylesHeader": {
+                                        "color": "black",
+                                        "background-color": "#f0f0f0"
+                                    },
+                                    "imgStylesHeader": {},
+                                    "formInputsStyle": {}
+                                },
+                                "index": 0,
+                                "rows": [],
+                                "children": [],
+                                "textContent": {
+                                    "value": "Ooooooops..."
+                                },
+                                "description": "Tittle",
+                                "_parentCol": null
+                            },
+                            {
+                                "tagName": "h1",
+                                "attributes": {},
+                                "styles": {
+                                    "simpleStyles": {
+                                        "color": "black",
+                                        "background-color": "rgb(0,0,0,0)",
+                                        "text-align": "center",
+                                        "width": "100%"
+                                    },
+                                    "divStyles": {
+                                        "justify-content": "center"
+                                    },
+                                    "spanStyles": {
+                                        "width": "100%",
+                                        "display": "flex"
+                                    },
+                                    "divStylesHeader": {
+                                        "color": "black",
+                                        "background-color": "#f0f0f0"
+                                    },
+                                    "imgStylesHeader": {},
+                                    "formInputsStyle": {}
+                                },
+                                "index": 1,
+                                "rows": [],
+                                "children": [],
+                                "textContent": {
+                                    "value": "This page doesn't exist :("
+                                },
+                                "description": "Tittle",
+                                "_parentCol": null
+                            },
+                            {
+                                "tagName": "p",
+                                "attributes": {},
+                                "styles": {
+                                    "simpleStyles": {
+                                        "color": "black",
+                                        "background-color": "rgb(0,0,0,0)",
+                                        "text-align": "center",
+                                        "width": "100%"
+                                    },
+                                    "spanStyles": {
+                                        "width": "100%",
+                                        "display": "flex"
+                                    },
+                                    "divStyles": {
+                                        "justify-content": "center"
+                                    },
+                                    "divStylesHeader": {
+                                        "color": "black",
+                                        "background-color": "#f0f0f0"
+                                    },
+                                    "imgStylesHeader": {},
+                                    "formInputsStyle": {}
+                                },
+                                "index": 2,
+                                "rows": [],
+                                "children": [],
+                                "textContent": {
+                                    "value": "404 error"
+                                },
+                                "description": "Paragraph",
+                                "_parentCol": null
+                            }
+                        ],
+                        "index": 0,
+                        "_parentRow": null
+                    }
+                ],
+                "index": 0,
+                "_parentItem": null
+            }
+        ],
+        "children": [],
+        "textContent": {
+            "value": null
+        },
+        "description": "",
+        "_parentCol": null
+    },
+    "blankPageItem": {
+        "tagName": "grid",
+        "attributes": {},
+        "styles": {
+            "simpleStyles": {
+                "color": "black",
+                "backdround-color": "rgb(0,0,0,0)",
+                "text-align": "center"
+            },
+            "divStyles": {
+                "justify-content": "center"
+            },
+            "spanStyles": {
+                "width": "100%"
+            }
+        },
+        "index": null,
+        "rows": [
+            {
+                "attributes": {},
+                "cols": [
+                    {
+                        "attributes": {
+                            "class": "col p-1"
+                        },
+                        "styles": {
+                            "background-color": "rgba(0, 0, 0, 0)",
+                            "min-height": "100vh"
+                        },
+                        "items": [],
+                        "index": 0,
+                        "_parentRow": null
+                    }
+                ],
+                "index": 0,
+                "_parentItem": null
+            }
+        ],
+        "children": [],
+        "textContent": null,
+        "_parentCol": null
+    },
+    "initPublishItem": {
+        "tagName": "grid",
+        "attributes": {},
+        "styles": {
+            "simpleStyles": {
+                "color": "black",
+                "backdround-color": "rgb(0,0,0,0)",
+                "text-align": "center"
+            },
+            "divStyles": {
+                "justify-content": "center"
+            },
+            "spanStyles": {
+                "width": "100%"
+            }
+        },
+        "index": null,
+        "rows": [
+            {
+                "attributes": {},
+                "cols": [
+                    {
+                        "attributes": {
+                            "class": "col p-1"
+                        },
+                        "styles": {
+                            "background-color": "rgba(0, 0, 0, 0)",
+                            "min-height": "100vh"
+                        },
+                        "items": [
+                            {
+                                "tagName": "h1",
+                                "attributes": {},
+                                "styles": {},
+                                "index": 0,
+                                "rows": [
+                                    {}
+                                ],
+                                "children": [],
+                                "textContent": "The site is almost ready ...",
+                                "_parentCol": null
+                            }
+                        ],
+                        "index": 0,
+                        "_parentRow": null
+                    }
+                ],
+                "index": 0,
+                "_parentItem": null
+            }
+        ],
+        "children": [],
+        "textContent": null,
+        "_parentCol": null
+    },
+    "defaultFooterItem": {
+        "tagName": "grid",
+        "attributes": {
+            "class": "container-fluid"
+        },
+        "styles": {
+            "simpleStyles": {
+                "color": "black",
+                "background-color": "#E8EAEC",
+                "text-align": "center",
+                "width": "100%"
+            },
+            "spanStyles": {
+                "width": "100%",
+                "display": "flex"
+            },
+            "divStyles": {
+                "justify-content": "center"
+            },
+            "divStylesHeader": {
+                "color": "black",
+                "background-color": "#f0f0f0"
+            },
+            "imgStylesHeader": {},
+            "formInputsStyle": {}
+        },
+        "index": null,
+        "rows": [
+            {
+                "attributes": {},
+                "cols": [
+                    {
+                        "attributes": {
+                            "class": "col p-1"
+                        },
+                        "styles": {
+                            "min-height": "0px"
+                        },
+                        "items": [
+                            {
+                                "tagName": "grid",
+                                "attributes": {
+                                    "class": "container-fluid"
+                                },
+                                "styles": {
+                                    "simpleStyles": {
+                                        "color": "black",
+                                        "background-color": "rgb(0,0,0,0)",
+                                        "text-align": "center",
+                                        "width": "100%"
+                                    },
+                                    "spanStyles": {
+                                        "width": "100%",
+                                        "display": "flex"
+                                    },
+                                    "divStyles": {
+                                        "justify-content": "center"
+                                    },
+                                    "divStylesHeader": {
+                                        "color": "black",
+                                        "background-color": "#f0f0f0"
+                                    },
+                                    "imgStylesHeader": {},
+                                    "formInputsStyle": {}
+                                },
+                                "index": 0,
+                                "rows": [
+                                    {
+                                        "attributes": {},
+                                        "cols": [
+                                            {
+                                                "attributes": {
+                                                    "class": "col-12 col-md-6 col-lg-3 p-1"
+                                                },
+                                                "styles": {
+                                                    "background-color": "rgba(0, 0, 0, 0)",
+                                                    "min-height": "15vh",
+                                                    "height": "fit-content",
+                                                    "padding": "1%",
+                                                    "display": "flex",
+                                                    "flex-direction": "column",
+                                                    "justify-content": "center"
+                                                },
+                                                "items": [
+                                                    {
+                                                        "tagName": "h1",
+                                                        "attributes": {},
+                                                        "styles": {
+                                                            "simpleStyles": {
+                                                                "color": "black",
+                                                                "background-color": "rgb(0,0,0,0)",
+                                                                "text-align": "left",
+                                                                "width": "100%",
+                                                                "font": "Arial",
+                                                                "letter-spacing": "0px",
+                                                                "opacity": "1"
+                                                            },
+                                                            "spanStyles": {
+                                                                "width": "100%",
+                                                                "display": "flex"
+                                                            },
+                                                            "divStyles": {
+                                                                "justify-content": "center"
+                                                            },
+                                                            "divStylesHeader": {
+                                                                "color": "black",
+                                                                "background-color": "#f0f0f0"
+                                                            },
+                                                            "imgStylesHeader": {},
+                                                            "formInputsStyle": {}
+                                                        },
+                                                        "index": 0,
+                                                        "rows": [],
+                                                        "children": [],
+                                                        "textContent": {
+                                                            "value": "Get in Touch!"
+                                                        },
+                                                        "description": "",
+                                                        "_parentCol": null
+                                                    }
+                                                ],
+                                                "index": 0,
+                                                "_parentRow": null
+                                            },
+                                            {
+                                                "attributes": {
+                                                    "class": "col-12 col-md-6 col-lg-2 p-1"
+                                                },
+                                                "styles": {
+                                                    "background-color": "rgba(0, 0, 0, 0)",
+                                                    "min-height": "15vh",
+                                                    "height": "fit-content",
+                                                    "display": "flex",
+                                                    "flex-direction": "column",
+                                                    "justify-content": "center"
+                                                },
+                                                "items": [
+                                                    {
+                                                        "tagName": "h1",
+                                                        "attributes": {},
+                                                        "styles": {
+                                                            "simpleStyles": {
+                                                                "color": "black",
+                                                                "background-color": "rgb(0,0,0,0)",
+                                                                "text-align": "left",
+                                                                "width": "100%",
+                                                                "opacity": "1",
+                                                                "overflow": "hidden",
+                                                                "border": "none",
+                                                                "font": "normal normal normal 18px/21px Roboto",
+                                                                "letter-spacing": "-0.5px",
+                                                                "font-size": "15px"
+                                                            },
+                                                            "spanStyles": {
+                                                                "width": "100%",
+                                                                "display": "flex"
+                                                            },
+                                                            "divStyles": {
+                                                                "justify-content": "center"
+                                                            },
+                                                            "divStylesHeader": {
+                                                                "color": "black",
+                                                                "background-color": "#f0f0f0"
+                                                            },
+                                                            "imgStylesHeader": {},
+                                                            "formInputsStyle": {}
+                                                        },
+                                                        "index": 0,
+                                                        "rows": [],
+                                                        "children": [],
+                                                        "textContent": {
+                                                            "value": "hello@email.com"
+                                                        },
+                                                        "description": "",
+                                                        "_parentCol": null
+                                                    }
+                                                ],
+                                                "index": 1,
+                                                "_parentRow": null
+                                            },
+                                            {
+                                                "attributes": {
+                                                    "class": "col-12 col-md-6 col-lg-2 p-1"
+                                                },
+                                                "styles": {
+                                                    "background-color": "rgba(0, 0, 0, 0)",
+                                                    "min-height": "15vh",
+                                                    "height": "fit-content",
+                                                    "display": "flex",
+                                                    "flex-direction": "column",
+                                                    "justify-content": "center"
+                                                },
+                                                "items": [
+                                                    {
+                                                        "tagName": "h1",
+                                                        "attributes": {},
+                                                        "styles": {
+                                                            "simpleStyles": {
+                                                                "color": "black",
+                                                                "background-color": "rgb(0,0,0,0)",
+                                                                "text-align": "left",
+                                                                "width": "100%",
+                                                                "font": "normal normal normal 18px/21px Roboto",
+                                                                "letter-spacing": "-0.5px",
+                                                                "opacity": "1",
+                                                                "overflow": "hidden",
+                                                                "border": "none",
+                                                                "font-size": "15px"
+                                                            },
+                                                            "spanStyles": {
+                                                                "width": "100%",
+                                                                "display": "flex"
+                                                            },
+                                                            "divStyles": {
+                                                                "justify-content": "center"
+                                                            },
+                                                            "divStylesHeader": {
+                                                                "color": "black",
+                                                                "background-color": "#f0f0f0"
+                                                            },
+                                                            "imgStylesHeader": {},
+                                                            "formInputsStyle": {}
+                                                        },
+                                                        "index": 0,
+                                                        "rows": [],
+                                                        "children": [],
+                                                        "textContent": {
+                                                            "value": "+399 399 233 166"
+                                                        },
+                                                        "description": "",
+                                                        "_parentCol": null
+                                                    }
+                                                ],
+                                                "index": 2,
+                                                "_parentRow": null
+                                            },
+                                            {
+                                                "attributes": {
+                                                    "class": "col-12 col-md-6 col-lg-3 p-1"
+                                                },
+                                                "styles": {
+                                                    "background-color": "rgba(0, 0, 0, 0)",
+                                                    "min-height": "15vh",
+                                                    "height": "fit-content",
+                                                    "display": "flex",
+                                                    "flex-direction": "column",
+                                                    "justify-content": "center"
+                                                },
+                                                "items": [
+                                                    {
+                                                        "tagName": "h1",
+                                                        "attributes": {},
+                                                        "styles": {
+                                                            "simpleStyles": {
+                                                                "color": "black",
+                                                                "background-color": "rgb(0,0,0,0)",
+                                                                "text-align": "left",
+                                                                "width": "100%",
+                                                                "top": "0px",
+                                                                "font": "normal normal normal 18px/21px Roboto",
+                                                                "letter-spacing": "-0.5px",
+                                                                "opacity": "1",
+                                                                "overflow": "hidden",
+                                                                "border": "none",
+                                                                "font-size": "15px"
+                                                            },
+                                                            "spanStyles": {
+                                                                "width": "100%",
+                                                                "display": "flex"
+                                                            },
+                                                            "divStyles": {
+                                                                "justify-content": "center"
+                                                            },
+                                                            "divStylesHeader": {
+                                                                "color": "black",
+                                                                "background-color": "#f0f0f0"
+                                                            },
+                                                            "imgStylesHeader": {},
+                                                            "formInputsStyle": {}
+                                                        },
+                                                        "index": 0,
+                                                        "rows": [],
+                                                        "children": [],
+                                                        "textContent": {
+                                                            "value": "Main Street 32b, NYC"
+                                                        },
+                                                        "description": "",
+                                                        "_parentCol": null
+                                                    }
+                                                ],
+                                                "index": 3,
+                                                "_parentRow": null
+                                            },
+                                            {
+                                                "attributes": {
+                                                    "class": "col-12 col-md-6 col-lg-2 p-1"
+                                                },
+                                                "styles": {
+                                                    "background-color": "rgba(0, 0, 0, 0)",
+                                                    "min-height": "15vh",
+                                                    "height": "fit-content",
+                                                    "display": "flex",
+                                                    "justify-content": "center",
+                                                    "align-items": "center"
+                                                },
+                                                "items": [
+                                                    {
+                                                        "tagName": "img",
+                                                        "attributes": {
+                                                            "src": "assets/icons/Vkb.svg"
+                                                        },
+                                                        "styles": {
+                                                            "simpleStyles": {
+                                                                "color": "black",
+                                                                "background-color": "rgb(0,0,0,0)",
+                                                                "text-align": "center",
+                                                                "width": "100%"
+                                                            },
+                                                            "spanStyles": {
+                                                                "width": "100%",
+                                                                "display": "flex"
+                                                            },
+                                                            "divStyles": {
+                                                                "justify-content": "center"
+                                                            },
+                                                            "divStylesHeader": {
+                                                                "color": "black",
+                                                                "background-color": "#f0f0f0"
+                                                            },
+                                                            "imgStylesHeader": {},
+                                                            "formInputsStyle": {}
+                                                        },
+                                                        "index": 0,
+                                                        "rows": [],
+                                                        "children": [],
+                                                        "textContent": {
+                                                            "value": null
+                                                        },
+                                                        "description": "",
+                                                        "_parentCol": null
+                                                    },
+                                                    {
+                                                        "tagName": "img",
+                                                        "attributes": {
+                                                            "src": "assets/icons/Pinterestb.svg"
+                                                        },
+                                                        "styles": {
+                                                            "simpleStyles": {
+                                                                "color": "black",
+                                                                "background-color": "rgb(0,0,0,0)",
+                                                                "text-align": "center",
+                                                                "width": "100%"
+                                                            },
+                                                            "spanStyles": {
+                                                                "width": "100%",
+                                                                "display": "flex"
+                                                            },
+                                                            "divStyles": {
+                                                                "justify-content": "center"
+                                                            },
+                                                            "divStylesHeader": {
+                                                                "color": "black",
+                                                                "background-color": "#f0f0f0"
+                                                            },
+                                                            "imgStylesHeader": {},
+                                                            "formInputsStyle": {}
+                                                        },
+                                                        "index": 1,
+                                                        "rows": [],
+                                                        "children": [],
+                                                        "textContent": {
+                                                            "value": null
+                                                        },
+                                                        "description": "",
+                                                        "_parentCol": null
+                                                    },
+                                                    {
+                                                        "tagName": "img",
+                                                        "attributes": {
+                                                            "src": "assets/icons/Instagramb.svg"
+                                                        },
+                                                        "styles": {
+                                                            "simpleStyles": {
+                                                                "color": "black",
+                                                                "background-color": "rgb(0,0,0,0)",
+                                                                "text-align": "center",
+                                                                "width": "100%"
+                                                            },
+                                                            "spanStyles": {
+                                                                "width": "100%",
+                                                                "display": "flex"
+                                                            },
+                                                            "divStyles": {
+                                                                "justify-content": "center"
+                                                            },
+                                                            "divStylesHeader": {
+                                                                "color": "black",
+                                                                "background-color": "#f0f0f0"
+                                                            },
+                                                            "imgStylesHeader": {},
+                                                            "formInputsStyle": {}
+                                                        },
+                                                        "index": 2,
+                                                        "rows": [],
+                                                        "children": [],
+                                                        "textContent": {
+                                                            "value": null
+                                                        },
+                                                        "description": "",
+                                                        "_parentCol": null
+                                                    },
+                                                    {
+                                                        "tagName": "img",
+                                                        "attributes": {
+                                                            "src": "assets/icons/Twitterb.svg"
+                                                        },
+                                                        "styles": {
+                                                            "simpleStyles": {
+                                                                "color": "black",
+                                                                "background-color": "rgb(0,0,0,0)",
+                                                                "text-align": "center",
+                                                                "width": "100%"
+                                                            },
+                                                            "spanStyles": {
+                                                                "width": "100%",
+                                                                "display": "flex"
+                                                            },
+                                                            "divStyles": {
+                                                                "justify-content": "center"
+                                                            },
+                                                            "divStylesHeader": {
+                                                                "color": "black",
+                                                                "background-color": "#f0f0f0"
+                                                            },
+                                                            "imgStylesHeader": {},
+                                                            "formInputsStyle": {}
+                                                        },
+                                                        "index": 3,
+                                                        "rows": [],
+                                                        "children": [],
+                                                        "textContent": {
+                                                            "value": null
+                                                        },
+                                                        "description": "",
+                                                        "_parentCol": null
+                                                    },
+                                                    {
+                                                        "tagName": "img",
+                                                        "attributes": {
+                                                            "src": "assets/icons/Facebookb.svg"
+                                                        },
+                                                        "styles": {
+                                                            "simpleStyles": {
+                                                                "color": "black",
+                                                                "background-color": "rgb(0,0,0,0)",
+                                                                "text-align": "center",
+                                                                "width": "100%"
+                                                            },
+                                                            "spanStyles": {
+                                                                "width": "100%",
+                                                                "display": "flex"
+                                                            },
+                                                            "divStyles": {
+                                                                "justify-content": "center"
+                                                            },
+                                                            "divStylesHeader": {
+                                                                "color": "black",
+                                                                "background-color": "#f0f0f0"
+                                                            },
+                                                            "imgStylesHeader": {},
+                                                            "formInputsStyle": {}
+                                                        },
+                                                        "index": 4,
+                                                        "rows": [],
+                                                        "children": [],
+                                                        "textContent": {
+                                                            "value": null
+                                                        },
+                                                        "description": "",
+                                                        "_parentCol": null
+                                                    }
+                                                ],
+                                                "index": 4,
+                                                "_parentRow": null
+                                            }
+                                        ],
+                                        "index": 0,
+                                        "_parentItem": null
+                                    }
+                                ],
+                                "children": [],
+                                "textContent": {
+                                    "value": null
+                                },
+                                "description": "Grid",
+                                "_parentCol": null
+                            }
+                        ],
+                        "index": 0,
+                        "_parentRow": null
+                    }
+                ],
+                "index": 0,
+                "_parentItem": null
+            }
+        ],
+        "children": [],
+        "textContent": {
+            "value": null
+        },
+        "description": "Grid",
+        "_parentCol": null
+    }
+}

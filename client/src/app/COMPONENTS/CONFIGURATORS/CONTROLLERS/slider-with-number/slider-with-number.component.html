@@ -1,0 +1,11 @@
+<div class="field__wrap marginBottom">
+    <img *ngIf="img" [src]="img | safe:'url'" class="iconImg">
+    <i *ngIf="icon" [ngClass]="icon" aria-hidden="true"></i>
+    <app-slider-fill class="slider" [stylesLocation]="stylesLocation" [minValue]="minValue" [step]="step"
+        [maxValue]="maxValue" (changeStyles)="changeStyles.emit($event)" [style]="style" [measureUnit]="measureUnit">
+    </app-slider-fill>
+    <input type="number" [min]="minValue" [max]="maxValue" class="field__input LR_input_in_configurator numberInput"
+        #sizeNumber (input)="changeStyles.emit({value:sizeNumber.value})"
+        [ngStyle]="{'min-width':sizeNumber.value.length+3+'ch'}"
+        [attr.value]="ser.lastItem.styles[stylesLocation][style]?ser.lastItem.styles[stylesLocation][style].split(measureUnit)[0]:'50'">
+</div>

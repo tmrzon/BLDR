@@ -1,0 +1,21 @@
+.imgCarusel{
+    width: 30%;
+    cursor: pointer;
+    // padding-right: 4px;
+    height: 100% !important;
+}
+.imgCarusel:hover{
+
+    background-color:#000;
+    opacity:0.5;
+
+}
+.addItem{
+    margin-left: 8px;cursor: pointer; margin-right: 8px;background-color: #4C4C4C;height: 3vh;margin-bottom: 4px;text-align: center;color:#F0BE36;font-size: 15px;
+}
+.addItem:hover{
+   color:white;align-items: center;
+}
+.wrapImages{
+    display: flex;justify-content: space-between;margin-left: 8px;margin-right: 8px;background-color: #4C4C4C;height: 6vh;margin-bottom: 4px;align-items: center;margin-top: 4px;
+}
